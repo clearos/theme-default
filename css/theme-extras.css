@@ -1,0 +1,106 @@
+h1 {
+  color: #e1852e;
+}
+
+.ui-accordion-icons .ui-accordion-header-active a { color: #e1852e; }
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled { color: #e1852e; }
+.ui-state-active .ui-icon { background-image: url(../images/arrow-down-orange.png); }
+
+.theme-list-table-header {
+  background: #FFFFFF url(../images/header-bg-orange.png) repeat-x;
+}
+
+.theme-list-table-container input.theme-form-submit-update:hover {
+  border: 1px solid #e1852e;
+}
+
+.theme-summary-table-header {
+  background: #FFFFFF url(../images/header-bg-orange.png) repeat-x;
+}
+
+.theme-form-header-heading {
+  color: #e1852e;
+}
+
+.theme-form-header-status {
+  /* FIXME: the whirly is green, so the orange looks funny here.  Change the whirly? */
+  /* color: #e1852e; */
+  color: #666666;
+}
+
+.theme-help-box-container h3 {
+  color: #e1852e;
+}
+
+.theme-help-box-breadcrumb {
+  color: #e1852e;
+}
+
+.theme-help-box-user-guide  {
+  background: url(../images/user-guide-orange.png) no-repeat top left;
+}
+
+.theme-help-box-support a {
+  background: url(../images/help-orange.png) no-repeat top left;
+}
+
+.ui-progressbar-value {
+  background-color: #e1852e;
+}
+
+.ui-dialog {
+  background: #FFFFFF url(../images/header-bg-orange.png) repeat-x;
+}
+
+.ui-tabs-nav .ui-tabs-selected a {
+  background: #FFFFFF url(../images/tabs-nav-selected-orange.png) repeat-x scroll 50% 50%;
+}
+
+.ui-tabs-nav .ui-state-active a:hover {
+  background: #FFFFFF url(../images/tabs-nav-selected-orange.png) repeat-x scroll 50% 50%;
+}
+
+.ui-tabs-nav .ui-state-hover a {
+  background: #FFFFFF url(../images/tabs-nav-hover-orange.png) repeat-x scroll 50% 50%;
+}
+
+#theme-banner-logo {
+  background-image: url('../images/logo-orange.png');
+}
+
+.theme-splash-logo {
+  background: url(../images/logo-orange.png) no-repeat;
+}
+
+#theme-banner-logout {
+  color: #e1852e;
+}
+
+.theme-content-border-top {
+  background-image: url(../images/orange-stroke-top.jpg);
+}
+
+.theme-content-border-left {
+  background-image: url(../images/orange-stroke-left.jpg);
+}
+
+.theme-content-border-right {
+  background-image: url(../images/orange-stroke-right.jpg);
+}
+
+#theme-sidebar-container h3 {
+  color: #e1852e;
+}
+
+#theme-left-menu .ui-state-active a {
+  color: #e1852e;
+}
+
+#theme-left-menu .ui-state-active a:hover {
+  color: #e1852e;
+}
+
+.theme-login-logo {
+  background: url(../images/login-orange.png) no-repeat;
+}
+

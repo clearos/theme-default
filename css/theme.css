@@ -1,0 +1,2100 @@
+/* ========================================================================= */
+/* S T A N D A R D  H T M L  T A G S */
+/* ========================================================================= */
+
+html, body {
+  color: #686868;
+  background-color: white;
+  font-size: 8pt;
+  font-family: Arial, Helvetica, sans serif;
+  margin: 0;
+  padding: 0;
+  text-align: center; /* IE center page hack, override in theme-page-container */
+  background-image: url('../images/main-bg.png');
+  background-repeat: repeat-x;
+  background-color: #f1f0f0;
+}
+
+h1 {
+  font-size: 14px;
+  color: #98bb60; 
+}
+
+h2 {
+  font-size: 13px;
+  color: #686868;
+}
+
+h3 {
+  font-size: 12px;
+}
+
+td,th {
+  font-size: 8pt;
+}
+
+hr {
+  color: #CCCCCC;
+  width: 75%;
+}
+
+img {
+  border-width: 0;
+}
+
+form {
+}
+
+pre {
+  font-family: monospace;
+  font-size: 8pt;
+}
+
+textarea {
+  color: #686868;
+  width: 100%;
+  font-size: 11px;
+  font-family: Arial, Helvetica, sans serif;
+}
+
+input {
+  color: #484848;
+  font-size: 11px;
+  font-family: arial;
+}
+
+input, x:-moz-any-link, x:default {
+	height: 22px;
+	margin-top: 4px;
+}
+
+select {
+  vertical-align: middle;
+  margin-left: 0px;
+  font-size: 11px;
+  color: #686868;
+}
+
+a:link {
+  text-decoration: none;
+  color: #686868;
+  ^color: #e1852e;
+}
+
+a:visited {
+  text-decoration: none;
+  color: #686868;
+  ^color: #e1852e;
+}
+
+a:active {
+  color: #e1852e;
+}
+
+button {background: white url(../images/button-bg.png) no-repeat top;}
+
+.ui-icon .ui-icon-alert {
+  background-image:url("../images/icon-warning.png");
+}
+
+#_label {
+  margin-left: 15px;
+}
+
+
+/* ========================================================================= */
+/* C O M M O N */
+/* ========================================================================= */
+
+.theme-hidden {
+  display: none;
+}
+
+/* ========================================================================= */
+/* J Q U E R Y U I - C O M M O N */
+/* ========================================================================= */
+
+.ui-state-error {border-radius: 0px; -moz-border-radius: 0px; -webkit-border-radius: 0px; border: 1px solid red; margin-bottom: 10px;}
+.ui-state-default {margin-bottom: 10px;}
+.ui-state-highlight {border-radius: 0px; -moz-border-radius: 0px; -webkit-border-radius: 0px; border: 1px solid #e5d33e;}
+.theme-anchor.ui-state-default {margin-bottom: 0;}
+
+.ui-accordion-icons .ui-accordion-header-active a { border-bottom: 0 !important; color: #98bb60; }
+.ui-state-disabled, .ui-widget-content .ui-state-disabled, .ui-widget-header .ui-state-disabled {color: #98bb60; background-image: none; }
+
+/* jQuery - left menu arrows (?) */
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {background: none; font-weight: normal; color: #686868; font-size: 11px; border: none;}
+
+.ui-accordion .ui-accordion-content {background: url(../images/left-menu-shadow.png); background-repeat: no-repeat; background-position: 0 0;}
+
+.theme-left-menu-category .ui-state-default, .theme-left-menu-category .ui-icon { background-image: url(../images/arrow-up.png); height: 9px; width: 9px; background-position: 0 0; padding-top: 3px;}
+
+.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {background-image: url(../images/arrow-up.png); }
+.ui-state-active .ui-icon {background-image: url(../images/arrow-down-green.png); height: 9px; width: 9px; background-position: right 0; }
+
+.ui-state-active .ui-icon { margin-top: 0px; margin-left: 0px;}
+
+/* ========================================================================= */
+/* W I D G E T S */
+/* ========================================================================= */
+
+/* ------------------------------------------------------------------------- */
+/* Anchors */
+/* ------------------------------------------------------------------------- */
+
+/* Common anchor classes */
+
+a.theme-anchor { 
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    padding-bottom: 0px;
+}
+
+a.theme-anchor:hover {
+  color: #e1852e;
+}
+
+a.theme-anchor-important { 
+  background: transparent url('../images/button-bg.png') repeat-x;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  height: 14px;
+  border: 1px solid #d1d3d4;
+  font-size: 10px;
+  color: #e1852e;
+}
+
+.marketplace-linkback a.theme-anchor-important {
+	
+	  height: 10px\0/;
+}
+
+a.theme-anchor-important:hover {
+  border: 1px solid #a5a4a4;
+  color: #e1852e;
+}
+
+a.theme-anchor-unimportant {
+  background: transparent url('../images/button-bg.png') repeat-x;
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 14px;
+  border: 1px solid #d1d3d4;
+  border-top-left-radius: 0px;
+  -moz-border-radius-topleft: 0px;
+  -webkit-border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  -moz-border-radius-bottomleft: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  top: 1px\9;
+  ^line-height: 10px;
+  ^padding-bottom: 3px;
+}
+
+a.theme-anchor-unimportant:hover {
+  border: 1px solid #a5a4a4;
+}
+
+a.theme-anchor-unimportant, x:-moz-any-link, x:default {
+  padding-bottom: 1px;
+  height: 14px;  
+  padding-right: 5px; 
+}
+
+.theme-anchor-important .ui-button  {
+  border: blue 5px solid;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Buttons */
+/* ------------------------------------------------------------------------- */
+
+/* Common button class */
+
+input.theme-form-important { 
+  background: transparent url('../images/button-bg.png') repeat-x;
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 18px;
+  border: 1px solid #d1d3d4;
+  color: #e1852e;
+  margin-top: 0px;
+  clear: all;
+}
+
+input.theme-form-important, x:-moz-any-link, x:default {
+  background: transparent url('../images/button-bg.png') repeat-x;
+  padding-left: 5px;
+  padding-right: 5px;
+  line-height: 12px;
+  border: 1px solid #d1d3d4;
+  color: #e1852e;
+  margin-top: 0px;
+  padding-bottom: 1px;
+  clear: all;
+}
+
+/* This style sheet is a mess.  The following style is for UI dialog boxes with buttons */
+/* TODO: Marketplace cleanup */
+.ui-dialog .ui-dialog-buttonpane button { 
+  background: transparent url('../images/button-bg.png') repeat-x;
+  padding-left: 5px;
+  padding-right: 5px;
+  height: 18px;
+  border: 1px solid #d1d3d4;
+  color: #e1852e;
+  margin-top: 0px;
+  clear: all;
+}
+
+input.theme-form-unimportant { 
+  background: transparent url('../images/button-bg.png') repeat-x;
+  padding-left: 6px;
+  padding-right: 6px;
+  height: 18px;
+  padding-bottom: 0px;
+  border: 1px solid #d1d3d4;
+  font-size: 8pt;
+  color: #e1852e;
+}
+
+.theme-button-set-last.theme-form-submit-custom.theme-form-unimportant   {
+  padding-top: 1px\0/;
+}
+
+.theme-button-set-last.theme-anchor-edit {
+top: 0px\0/;
+}
+
+
+input.theme-form-unimportant, x:-moz-any-link, x:default { 
+  background: transparent url('../images/button-bg.png') repeat-x;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-bottom: 1px;
+  border: 1px solid #d1d3d4;
+  font-size: 8pt;
+  color: #e1852e;
+}
+
+input.theme-form-important:hover {border: 1px solid #a5a4a4; color: #e1852e;}
+
+input.theme-form-unimportant:hover {border: 1px solid #a5a4a4; color: #e1852e;}
+
+/* Javascript anchor */
+a.theme-anchor-javascript {padding-top: 1px; height: 14px; }
+
+.theme-button-set .ui-buttonset span { display: none;}
+
+/* ------------------------------------------------------------------------- */
+/* Buttons Sets */
+/* ------------------------------------------------------------------------- */
+
+td div.theme-button-set {
+  margin-left: 12px;
+  margin-top: 3px;
+}
+
+.even td .theme-button-set {
+  margin-bottom: 3px;
+  margin-left:2px;
+}
+
+.odd td .theme-button-set {
+  margin-bottom: 3px;
+  margin-left:2px;
+}
+
+div.theme-button-set { background-image: url();  }
+
+.theme-summary-table-action .theme-button-set {float: right; margin-top: 2px;}
+
+a.theme-button-set-first {
+  border-top-right-radius: 0px;
+  -moz-border-radius-topright: 0px;  
+  -webkit-border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  -moz-border-radius-bottomright: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+}
+
+a.theme-button-set-last {
+  border-top-right-radius: 5px;
+  -moz-border-radius-topright: 5px;  
+  -webkit-border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  -webkit-border-bottom-right-radius: 5px;
+  border-top-left-radius: 0px;
+  -moz-border-radius-topleft: 0px;
+  -webkit-border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;  
+  -moz-border-radius-bottomleft: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+}
+
+a.theme-button-set-first.theme-button-set-last {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+a.theme-button-set-middle {
+  border-radius: 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+}
+/* ------------------------------------------------------------------------- */
+/* List Table */
+/* ------------------------------------------------------------------------- */
+
+.theme-list-table-container {
+  margin-top: 0px;
+  ^z-index: 0;
+  ^border: 1px solid #e1e1e1;
+}
+
+.theme-list-table-header {
+  background: #FFFFFF url(../images/header-bg-green.png) repeat-x;
+  height: 23px;
+  padding: 5px;
+  color: #ffffff;
+  font-weight: bold;
+  width: 98.2%;
+  ^width: 100.4%;
+  margin-left: 0px;
+}
+
+.theme-list-table-title {
+  float: left;
+  padding-left: 8px;
+  padding-top: 3px;
+  font-weight: normal;
+  font-size: 14px;
+  font-family: arial;
+}
+
+.theme-list-table-action {
+  text-align: right;
+  padding: 0 !important;
+  font-size: 7pt !important;
+}
+
+.theme-list-table-action .ui-buttonset {
+  margin-right: 2px;
+  margin-top: 2px;
+  float: right;
+  height: 20px;
+}
+
+.theme-list-table-container input.theme-form-submit-update  {
+  background: url(../images/green-button-bg.png) repeat-x;
+  /*border: 1px solid #648e20;*/
+  color: #e1852e; 
+  padding-bottom: 2px;
+  padding-top: 2px;
+  font-size: 10px;
+  float: right;
+}
+
+.theme-list-table-container input.theme-form-submit-update:hover {
+  background: url(../images/green-button-bg-hover.png) repeat-x;
+  border: 1px solid #98bb60;
+}
+
+.theme-list-table-container input.theme-form-submit-update, x:-moz-any-link, x:default {
+  padding-top:0px;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Summary Table */
+/* ------------------------------------------------------------------------- */
+
+.theme-summary-table {
+  border-bottom: 1px solid #e1e1e1;
+  ^border: 1px solid #e1e1e1;
+}
+
+.theme-summary-table-container {
+  margin-bottom: 9px;
+  float: left;
+  width: 100%;
+}
+
+.theme-summary-table-header {
+  background: #FFFFFF url(../images/header-bg-green.png) repeat-x;
+  height: 23px;
+  padding: 5px;
+  padding-left: 0px; padding-right: 0px;
+  color: #ffffff;
+  font-weight: bold;
+  width: 100%;
+  ^width: 100%;
+  margin-left: 0px;
+}
+
+.theme-summary-table-title {
+  float: left;
+  padding-left: 16px;
+  padding-top: 3px;
+  ^padding-top: 1px;
+  ^padding-bottom: 2px;
+  font-weight: normal;
+  font-size: 14px;
+  font-family: arial;
+}
+.theme-summary-table-action {
+  text-align: right;
+  padding: 0 !important;
+  font-size: 7pt !important;
+}
+
+/* jQuery and Datatables overrides */
+/* The following two styles give us much more room to display information
+ * The default css has too much left/right spacing (15px) */
+
+table.display td {
+  padding: 3px 5px;
+}
+table.display thead th div.DataTables_sort_wrapper {
+  padding-left: 5px;
+}
+
+.datatables_info { margin-left: 0px; }
+.datatables_length { margin-left: 13px; }
+.datatables_paginate { position: relative; }
+
+/* ------------------------------------------------------------------------- */
+/* Forms */
+/* ------------------------------------------------------------------------- */
+
+/* Aaron - this was missed when I did the CSS sanity check.
+ * Adding fixes some things, but breaks the login screen :-( */
+
+.theme-form-container {
+    margin-bottom: 10px;
+    ^margin-top: 0px;
+    float: left;
+    width: 100.1%;
+}
+
+.theme-login-container .theme-form-container {
+width: 135px;	
+}
+
+.theme-form-wrapper {
+  background: #FFFFFF url(../images/header-bg-grey.png);
+  background-repeat: repeat-x;
+  border-radius: 9px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px;
+  border: 1px solid #e1e1e1;
+   width: 505px; 
+  ^width: 100%;
+  /* Aaron: the float below screws up vertical alignment of RHS widget, LHS menu and the form [BC] Can this be removed for good? */
+  float: left;
+  padding-bottom: 5px;
+  margin-bottom: 0px;
+}
+
+.theme-form-wrapper .theme-fieldset {
+  border: none;
+  width: 490px;
+}
+
+.theme-form-wrapper table {
+  width: 505px;
+}
+
+.theme-form-header {
+  line-height: 24px;
+  height: 35px;
+  float: left;
+  width: 490px;
+}
+
+.theme-form-status-working {
+  background-image: url(../images/loading_small.gif);
+  background-repeat: no-repeat;
+  padding-left: 15px;
+  margin: auto;
+  display: inline-block;
+  clear: both;
+}
+
+/* Whirly */
+.theme-form-header-working {
+  background-image: url(../images/loading.gif);
+  background-repeat: no-repeat;
+  height: 23px;
+  padding-left: 25px;
+  margin: auto;
+  display: inline-block;
+}
+
+.theme-form-header-heading {
+  position: relative;
+  left: 10px;
+  color: #98bb60; 
+  font-weight: normal;
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  clear: both;
+  width: 300px;
+  margin: 0\0/;
+  padding: 0\0/;
+  line-height: 22px\0/;
+}
+
+.theme-form-header-status {
+  left: 10px;
+  color: #98bb60; 
+  font-weight: normal;
+  font-size: 14px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  clear: both;
+  width: 188px;
+  margin: 0\0/;
+  padding: 0\0/;
+  line-height: 22px\0/;
+  text-align: right;
+}
+
+.theme-button-set-last .theme-form-submit-custom .theme-form-unimportant .ui-button .ui-widget .ui-state-default .ui-corner-right {
+  padding-top: 1px\0/;
+}
+
+/* TODO: if this needs to be enabled, please use theme-x name that is descriptive */
+/*
+.check {
+  padding-top: 2px;
+}
+*/
+
+/* ------------------------------------------------------------------------- */
+/* Fields and Validation */
+/* ------------------------------------------------------------------------- */
+
+.theme-field-left {
+  width: 180px;
+  text-align: right;
+  float: left;
+  padding-top: 4px;
+  padding-bottom: 5px;
+  background: #fafafa;
+}
+
+td.theme-field-left {
+  width: 200px;
+  padding-right: 4px;  
+}
+
+.theme-field-right {
+  float: left;
+  padding-left: 10px;
+  width: 280px;
+}
+
+.theme-field-right span {
+  line-height: 24px\9;
+}
+
+.theme-field-right span, x:-moz-any-link, x:default {
+  line-height: 25px;
+}
+
+.theme-field-text .theme-field-left {
+  
+}
+
+.theme-field-text {
+  float: left;
+  line-height: 22px;
+  height: 30px;
+}
+
+.theme-field-text, x:-moz-any-link, x:default {
+  float: left;
+  line-height: 25px;
+  height: 33px;
+  width: 500px;
+}
+
+.theme-field-file {
+  float: left;
+  line-height: 25px;
+  height: 33px;
+  width: 450px;
+}
+
+.theme-field-file .theme-field-right, x:-moz-any-link, x:default {margin-top: 5px;}
+
+.theme-login-container .theme-field-text, x:-moz-any-link, x:default {
+  float: left;
+  line-height: 25px;
+  height: 33px;
+  width: 260px;
+}
+/* BC added this because I deleted line 749 which was causing form widths to be different */
+.theme-login-container .theme-field-password input {
+  width: 150px;
+}
+
+.theme-field-right #username {
+	width: 149px;
+}
+
+.theme-field-text .theme-field-right {
+  padding-top:3px;
+}
+
+.theme-field-text .theme-field-right, x:-moz-any-link, x:default {
+  padding-top:6px;  
+}
+
+.theme-field-textarea-box input {
+  width: 200px;
+  margin-right: 10px;
+  margin-top: 0px;
+  margin-top: 2px\9;
+}
+
+.theme-field-textarea-box input, x:-moz-any-link, x:default {
+  width: 200px;
+  margin-right: 10px;
+  margin-bottom: 0px;
+  margin-top:0px;
+}
+
+.theme-field-textarea {
+  float: left;
+}
+
+.theme-multiselect-dropdown {
+  float: left;
+}
+
+.theme-field-toggle {
+  line-height: 20px;
+  float: left;
+  height: 28px;
+  ^height: 15px;
+  width: 100%;  
+}
+
+.theme-field-toggle .theme-field-right {
+  padding-top: 3px;  
+}
+
+.theme-field-toggle select {
+  float: left;
+  margin-right: 15px;
+  line-height: 20px;
+  margin-top: 2px\9;
+}
+
+.theme-fieldview label {
+  line-height: 18px;
+}
+
+.theme-fieldview {
+  line-height: 18px;
+  height: 25px;
+  float: left;
+  width: 500px;
+}
+
+.theme-field-dropdown {
+  float:left;
+  height:30px;
+  line-height:25px;
+  margin-bottom:0;
+}
+
+.theme-field-dropdown .theme-field-right, x:-moz-any-link, x:default {
+  padding-top:6px;
+}
+
+.theme-field-dropdown select {
+  float: left;
+  margin-top: 7px\9;
+}
+
+.theme-field-checkbox-enabled {
+  background: transparent url(../images/icon-checkbox-enabled.png) no-repeat 0 0;
+  background-position: -5 3;
+  width: 16px;
+  height: 16px;
+}
+
+.theme-field-checkboxes {
+  float:left;
+  height:23px;
+  line-height:14px;
+  margin-bottom:0;
+  width:100%;
+}
+
+.theme-field-checkboxes input { 
+  
+ }
+
+.theme-field-password {
+  float:left;
+  height:30px;
+  line-height:22px;
+}
+
+
+.theme-field-password .theme-field-right {
+  padding-top: 3px;
+}
+
+.theme-field-password, x:-moz-any-link, x:default {
+  height: 30px;
+}
+
+/* TODO - BC removed this because the password forms and input forms weren't the same width */
+/*.theme-field-password input {float: right; margin-right: 0px; width: 150px;}*/
+
+.theme-login-container.theme-field-password input {
+	float: right; margin-right: 0px; width: 150px;
+}
+
+.theme-field-progress-bar {
+  float: left;
+  height: 30px;
+}
+
+td div.theme-progress-bar {
+  width: 200px;
+  height: 15px;
+}
+
+.theme-field-info {
+  float: left;
+  height: 30px;
+}
+
+.theme-fieldset-header {
+  padding-left: 15px;
+  font-weight: bold;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  background: #f1f0f0;
+}
+
+
+.theme-validation-error {
+  color: red;
+  position: absolute;
+  position: relative\9;
+  line-height: 9px;
+  line-height: 5px\9;
+  top: -8px\9;
+  font-size: 9px;
+}
+
+.theme-validation-error, x:-moz-any-link, x:default {
+  color: red;
+  position: absolute;
+  margin-top: -8px;
+  font-size: 9px;
+}
+/* ------------------------------------------------------------------------- */
+/* Whirlys */
+/* ------------------------------------------------------------------------- */
+
+.theme-loading-normal {
+  background-image: url(../images/loading.gif);
+  background-repeat: no-repeat;
+  padding-top: 5px;
+  padding-left: 25px;
+  height: 23px;
+  margin: auto;
+  display: inline-block;
+}
+
+.theme-loading-small {
+  background-image: url(../images/loading_small.gif);
+  background-repeat: no-repeat;
+  height: 12px;
+  padding-left: 15px;
+  margin: auto;
+  display: inline-block;
+  clear: both;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Infoboxes */
+/* ------------------------------------------------------------------------- */
+
+.theme-infobox {
+	
+  background-color: #fdfdfd;
+  border-radius: 9px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px;
+  padding-left: 15px;
+  padding-right:15px;
+  clear: both;
+}
+
+.theme-infobox h2 {
+  margin-bottom: 10px;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: normal;
+}
+
+
+.ui-state-error h2, .ui-state-default h2 {
+  color: white;
+}
+
+.theme-infobox.ui-state-error {
+	  background: url("../images/error-bg.png") repeat-x scroll 0 0 #FFFFFF;
+	  color: white ;
+	    border: 1px solid #8b0202;
+}
+
+.theme-infobox.ui-state-default {
+	  background: url("../images/infobox-bg.png") repeat-x scroll 0 0 #FFFFFF;
+	  color: white ;
+	    border: 1px solid #686868;
+}
+
+.theme-infobox.ui-state-default h2 {
+	margin-top:7px;
+}
+
+.theme-infobox-text {
+  color: #686868;
+  margin-bottom: 5px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Helpbox */
+/* ------------------------------------------------------------------------- */
+
+/*
+.theme-help-box-breadcrumb-icon {
+  display: inline;
+  margin: 20px;
+  width: 10px;
+  overflow: visible;
+  text-indent: 0;
+}
+*/
+
+#theme-help-box-container {
+  background-image: url(../images/header-bg-grey.png);
+  background-repeat: repeat-x;
+  border-radius: 9px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px;
+  padding-top: 5px;
+  border-top: 1px solid #e1e1e1;
+  border-left: 1px solid #e1e1e1;
+  border-right: 1px solid #e1e1e1;
+  border-bottom: 1px solid #e1e1e1;
+  margin-bottom: 10px;
+  float: left;
+  width: inherit;
+  max-width: 726px;
+}
+
+.theme-help-box-container h3 {
+  position: relative;
+  margin-top: 0px;
+  top: 0px;
+  left: 14px;
+  color: #98bb60; 
+  font-weight: normal;
+  font-size: 14px;
+  width: 700px;
+}
+
+.theme-help-box-content {
+  min-height: 65px;
+  padding-top: 5px;
+}
+
+.theme-help-box .theme-dialogbox-info {
+  margin-top: 5px;
+  background: none;  
+  border: none;
+  color: #686868;
+}
+
+.theme-help-box p {
+  margin-left: 15px;  
+}
+
+.theme-help-box ul {
+  margin-bottom: 0px;
+}
+
+.theme-help-box-icon {
+  height: 50px;
+  width: 50px;
+  float: left;
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+
+.theme-help-box-description {
+  width: 360px;
+  display: inline;
+  float: left;
+  clear: right;
+  margin-top: 0px;
+}
+
+.theme-help-box-breadcrumb {
+  color: #98bb60; 
+  font-size: 14px;
+  margin-top: 6px;
+  margin-bottom: 20px;
+}
+
+.theme-help-box-assets {
+  display: inline;
+}
+
+.theme-help-box-assets-style {
+  border: 1px solid #e1e1e1;
+  padding: 5px;
+  border-radius: 9px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px;
+  text-align: center;
+  height: 15px
+  clear: both;
+  margin-right: 15px;
+  float: right;
+}
+
+.theme-help-box-assets-icons {
+  float: right;
+  padding-bottom: 1px;
+}
+
+.theme-help-box-user-guide  {
+  background: url(../images/user-guide-green.png) no-repeat top left;
+  padding-left: 20px;
+  margin-left: 8px;
+  margin-right: 5px;
+  height: 14px;
+}
+
+.theme-help-box-user-guide:hover {
+  background-position: 0px -15px;
+  color: #62799a;
+}
+
+
+.theme-help-box-support a {
+  background: url(../images/help-green.png) no-repeat top left;
+  padding-left: 25px;
+  padding-top: 1px;
+  padding-bottom: 2px;
+}
+
+@media \0screen {
+  .theme-help-box-user-guide a, .theme-help-box-support a {
+    padding-bottom: 0px;  
+  }
+}
+
+.theme-help-box-support a:hover {
+  background-position: 0px -15px;
+  padding-left: 25px;
+  padding-top: 1px;
+  color: #62799a;
+}
+
+.theme-help-box-support a, x:-moz-any-link, x:default {
+  padding-bottom: 1px;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Progress Bar */
+/* ------------------------------------------------------------------------- */
+
+.ui-progressbar {
+  background: url(../images/progressbar-bg.jpg) repeat-x;
+  border-radius: 5px; 
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  height: 20px;
+  border: 1px solid #d1d3d4;
+}
+
+.ui-progressbar-value {
+  background-color: #749640;
+  position: relative;
+  top: 1px;
+  height: 24px;
+  margin-top: 0px;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomleft: 5px;  
+  -webkit-border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  -moz-border-radius-topleft: 5px;
+  -webkit-border-top-left-radius: 5px;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Dialogs */
+/* ------------------------------------------------------------------------- */
+
+.ui-dialog {
+  background: #FFFFFF url(../images/header-bg-green.png) repeat-x;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Tabs */
+/* ------------------------------------------------------------------------- */
+
+.ui-tabs { padding: 0; zoom: 1; background: white; border: none; margin-top: 10px\9}
+.ui-tabs .ui-tabs-nav { list-style: none; position: relative; padding:; }
+.ui-tabs .ui-tabs-nav li { position: relative; float: left; border-bottom-width: 0 !important; margin: 0 .2em -1px 0; padding: 0; }
+.ui-tabs .ui-tabs-nav li a { float: left; text-decoration: none; padding: .5em 1em; font-size: 9pt; }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected { padding-bottom: 1px; border-bottom-width: 0; }
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a { cursor: text; }
+
+.ui-tabs .ui-widget-header {
+border-bottom: 1px solid #944d16;
+border-top:none;
+border-left: none;
+border-right: none;
+}
+
+.ui-tabs-nav .ui-tabs-selected a {
+  color: #FFFFFF;
+  background: #FFFFFF url(../images/tabs-nav-selected-green.png) repeat-x scroll 50% 50%;
+  border-top-right-radius: 10px;
+  -moz-border-radius-topright: 10px;  
+  -webkit-border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -webkit-border-top-left-radius: 10px;
+}
+
+.ui-tabs-nav a {
+  color: #686868;
+  background-color: white;
+  border-top-right-radius: 10px;
+  -moz-border-radius-topright: 10px;  
+  -webkit-border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -webkit-border-top-left-radius: 10px;
+  border: 1px solid #d3d3d3;
+  border-bottom: none;
+}
+
+.ui-tabs-nav .ui-state-active a:hover {
+  color: #FFFFFF;
+  background: #FFFFFF url(../images/tabs-nav-selected-green.png) repeat-x scroll 50% 50%;
+}
+
+.ui-tabs-nav .ui-state-hover a {
+  background: #FFFFFF url(../images/tabs-nav-hover-green.png) repeat-x scroll 50% 50%;
+  border-top-right-radius: 10px;
+  -moz-border-radius-topright: 10px;  
+  -webkit-border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  -moz-border-radius-topleft: 10px;
+  -webkit-border-top-left-radius: 10px;
+  color: white;
+}
+
+.ui-state-hover {
+  color: #e1852e;
+}
+
+.ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a { cursor: pointer; } /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+.ui-tabs .ui-tabs-panel { padding: 0em 0.1em; display: block; border-width: 0; background: none; }
+.ui-tabs .ui-tabs-hide { display: none !important; }
+
+/* TODO: change variable name - hard to grep */
+#tabs ul {
+  border-radius: 0px;
+  -moz-border-radius: 0px;
+  -webkit-border-radius: 0px;
+}
+
+.ui-toolbar { padding: 5px 2px; }
+
+/* FIXME: Review */
+/* Rename - used in summary table, list table, etc. */
+table.display td.right {
+  text-align:right;
+}
+
+/* ------------------------------------------------------------------------- */
+/* File Browser */
+/* ------------------------------------------------------------------------- */
+
+.theme-file-browser-file {
+  background-image: url(../images/icon-file.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  width: 16px;
+  height: 16px;
+}
+
+.theme-file-browser-folder {
+  background-image: url(../images/icon-folder.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  width: 16px;
+  height: 16px;
+}
+
+.theme-file-browser-parent {
+  background-image: url(../images/icon-parent.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  width: 16px;
+  height: 16px;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Page Layout */
+/* ------------------------------------------------------------------------- */
+
+#theme-page-container {
+  margin: 0 auto;
+  width: 975px;
+  text-align: left; /* IE center page hack  */
+  padding: 0;
+  z-index: -4;
+}
+
+#theme-page-console-container {
+  margin: 0 auto;
+  width: 750px;
+  text-align: left; /* IE center page hack  */
+  padding: 0;
+  z-index: -4;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Banner */
+/* ------------------------------------------------------------------------- */
+
+#theme-banner-container {
+  width: 972px;
+  padding-left: 0px;
+  float: right;
+  position: relative;
+  height: 92px;
+  ^z-index: 999;
+}
+
+#theme-banner-console-container {
+  width: 750px;
+  padding-left: 0px;
+  float: right;
+  position: relative;
+  height: 92px;
+  ^z-index: 999;
+}
+
+#theme-banner-background {
+}
+
+#theme-banner-logo {
+  height: 78px;
+  background-image: url('../images/logo-green.png');
+  ^background-position: 0 0;
+  background-repeat: no-repeat;
+  margin-top: 10px;
+  margin-left: -9px;
+  ^position: relative;
+  ^left: 0px;
+  ^padding-left: 10px;
+}
+
+.theme-banner-name-holder {
+  position: absolute;
+  right: 3px;
+  top: 15px;
+  width: 700px;
+  text-align: right;
+  font-size: 14px;
+}
+
+.theme-banner-name-holder a {
+  color: #686868;
+}
+
+.theme-banner-name-holder a:hover {
+  color: #62799A;
+}
+
+#theme-banner-logout {
+  Background-image: url('../images/login-arrow.png');
+  background-position: right 3px;
+  background-repeat: no-repeat;
+  padding-left: 10px;
+  padding-right: 12px;
+  text-align: right;
+  float: right;
+  margin-top: 2px;
+  color: #98bb60; 
+  font-weight: bold;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Content Area */
+/* ------------------------------------------------------------------------- */
+
+#theme-main-content {
+  background-image: url(../images/maincontent-bg.png);
+  background-repeat: repeat-y;
+  float: left;
+  width: 975px;
+  height: auto;
+  ^z-index: -1;
+}
+  
+.theme-main-content-top {
+  width: 972px;
+  clear: both;
+  position: relative;
+}
+
+.theme-main-content-console-top {
+  width: 752px;
+  clear: both;
+  position: relative;
+}
+
+.theme-content-border-top {
+  position: absolute;
+  width: 972px;
+  height: 12px;
+  background-image: url(../images/green-stroke-top.jpg);
+  background-repeat: no-repeat;
+}
+
+.theme-content-border-left {
+  position: absolute;
+  left: 0px;
+  top: 12px;
+  width: 3px;
+  height: 201px;
+  background-image: url(../images/green-stroke-left.jpg);
+  background-repeat: no-repeat;
+}
+
+.theme-content-border-right {
+  position: absolute;
+  right: 0px;
+  top: 12px;
+  width: 3px;
+  height: 201px;
+  background-image: url(../images/green-stroke-right.jpg);
+  background-repeat: no-repeat;
+}
+
+.theme-content-border-console-top {
+  position: absolute;
+  width: 752px;
+  height: 15px;
+  background-image: url(../images/console-green-stroke-top.png);
+  background-repeat: no-repeat;
+}
+
+.theme-content-border-console-left {
+  position: absolute;
+  left: 0px;
+  top: 15px;
+  width: 3px;
+  height: 214px;
+  background-image: url(../images/console-green-stroke-left.png);
+  background-repeat: no-repeat;
+}
+
+.theme-content-border-console-right {
+  position: absolute;
+  right: 0px;
+  top: 15px;
+  width: 3px;
+  height: 214px;
+  background-image: url(../images/console-green-stroke-right.png);
+  background-repeat: no-repeat;
+}
+
+#theme-content-container {
+  width: 728px;
+  float: left;
+  z-index:5;
+  margin-left: 8px;
+  position: relative;
+  top: -1px;
+  ^z-index: 0;
+}
+
+.theme-core-content {
+  background-color: white;
+  border: 1px solid #e1e1e1;
+  border-top: none;
+  background-repeat: repeat-y;
+  margin-top: 12px;
+  float: left;
+  width: 970px;
+  ^width: 972px;
+  margin-bottom: -3px;
+  border-bottom-left-radius: 15px;
+  -moz-border-radius-bottomleft: 15px;
+  -webkit-border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  -moz-border-radius-bottomright: 15px;
+  -webkit-border-bottom-right-radius: 15px;
+}
+
+.theme-core-content-console {
+  background-color: white;
+  border: 1px solid #e1e1e1;
+  border-top: none;
+  background-repeat: repeat-y;
+  margin-top: 12px;
+  float: left;
+  padding-left:2px;
+  width: 747px;
+  ^width: 749px;
+  margin-bottom: -3px;
+  border-bottom-left-radius: 15px;
+  -moz-border-radius-bottomleft: 15px;
+  -webkit-border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  -moz-border-radius-bottomright: 15px;
+  -webkit-border-bottom-right-radius: 15px;
+}
+
+#theme-main-content-console-container {
+  width: 750px;
+}
+
+#theme-content-splash-container {
+  margin-top: 50px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+  position: relative;
+}
+
+#theme-content-wizard-container {
+  clear: right;
+  float: right;
+  max-width: 725px;
+  width: 725px;
+  position: relative;
+  left: -15px !important;
+  left: -15px;
+  top: 12px !important; /*moz*/
+  top: 0px; /*IE*/
+  z-index:0;
+}
+
+#theme-content-left {
+  width: 505px;
+  float: left;
+  clear: left;
+  ^margin-top: 0px;  
+}
+
+#theme-sidebar-container {
+  background-color: white;
+  border: 1px solid #e1e1e1;
+  border-radius: 9px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px;
+  width: 210px;
+  float: right;
+  margin-top: 0;
+  float: right;
+  margin-bottom: 9px;
+}
+
+.theme-sidebar-top {
+}
+
+.theme-sidebar-bottom {
+}
+
+#theme-sidebar-container .theme-dialogbox-info  {
+  border: none;  
+  background: none;
+  padding: 3 5;
+}
+
+#theme-sidebar-container h3 {
+  margin-top: 2px;
+  color: #98bb60; 
+  font-size: 14px;
+  font-weight: normal;
+  margin-left: 2px;
+}
+
+#theme-sidebar-container .ui-widget {padding: 5px\0/;}
+
+.theme-splash-logo {
+  background: url(../images/logo-green.png) no-repeat;
+  height: 74px;
+  margin-top: 100px;
+  width: 235px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Footer */
+/* ------------------------------------------------------------------------- */
+
+#theme-footer-container {
+  float: left;
+  width: 972px;
+  padding-top: 9px;
+  padding-left: 12px;
+  position: relative;
+
+}
+
+#theme-footer-console-container {
+  float: left;
+  width: 750px;
+  padding-top: 9px;
+  padding-left: 12px;
+  position: relative;
+
+}
+/* ------------------------------------------------------------------------- */
+/* General Menu */
+/* ------------------------------------------------------------------------- */
+
+.theme-menu-item-active {
+  color: #e1852e !important;
+}
+
+ .sfHover
+{
+  /* FIXME - are the colors correct? */
+  background-image:       url('../images/main-nav-hover-orange.png');
+}
+
+ li.sfCurrent, li.sf-breadcrumb
+{
+  /* FIXME - are the colors correct? */
+  background-image:       url('../images/main-nav-selected-orange.png');
+}
+
+/* ------------------------------------------------------------------------- */
+/* Top Menu */
+/* ------------------------------------------------------------------------- */
+
+#theme-top-menu-container {
+  color: #686868;
+  width: 739px;
+  height: 39px;
+  background-image: url('../images/menu-bar.png');
+  background-repeat: repeat-x;
+  position: absolute;
+  right: 2px;
+  top: 41px;
+  float: right;
+  ^z-index: 999;
+}
+
+#theme-top-menu-list {
+  height: 35px;
+  left: -20px;
+  padding-left: 12px;
+  color: #686868;
+  line-height: 19px;
+  ^z-index: 999;
+}
+
+#theme-top-menu-list a:hover {
+  color: white\9;
+}  
+  
+#theme-top-menu-list .sfhover a {
+  color: white\9;
+}
+
+  
+ul#theme-top-menu-list li.sfhover a {
+  color: #FFFFFF;
+  ^z-index: 999;
+}
+
+ul#theme-top-menu-list li.sfhover li a {
+  color: #686868;
+  ^z-index: 999;
+}
+
+ul#theme-top-menu-list li {
+  border-left: 1px solid #f1f0f0;
+  border-right: 1px solid #f1f0f0;
+  padding-top: 2px !important; /*moz*/
+  padding-top: 1px; /*IE*/
+  ^z-index: 999;
+}
+
+ul#theme-top-menu-list ul {
+  padding-top: 8px;
+  color: #686868;
+  ^z-index: 999;
+}
+
+ul#theme-top-menu-list li li a:hover {
+  color: #e1852e;
+  ^z-index: 999;
+}
+
+#theme-top-menu-list a:active {
+  background-color: transparent;
+  ^z-index: 999;
+}
+
+ul#theme-top-menu-list .theme-top-menu-subcategory {
+  background-image: url('../images/menu-bg-hover.gif');
+  background-repeat: repeat-x;
+  font-weight: bold;
+  color: #686868;
+  line-height: 19px !important; /*moz*/
+  line-height: 21px; /*IE*/
+  padding-left: 5px;
+  width: 205px !important; /*moz*/
+  width: 200px; /*IE*/
+  ^z-index: 999;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Wizard Menu */
+/* ------------------------------------------------------------------------- */
+
+#theme-wizard-menu-container {
+  position: relative;
+  width: 208px;
+  height: auto;
+  float: left;
+  margin-top: 32px !important; /*moz*/
+  margin-top: 12px; /*IE*/
+  left: 7px !important; /*moz*/
+  left: 6px; /*IE*/
+}
+
+#theme-wizard-menu-top {
+  background-image: url('../images/left-nav-top.png');
+  background-repeat: no-repeat;
+  position: static;
+  width: 208px;
+  height: 150px !important; /*moz*/
+  height: length; /*IE*/
+  margin-left: 8px;
+  margin-bottom: -97px;
+}
+
+#theme-wizard-menu
+{
+  background-image: url('../images/left-nav-bottom.png');
+  background-repeat: no-repeat;
+  background-position: bottom left !important; /*moz*/
+  background-position: 100.5% left; /*IE*/
+  width: 208px;
+  height: auto;
+  margin-left: 8px;
+  list-style: none;
+  padding-top: 0px;
+  padding-left: 13px;
+  padding-right: 113px;
+  padding-bottom: 18px;
+  margin-top: -140px !important; /*moz*/
+  /* margin-top: px; */ /*IE*/
+}
+
+.theme-wizard-marketplace
+{
+  background-image: url(../images/arrow-down-orange.png);
+  background-repeat: no-repeat;
+  padding-left: 12px;
+  background-position: 0 4;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Left Menu */
+/* ------------------------------------------------------------------------- */
+
+.theme-menu-new-install {
+  background-image: url(../images/icon-new-install.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  margin-left: 0px;
+  padding-left: 16px;
+  width: 16px;
+  height: 16px;
+}
+
+#theme-left-menu-container {
+  background-image: url(../images/left-menu-bg.png);
+  background-repeat: repeat-y;
+  width: 213px;
+  height: auto;
+  float: left;
+  margin-left: 10px;
+  margin-bottom: 2px;
+  position: relative;
+  top: -1px;
+  z-index: 999;
+}
+
+#theme-left-menu-top {
+  background-image: url('../images/left-menu-top.png');
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  position: static;
+  width: 213px;
+  height: 12px !important; /*moz*/
+  height: length; /*IE*/
+}
+
+#theme-left-menu
+{
+  background-image: url('../images/left-menu-bottom.png');
+  background-repeat: no-repeat;  
+  background-position: bottom left;
+  width: 213px;
+  height: auto;
+  list-style: none;
+  padding-top: 0px;
+  padding-left: 13px;
+  padding-bottom: 14px;
+
+}
+
+#theme-left-menu {
+  margin-top: -4px;  
+}
+
+#theme-left-menu, x:-moz-any-link, x:default {
+  margin-top: -6px;  
+}
+
+#theme-left-menu.ui-accordion {
+  width: 213px;
+}
+
+.theme-left-menu-category {
+  margin: 0;
+  padding: 0;
+}
+
+.theme-left-menu-subcategory {
+  font-weight: bold;
+  color: #686868;
+  list-style-image:url('../images/transparent.gif');
+  padding: 4px 0 0 0;
+}
+
+.theme-left-menu-list {
+  margin: 0;
+  padding: 0;
+}
+
+.theme-left-menu-item {
+  list-style: none;
+  margin: 0;
+  padding-left: 10px;
+  background-image: url(../images/small-left-arrow.png);
+  background-repeat: no-repeat;
+  background-position: 0 4px;
+}
+
+#theme-left-menu a:hover {
+  color: #e1852e;
+}
+
+/* jQuery */
+#theme-left-menu>.ui-widget-content { 
+  color: #686868;
+  width: 170px;
+}
+
+#theme-left-menu .ui-state-active a {
+  color: #98bb60; 
+}
+
+#theme-left-menu .ui-state-active a:hover {
+  color: #98bb60; 
+}
+
+/* ------------------------------------------------------------------------- */
+/* Marketplace and Registration */
+/* ------------------------------------------------------------------------- */
+
+/* TODO: Markeplace and Registration merge */
+
+.marketplace-header {
+    height: 65px;
+    margin-left: -8px;
+    background-image: url('../images/marketplace-header-bg.png');
+    border-bottom: 1px solid #d1d3d4;
+    margin-top: 10px;
+    padding-right: 10px\9;
+}
+
+.marketplace-footer {
+    height: 10px;
+    height: 5px\9;
+    clear: both;
+}
+
+.form-input-ok {
+  background-image: url(../images/icon-checkmark.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  margin-top: 2px;
+  height: 16px;
+  width: 16px;
+  float: right;
+}
+
+.form-input-fail {
+  background-image: url(../images/icon-xmark.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  height: 16px;
+  width: 16px;
+  margin-top: 2px;
+  float: right;
+}
+
+.star_on {
+  background-image: url(../images/star_on.png);
+  background-repeat: no-repeat;
+  height: 11;
+  width: 11;
+  float:right;
+}
+
+/* TODO: Markeplace merge */
+.star_off {
+  background-image: url(../images/star_off.png);
+  background-repeat: no-repeat;
+  height: 11;
+  width: 11;
+  float:right;
+}
+
+#filter {
+  padding-top: 15px\9;
+}
+
+#pagination-top div {
+  padding-top: 5px\9;
+}
+
+#app_list {
+  margin-top: 10px\9;
+}
+
+#app_list .theme-button-set {
+  margin-left: 0;
+  padding-left: 0;
+  margin-top: 5px\9;
+}
+
+.marketplace-linkback {
+  background-image: url('../images/left-menu-shadow.png') ;
+  background-position: 5px 5px;
+  background-repeat: no-repeat;  
+  padding: 15 0 10 0;
+  text-align: center;
+  margin-top: 5px\9;
+}
+
+.marketplace-linkback a {
+  margin-top: 5px;
+  margin-top: 15px\9;
+  margin-bottom: 5px\9;
+}
+
+.marketplace-logo {
+  background-image: url('../images/marketplace-logo.png');
+  background-repeat: no-repeat;
+  height:38px;
+  width:256px;
+  margin-left: 15px;
+  float: left;
+  cursor:pointer;
+}
+
+.marketplace-progress-spash {
+  background-image: url('../images/marketplace-splash.png');
+  background-repeat: no-repeat;
+  background-position: 0 25;
+  height:300px;
+}
+.marketplace-search-bar {
+  background-image: url('../images/icon-search.png');
+  background-repeat: no-repeat;
+  background-position: 140px;
+}
+
+.rbs-progress-spash {
+  background-image: url('../images/marketplace-splash.png');
+  background-repeat: no-repeat;
+  background-position: 0 5;
+  height:140px;
+  padding: 0px;
+  float: right;
+  width: 280px;
+}
+#indiv_upgrade {padding-left: 6px; padding-right: 6px; font-family: arial;}
+
+#indiv_upgrade, x:-moz-any-link, x:default {padding-left: 3px; padding-right: 3px;}
+
+#indiv_install {padding-left: 5px; padding-right: 4px;}
+
+#review_sdn_login {padding-left: 6px; padding-right: 6px;}
+
+#review_sdn_login, x:-moz-any-link, x:default {padding-left: 3px; padding-right: 3px;}
+
+#add_review {padding-left: 5px; padding-right: 0px; font-size: 10px; top: 1px;}
+#add_review {padding-right: 3px;}
+
+#app_description {width: 490px;}
+
+#prevent_review {padding-left: 6px; padding-right: 6px; margin-top: 10px\9; }
+
+#tabs-versions {margin-bottom: 10px;}
+
+#search_and_install div {float:right;}
+
+#search_and_install input {border: 1px solid #d1d3d4; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; padding: 3px 5px; color: #686868; float: right;}
+#pagination-top {
+  clear: right;
+  float: right;
+  position: relative;
+  text-align: center;
+}
+#pagination-bottom {
+  float: right;
+  margin-bottom: 10px\9;
+}
+
+#sdn_login_dialog {
+  background-image: url('../images/logo-clearcenter.png');
+  background-repeat: no-repeat;
+  background-position: 300px 70px;
+  background-position: 150px 70px \0/;
+}
+
+#sdn_password_group {float: left\0/;}
+
+#sdn_username {float: left\0/;}
+
+#sdn_login_dialog_message_bar {
+  color: red;
+  padding-top: 5px
+}
+
+#sdn_marketplace_setup_dialog {
+  background-image: url('../images/logo-clear-marketplace-setup.png');
+  background-repeat: no-repeat;
+  background-position: 300px 20px;
+}
+.dialog_alert_icon {
+  background-image: url('../images/icon-note.png');
+  background-repeat: no-repeat;
+  background-position: 0px 5px;
+  width: 30;
+  height: 45;
+  float: left;
+  position: relative;
+}
+.dialog_alert_text {
+  text-align: left;
+  padding-top: 5px;
+}
+
+/* Standard links style doesn't exist?  Really? */
+a.highlight-link {
+  color: #E1852E;
+}
+
+a.highlight-link:hover {
+  color: #62799A;
+}
+
+/* ========================================================================= */
+/* L O G I N  O V E R I D E
+/* ========================================================================= */
+
+/* Custom button */
+.theme-login-container input.theme-form-submit-custom { margin-top: 0px; float: right; margin-right: 6px !important; }
+
+.theme-login-container {
+  width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 30%;
+  top: 270px\9;
+  ^margin-bottom: 800px;
+}
+
+.theme-login-container .theme-form-wrapper {
+  width: 283px;
+}
+
+.theme-login-container .theme-form-wrapper, x:-moz-any-link, x:default {
+  width: 280px;
+}
+
+.theme-login-container, x:-moz-any-link, x:default {
+  margin-top: 15%;
+}
+
+.theme-login-logo {
+  float: left;
+  margin-right: 30px;
+  background: url(../images/login-green.png) no-repeat;
+  width: 145px;
+  height: 172px;
+}
+
+/* FIXME: make this a generic validation error */
+.theme-login-container .theme-fieldview .theme-field-right {
+  color: red;
+}
+
+.theme-login-container .theme-form-header {
+  text-align: left;
+  width: 268px;
+  ^width: 300px;
+}
+
+.theme-login-container .theme-field-left {
+  text-align: left;
+  width: 80px;
+  padding-left: 15px;
+}
+
+.theme-login-container .theme-fieldview {
+  width: 100px;
+  margin-right: 15px;
+  float: right;
+}
+
+.theme-login-container select {
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 150px;
+}
+
+.theme-login-container .theme-fieldview .theme-field-left {
+  height: 0px;
+  width: 0px;
+  padding-top: 0px;
+}
+
+.theme-login-container .theme-fieldview .theme-field-left {
+  height: 0px;
+  width: 0px;
+  padding-top: 0px;
+}
+
+.theme-login-container .theme-fieldview .theme-field-right {
+  height: 0px;
+  padding: 0px;
+  padding-left: 0px;
+}
+
+
+
+/*
+.theme-login-container .theme-field-password {
+  width: 250px;
+}
+
+.theme-login-container .theme-field-dropdown {
+  width: 250px;
+}
+
+.theme-login-container .theme-fieldview {
+  width: 100px;
+  margin-right: 15px;
+  height: 15px;
+  float: right;
+}
+
+
+
+.theme-login-container .theme-field-left label {
+  float: left;
+}
+
+.theme-login-container .theme-field-left {
+  text-align: left;
+  /idth: 80px;
+  padding-left: 15px;
+  background: white;
+}
+
+.theme-login-container td.theme-field-left {
+  padding-right: 0px;
+}
+
+.theme-login-container .theme-field-right {
+  float: right;
+  padding-top: 3px;
+  margin-left: 0px;
+}
+
+.theme-login-container .theme-form-container {
+  width: auto;
+  float: left;
+}
+
+
+.theme-login-container .theme-fieldset {
+  width: 235px;
+  margin-left: 15px;
+}
+
+.theme-login-container .ui-widget {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  float: left;
+}
+
+.theme-login-container .theme-button-set {
+  margin-left: 0px;
+  float: right;
+}
+
+.theme-login-container .ui-buttonset {
+  margin-right: 15px;
+}
+*/

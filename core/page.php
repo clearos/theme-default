@@ -1,0 +1,834 @@
+<?php
+
+/**
+ * Header handler for the ClearOS theme.
+ *
+ * @category  Theme
+ * @package   ClearOS
+ * @author    ClearFoundation <developer@clearfoundation.com>
+ * @copyright 2011-2012 ClearFoundation
+ * @license   http://www.gnu.org/copyleft/gpl.html GNU General Public License version 3 or later
+ * @link      http://www.clearfoundation.com/docs/developer/theming/
+ */
+
+//////////////////////////////////////////////////////////////////////////////
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+/** 
+ * Returns the webconfig page.
+ *
+ * These functions provide a mechanism for managing the layout of a webconfig
+ * page.  Though styling directly related the *layout* should be included,
+ * styling for the underlying widgets should be in the widgets.php file.
+ *
+ * The following elements need to be handled by the layout egnine.
+ *
+ * - Content
+ * - Banner
+ * - Footer
+ * - Status Area
+ * - Menu
+ * - Help Box
+ * - Summary Box 
+ * - Report Box
+ * - Wizard navigation (previous, next)
+ * - Wizard menu
+ * 
+ * We don't want a menu system showing up on something like the login page!
+ * The app developer can specify one of four different page types.  It's up
+ * to you how to lay them out of course.
+ *
+ * - Configuration - this contains all elements
+ *   - content, banner, footer, status, menu, help, summary, report
+ *
+ * - Report - reports need more real estate, so summary and report elements are omitted
+ *   - content, banner, footer, status, menu, help    
+ *
+ * - Splash - minimalist page (e.g. login)
+ *    - content, status
+ * 
+ * - Wizard - for install wizards
+ *    - content, status, help, summary, wizard navigation, wizard menu
+ *
+ * - Console - network console
+ *    - content, status, help, summary
+ *
+ * @return string HTML output
+ */
+
+//////////////////////////////////////////////////////////////////////////////
+// P A G E  L A Y O U T
+//////////////////////////////////////////////////////////////////////////////
+
+function theme_page($page)
+{
+    if ($page['type'] == MY_Page::TYPE_CONFIGURATION)
+        return _configuration_page($page);
+    else if ($page['type'] == MY_Page::TYPE_REPORT)
+        return _report_page($page);
+    else if ($page['type'] == MY_Page::TYPE_MARKETPLACE)
+        return _marketplace_page($page);
+    else if ($page['type'] == MY_Page::TYPE_SPLASH)
+        return _splash_page($page);
+    else if ($page['type'] == MY_Page::TYPE_LOGIN)
+        return _login_page($page);
+    else if ($page['type'] == MY_Page::TYPE_WIZARD)
+        return _wizard_page($page);
+    else if ($page['type'] == MY_Page::TYPE_CONSOLE)
+        return _console_page($page);
+}
+
+/**
+ * Returns the configuration type page.
+ *
+ * @param array $page page data
+ *
+ * @return string HTML output
+ */
+
+function _configuration_page($page)
+{
+    $menus = _get_menu($page['menus']);
+
+    return "
+<!-- Body -->
+<body>
+
+<!-- Page Container -->
+<div id='theme-page-container'>
+    " .
+    _get_banner($page, $menus) .
+    "
+    <!-- Main Content Container -->
+    <div id='theme-main-content-container'>
+        <div class='theme-main-content-top'>
+            <div class='theme-content-border-top'></div>
+            <div class='theme-content-border-left'></div>
+            <div class='theme-content-border-right'></div>
+        </div>
+        <div class='theme-core-content'>
+        " .
+            _get_left_menu($menus) .
+            _get_basic_app_layout($page) .
+        "
+        </div>
+        " .
+        _get_footer($page) .
+        "
+    </div>
+</div>
+</body>
+</html>
+";
+}
+
+/**
+ * Returns the report page.
+ *
+ * @param array $page page data   
+ *
+ * @return string HTML output
+ */   
+
+function _report_page($page)
+{
+    $menus = _get_menu($page['menus']);
+
+    return "
+<!-- Body -->
+<body>
+
+<!-- Page Container -->
+<div id='theme-page-container'>
+    " .
+    _get_banner($page, $menus) .
+    "
+    <!-- Main Content Container -->
+    <div id='theme-main-content-container'>
+        <div class='theme-main-content-top'>
+            <div class='theme-content-border-top'></div>
+            <div class='theme-content-border-left'></div>
+            <div class='theme-content-border-right'></div>
+        </div>
+        <div class='theme-core-content'>
+        " .  _get_left_menu($menus) . "
+            <div id='theme-content-container'>
+                <div id='theme-help-box-container'>
+                    <div class='theme-help-box'>
+                    " . $page['page_help'] . "
+                    </div>
+                </div>
+                <div id='theme-content-report'>
+                    " . _get_message() . "
+                    " . $page['app_view'] . "
+                </div>
+            </div>
+
+        </div>
+        " .
+        _get_footer($page) .
+        "
+    </div>
+</div>
+</body>
+</html>
+";
+}
+
+/**
+ * Returns the marketplace page.
+ *
+ * @param array $page page data   
+ *
+ * @return string HTML output
+ */   
+
+function _marketplace_page($page)
+{
+    $menus = _get_menu($page['menus']);
+
+    return "
+<!-- Body -->
+<body>
+
+<!-- Page Container -->
+<div id='theme-page-container'>
+    " .
+    _get_banner($page, $menus) .
+    "
+    <!-- Main Content Container -->
+    <div id='theme-main-content-container'>
+        <div class='theme-main-content-top'>
+            <div class='theme-content-border-top'></div>
+            <div class='theme-content-border-left'></div>
+            <div class='theme-content-border-right'></div>
+        </div>
+        <div class='theme-core-content'>
+
+            <!-- Left menu Javascript -->
+            <script type='text/javascript'> 
+                $(document).ready(function(){
+                    $('#theme-left-menu').accordion({ autoHeight: false, active: 0, collapsible: false });
+                });
+            </script>
+
+            <!-- Left Menu -->
+            <div id='theme-left-menu-container'>"
+                    . $page['page_app_helper'] . " 
+            </div>
+
+        <div id='theme-content-container'>
+            <div id='theme-help-box-container'>
+                <div class='theme-help-box'>
+                " . $page['page_help'] . "
+                </div>
+            </div>
+            " . _get_message() . "
+            " . $page['app_view'] . "
+        </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+";
+}
+
+/**
+ * Returns the login type page.
+ *
+ * @param array $page page data   
+ *
+ * @return string HTML output
+ */   
+
+function _login_page($page)
+{
+    return "
+<!-- Body -->
+<body>
+
+<!-- Page Container -->
+<div class='theme-login-container'>
+    <div class='theme-login-logo'></div>
+    " . _get_message() . "
+    " . $page['app_view'] . "
+</div>
+</body>
+</html>
+";
+}
+
+/**
+ * Returns the splash page.
+ *
+ * @param array $page page data   
+ *
+ * @return string HTML output
+ */   
+
+function _splash_page($page)
+{
+    return "
+<!-- Body -->
+<body>
+
+<!-- Page Container -->
+<div id='theme-page-container'>
+    <div class='theme-splash-logo'></div>
+    <div id='theme-content-splash-container'>
+        " . _get_message() . "
+        " . $page['app_view'] . "
+    </div>
+</div>
+</body>
+</html>
+";
+}
+
+/**
+ * Returns the wizard page.
+ *
+ * @param array $page page data   
+ *
+ * @return string HTML output
+ */   
+
+function _wizard_page($page)
+{
+    $menus = _get_menu($page['wizard_menu'], TRUE);
+
+    // Add a sidebar on normal pages.  Some pages need the full width.
+    $content = _get_message() . $page['app_view'];
+    $sidebar = '';
+    $help = '';
+
+    if ($page['wizard_type'] == 'normal') {
+        $content = "
+            <div id='theme-content-left'>
+                $content
+            </div>
+        ";
+
+        $sidebar = "
+            <div id='theme-sidebar-container'>
+                <div class='theme-sidebar-top'></div>
+                " . $page['page_inline_help'] . "
+                <div class='theme-sidebar-bottom'></div>
+            </div>
+        ";
+    }
+
+    if ($page['wizard_type'] != 'intro') {
+        $help = "
+            <div id='theme-help-box-container'>
+                <div class='theme-help-box'>
+                " . $page['page_help'] . "
+                </div>
+            </div>
+        ";
+    }
+
+    return "
+<!-- Body -->
+<body>
+
+<!-- Page Container -->
+<div id='theme-page-container'>
+    " .
+    _get_banner($page) . 
+    "
+    <!-- Main Content Container -->
+    <div id='theme-main-content-container'>
+        <div class='theme-main-content-top'>
+            <div class='theme-content-border-top'></div>
+            <div class='theme-content-border-left'></div>
+            <div class='theme-content-border-right'></div>
+        </div>
+        <div class='theme-core-content'>
+        " .
+            _get_left_menu($menus) .
+        "
+        <!-- Content -->
+        <div id='theme-content-container'>
+            $help
+            $sidebar
+            $content
+        </div>
+        " .
+            _get_wizard_navigation($page['wizard_navigation']) .
+        "
+        </div>
+        " .
+        _get_footer($page) .
+        "
+    </div>
+</div>
+</body>
+</html>
+";
+}
+
+/**
+ * Returns the console page.
+ *
+ * @param array $page page data   
+ *
+ * @return string HTML output
+ */   
+
+function _console_page($page)
+{
+    if (isset($page['logged_in']) && $page['logged_in'])
+        $logout_link = "<a href='/app/base/session/logout/graphical_console'><span id='theme-banner-logout'>" . lang('base_logout') . "</span></a>";
+    else
+        $logout_link = '';
+
+    return "
+<!-- Body -->
+<body>
+
+<!-- Page Container -->
+<div id='theme-page-console-container'>
+    <!-- Banner -->
+
+    <div id='theme-banner-console-container'>
+        <div id='theme-banner-background'></div>
+        <div id='theme-banner-logo'></div>
+        <div class='theme-banner-name-holder'>
+            $logout_link
+        </div>
+    </div>
+
+    <!-- Main Content Container -->
+    <div id='theme-main-content-console-container'>
+        <div class='theme-main-content-console-top'>
+            <div class='theme-content-border-console-top'></div>
+            <div class='theme-content-border-console-left'></div>
+            <div class='theme-content-border-console-right'></div>
+        </div>
+        <div class='theme-core-content-console'>
+            <div id='theme-content-container'>
+                <div id='theme-sidebar-container'>
+                    <div class='theme-sidebar-top'></div>
+                    " . $page['page_inline_help'] . "
+                    <div class='theme-sidebar-bottom'></div>
+                </div>
+                <div id='theme-content-left'>
+                    " . _get_message() . "
+                    " . $page['app_view'] . "
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer FIXME: translation -->
+        <div id='theme-footer-console-container'>
+            Are you in a command line kind of mood? "
+            . anchor_custom('/app/graphical_console/shutdown', 'To the command line Batman', 'low') .
+            "
+        </div>
+    </div>
+</div>
+</body>
+</html>
+";
+}
+
+//////////////////////////////////////////////////////////////////////////////
+// L A Y O U T  H E L P E R S
+//////////////////////////////////////////////////////////////////////////////
+
+function _get_message()
+{
+    $framework =& get_instance();
+
+    if (! $framework->session->userdata('message_text'))
+        return;
+
+    $message = $framework->session->userdata('message_text');
+    $type =  $framework->session->userdata('message_code');
+    $title = $framework->session->userdata('message_title');
+
+    $framework->session->unset_userdata('message_text');
+    $framework->session->unset_userdata('message_code');
+    $framework->session->unset_userdata('message_title');
+
+    return theme_infobox($type, $title, $message);
+}
+
+function _get_basic_app_layout($page)
+{
+    return "
+        <!-- Content -->
+        <div id='theme-content-container'>
+            <div id='theme-help-box-container'>
+                <div class='theme-help-box'>
+                " . $page['page_help'] . "
+                </div>
+            </div>
+            <div id='theme-sidebar-container'>
+                <div class='theme-sidebar-top'></div>
+                " . $page['page_summary'] . "
+                " . $page['page_report'] . "
+                <div class='theme-sidebar-bottom'></div>
+            </div>
+            <div id='theme-content-left'>
+                " . _get_message() . "
+                " . $page['app_view'] . "
+            </div>
+        </div>
+    ";
+}
+
+function _get_footer($page) 
+{
+    return "
+    <!-- Footer -->
+    <div id='theme-footer-container'>
+        Web Theme - Copyright &copy; 2010-2012 ClearCenter. All Rights Reserved.
+    </div>
+    ";
+}
+
+/**
+ * Returns the top banner.
+ *
+ * @param array $page page data
+ *
+ * @return string banner HTML
+ */
+
+function _get_banner($page, $menus = array())
+{
+    $framework =& get_instance();
+
+    // Add marketplace link
+    if ((clearos_app_installed('marketplace') && !$framework->session->userdata('wizard')))
+        $marketplace_link = "<a href='/app/marketplace'>" . lang('base_marketplace') . "</a>&nbsp;&nbsp;|&nbsp;";
+    else
+        $marketplace_link = '';
+
+    // Add wizard test link in devel mode
+    if ($_SERVER['SERVER_PORT'] == 1501) {
+        if ($framework->session->userdata('wizard'))
+            $wizard_link = "<a href='/app/base/wizard/stop'>Stop Wizard Test</a>&nbsp;&nbsp;|&nbsp;";
+        else
+            $wizard_link = "<a href='/app/base/wizard/start'>Start Wizard Test</a>&nbsp;&nbsp;|&nbsp;";
+    } else {
+        $wizard_link = '';
+    }
+
+    $dashboard_link = "<a href='/app/base'>" . "Dashboard" . "</a>&nbsp;&nbsp;|&nbsp;"; // FIXME: translate
+    $dashboard_link = ''; // FIXME: do this later
+
+    $top_menu = empty($menus) ? '' : _get_top_menu($menus);
+
+    return "
+<!-- Banner -->
+<div id='theme-banner-container'>
+    <div id='theme-banner-background'></div>
+    <div id='theme-banner-logo'></div>
+    <div class='theme-banner-name-holder'>
+        $wizard_link
+        $marketplace_link
+        $dashboard_link
+        <a href='/app/base/session/logout'>" . lang('base_logout_as') . " " . $page['username'] . "</a>
+    </div>
+    $top_menu
+</div>
+";
+}
+    
+/**
+ * Returns the top navigation menu.
+ *
+ * @param array $menus page menu data
+ *
+ * @return string top navigation menu HTML
+ */
+
+function _get_top_menu($menus)
+{
+    $top_menu = $menus['top_menu'];
+    $active_category_number = $menus['active_category'];
+
+    $html = "
+    <!-- Top menu Javascript -->
+    <script type='text/javascript'> 
+        $(document).ready(function() { 
+            $('#theme-top-menu-list').superfish({
+                delay: 800,
+                pathLevels: 0
+            });
+        });
+    </script>
+
+    <!-- Top Menu -->
+    <div id='theme-top-menu-container'>
+        <ul id='theme-top-menu-list' class='sf-menu'>
+$top_menu
+        </ul>        
+    </div>
+";
+    return $html;
+}
+
+/**
+ * Returns the left navigation menu.
+ *
+ * @param array $menus page menu data
+ *
+ * @return string left navigation menu HTML
+ */
+
+function _get_left_menu($menus)
+{
+    $left_menu = $menus['left_menu'];
+    $active_category_number = $menus['active_category'];
+
+    $html = "
+    <!-- Left menu Javascript -->
+    <script type='text/javascript'> 
+        $(document).ready(function(){
+            $('#theme-left-menu').accordion({ autoHeight: false, active: $active_category_number, collapsible: false });
+        });
+    </script>
+
+    <!-- Left Menu -->
+    <div id='theme-left-menu-container'>
+        <div id='theme-left-menu-top'></div>
+        <div id='theme-left-menu'>
+$left_menu
+        </div>
+    </div>
+    ";
+
+    return $html;
+}
+
+/**
+ * Returns wizard navigation.
+ *
+ * @param array $nav_data navigation data
+ *
+ * @return string HTML for wizard navigation
+ */
+
+function _get_wizard_navigation($nav_data)
+{
+    if (empty($nav_data['previous']))
+        $previous = '';
+    else
+        $previous = theme_anchor($nav_data['previous'], lang('base_previous'), 'high', 'theme-anchor-previous', array());
+
+    if (empty($nav_data['next']))
+        $next = '';
+    else
+        $next = theme_anchor($nav_data['next'], lang('base_next'), 'high', 'theme-anchor-next', array());
+
+    // FIXME: translate below
+    return "
+        <div id='theme_wizard_nav'>
+            <p align='center'>
+                <span id='theme_wizard_nav_previous'>$previous</span>
+                <span id='theme_wizard_nav_next'>$next</span>
+            </p>
+        </div>
+        <div id='theme_wizard_complete' style='display: none'>
+            <p align='center'>" . theme_anchor('/app/base/wizard/stop', 'Finish Install Wizard...') . "</p>
+        </div>
+    ";
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Menu handling
+///////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Converts menu array into HTML layout
+ * 
+ * @param array   $menu_  data menu data
+ * @param boolean $wizard set to TRUE if wizard menu data
+ *
+ * @return string menu HTML output
+ */
+
+function _get_menu($menu_data, $wizard = FALSE)
+{
+    // Highlight information for given page
+    //-------------------------------------    
+
+    $highlight = array();
+    $matches = array();
+    preg_match('/\/app\/[^\/]*/', $_SERVER['PHP_SELF'], $matches);
+    $basepage = $matches[0];
+
+    // The menu data format is a little different for the wizard,
+    // so the logic for detecting the "highlight" is different.
+
+    if ($wizard) {
+        // Search for an exact match first.  Otherwise, use fuzzy matching.
+        $full_url = $_SERVER['PHP_SELF'];
+        foreach ($menu_data as $url => $pageinfo) {
+            if ($full_url == $pageinfo['nav']) {
+                $highlight['page'] = $pageinfo['nav'];
+                $highlight['category'] = $pageinfo['category'];
+                $highlight['subcategory'] = $pageinfo['category'] . $pageinfo['subcategory'];
+            }
+        }
+
+        // No exact URL, do the fuzzy match
+        if (empty($highlight)) {
+            $basepage_quoted  = preg_quote($basepage, '/');
+            foreach ($menu_data as $url => $pageinfo) {
+                if (preg_match("/$basepage_quoted/", $pageinfo['nav'])) {
+                    $highlight['page'] = $pageinfo['nav'];
+                    $highlight['category'] = $pageinfo['category'];
+                    $highlight['subcategory'] = $pageinfo['category'] . $pageinfo['subcategory'];
+                }
+            }
+        }
+
+    } else {
+        foreach ($menu_data as $url => $pageinfo) {
+            if ($url == $basepage) {
+                $highlight['page'] = $url;
+                $highlight['category'] = $pageinfo['category'];
+                $highlight['subcategory'] = $pageinfo['category'] . $pageinfo['subcategory'];
+            }
+        }
+    }
+/*
+echo "asdfasdfasf $basepage---- " . $pageinfo['nav'] . "<pre>";
+print_r($highlight);
+*/
+
+    // Loop through to build menu
+    //---------------------------
+
+    $top_menu = "";
+    $left_menu = "";
+    $current_category = "";
+    $current_subcategory = "";
+    $category_count = 0;
+    $active_category_number = 0;
+
+    foreach ($menu_data as $url => $page) {
+
+        // Ugly hack - wizard menu data is different
+        //------------------------------------------
+
+        if ($wizard)
+            $url = $page['nav'];
+        
+        // Category transition
+        //--------------------
+
+        if ($page['category'] != $current_category) {
+
+            // Detect active category for given page
+            //--------------------------------------
+
+            if (isset($page['category']) && isset($highlight['category']) && ($page['category'] == $highlight['category'])) {
+                $active_category_number = $category_count;
+                $class = 'sfCurrent';
+            } else {
+                $class = '';
+            }
+
+            // Don't close top menu category on first run
+            //-------------------------------------------
+
+            if (! empty($top_menu)) {
+                $top_menu .= "\t\t\t</ul>\n";
+                $top_menu .= "\t\t</li>\n";
+
+                $left_menu .= "\t\t\t</ul>\n";
+                $left_menu .= "\t\t</div>\n";
+            }
+
+            // Top Menu
+            //---------
+
+            $top_menu .= "\t\t<li class='$class'>\n";
+            $top_menu .= "\t\t\t<a class='sf-with-url $class' href='#' onclick=\"$('#theme-left-menu').accordion('activate', $category_count);\">" . $page['category'] . "</a>\n";
+
+            $top_menu .= "\t\t\t<ul>\n";
+
+            // Left Menu
+            //----------
+
+            $left_menu .= "\t\t<h3 class='theme-left-menu-category'><a href='#'>{$page['category']}</a></h3>\n";
+            $left_menu .= "\t\t<div>\n";
+            $left_menu .= "\t\t\t<ul class='theme-left-menu-list'>\n";
+
+            // Counters
+            //---------
+
+            $current_category = $page['category'];
+            $category_count++;
+        }
+        
+        // Subcategory transition
+        //-----------------------
+
+        if ($current_subcategory != $page['subcategory']) {
+            $current_subcategory = $page['subcategory'];
+            $left_menu .= "\t\t\t\t<li class='theme-left-menu-subcategory'>{$page['subcategory']}</li>\n";
+            $top_menu .= "\t\t\t\t<li class='theme-top-menu-subcategory'>{$page['subcategory']}</li>\n";
+        }
+
+        // Page transition
+        //----------------
+
+        $activeClass = (isset($highlight['page']) && ($url == $highlight['page'])) ? 'theme-menu-item-active' : '';
+
+        // Newly installed app
+        //--------------------
+
+        $new_app = '';
+
+        if (isset($page['new']) && $page['new'])
+            $new_app = "<span class='theme-menu-new-install'><!-- new --></span>";
+
+        if ($wizard) {
+            // $top_menu .= "\t\t\t\t<li><a class='{$activeClass}' href='{$url}'>$new_app{$page['title']}</a></li>\n";
+            $left_menu .= "\t\t\t\t<li class='theme-left-menu-item'><span class='{$activeClass}'>{$page['title']}</span></li>\n";
+        } else {
+            $top_menu .= "\t\t\t\t<li><a class='{$activeClass}' href='{$url}'>$new_app{$page['title']}</a></li>\n";
+            $left_menu .= "\t\t\t\t<li class='theme-left-menu-item'><a class='{$activeClass}' href='{$url}'>$new_app{$page['title']}</a></li>\n";
+        }
+    }
+
+    // Close out open HTML tags
+    //-------------------------
+
+    $top_menu .= "\t\t\t</ul>\n";
+    $top_menu .= "\t\t</li>\n";
+
+    $left_menu .= "\t\t\t</ul>\n";
+    $left_menu .= "\t\t</div>\n";
+
+    // Return HTML formatted menu
+    //---------------------------
+
+    $menus['top_menu'] = $top_menu;
+    $menus['left_menu'] = $left_menu;
+    $menus['active_category'] = $active_category_number;
+
+    return $menus;
+}
