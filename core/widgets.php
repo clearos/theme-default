@@ -267,7 +267,7 @@ function _theme_button_set($buttons, $options, $type)
 
     if ($type === 'field') {
         return "
-            <tr><td>
+            <tr><td colspan='2'>
                 <div class='theme-button-set'$id>$button_html</div>
             </td></tr>
         ";
@@ -755,10 +755,12 @@ function theme_form_header($title, $options)
     $id_html = (isset($options['id'])) ? " id='" . $options['id'] . "'" : '';
     $status_id_html = (isset($options['id'])) ? " id='status_" . $options['id'] . "'" : '';
  
-    return "<table border='0' class='theme-form-wrapper'$id_html>
+    return "<table border='0' cellpadding='0' cellspacing='0' class='theme-form-wrapper'$id_html>
         <tr class='theme-form-header'>
-            <td><p class='theme-form-header-heading'>$title</p></td>
-            <td><p class='theme-form-header-status' $status_id_html></p></td>
+          <td colspan='2'>
+            <span class='theme-form-header-heading'>$title</span>
+            <span class='theme-form-header-status' $status_id_html></span>
+          </td>
         </tr>
     ";
 }

@@ -2,6 +2,11 @@
 /* S T A N D A R D  H T M L  T A G S */
 /* ========================================================================= */
 
+/* This puts scroll bar always on RHS - When menus are selected that go off the page, it stops 'jogging' */
+html {
+  overflow-y: scroll;
+}
+
 html, body {
   color: #686868;
   background-color: white;
@@ -65,7 +70,7 @@ input {
 
 input, x:-moz-any-link, x:default {
 	height: 22px;
-	margin-top: 4px;
+/*	margin-top: 4px; */
 }
 
 select {
@@ -485,7 +490,7 @@ table.display thead th div.DataTables_sort_wrapper {
 }
 
 .theme-login-container .theme-form-container {
-width: 135px;	
+  width: 135px;	
 }
 
 .theme-form-wrapper {
@@ -512,11 +517,16 @@ width: 135px;
   width: 505px;
 }
 
+.theme-form-wrapper td {
+  padding: 5px;
+}
 .theme-form-header {
+  height: 38px;
+/*
   line-height: 24px;
-  height: 35px;
   float: left;
-  width: 490px;
+*/
+/*  width: 490px;*/
 }
 
 .theme-form-status-working {
@@ -545,7 +555,6 @@ width: 135px;
   font-weight: normal;
   font-size: 14px;
   margin-top: 0px;
-  margin-bottom: 20px;
   clear: both;
   width: 300px;
   margin: 0\0/;
@@ -559,7 +568,6 @@ width: 135px;
   font-weight: normal;
   font-size: 14px;
   margin-top: 0px;
-  margin-bottom: 20px;
   clear: both;
   width: 188px;
   margin: 0\0/;
@@ -583,49 +591,18 @@ width: 135px;
 /* Fields and Validation */
 /* ------------------------------------------------------------------------- */
 
-.theme-field-left {
-  width: 180px;
-  text-align: right;
-  float: left;
-  padding-top: 4px;
-  padding-bottom: 5px;
-  background: #fafafa;
-}
-
 td.theme-field-left {
-  width: 200px;
-  padding-right: 4px;  
+  text-align: right;
+  width: 220;
+  padding: 5 4 5 0;  
+  background: #fafafa;
+  vertical-align: top;
 }
 
-.theme-field-right {
-  float: left;
-  padding-left: 10px;
-  width: 280px;
-}
-
-.theme-field-right span {
-  line-height: 24px\9;
-}
-
-.theme-field-right span, x:-moz-any-link, x:default {
-  line-height: 25px;
-}
-
-.theme-field-text .theme-field-left {
-  
-}
-
-.theme-field-text {
-  float: left;
-  line-height: 22px;
-  height: 30px;
-}
-
-.theme-field-text, x:-moz-any-link, x:default {
-  float: left;
-  line-height: 25px;
-  height: 33px;
-  width: 500px;
+td.theme-field-right {
+  text-align: left;
+  width: 285;
+  padding-left: 4px;  
 }
 
 .theme-field-file {
@@ -637,27 +614,8 @@ td.theme-field-left {
 
 .theme-field-file .theme-field-right, x:-moz-any-link, x:default {margin-top: 5px;}
 
-.theme-login-container .theme-field-text, x:-moz-any-link, x:default {
-  float: left;
-  line-height: 25px;
-  height: 33px;
-  width: 260px;
-}
-/* BC added this because I deleted line 749 which was causing form widths to be different */
-.theme-login-container .theme-field-password input {
-  width: 150px;
-}
-
-.theme-field-right #username {
-	width: 149px;
-}
-
 .theme-field-text .theme-field-right {
-  padding-top:3px;
-}
-
-.theme-field-text .theme-field-right, x:-moz-any-link, x:default {
-  padding-top:6px;  
+  padding-top: 3px;
 }
 
 .theme-field-textarea-box input {
@@ -682,96 +640,27 @@ td.theme-field-left {
   float: left;
 }
 
-.theme-field-toggle {
-  line-height: 20px;
-  float: left;
-  height: 28px;
-  ^height: 15px;
-  width: 100%;  
-}
-
 .theme-field-toggle .theme-field-right {
-  padding-top: 3px;  
+  padding-top: 2px;  
 }
 
-.theme-field-toggle select {
-  float: left;
-  margin-right: 15px;
-  line-height: 20px;
-  margin-top: 2px\9;
-}
-
-.theme-fieldview label {
-  line-height: 18px;
-}
-
-.theme-fieldview {
-  line-height: 18px;
-  height: 25px;
-  float: left;
-  width: 500px;
-}
-
-.theme-field-dropdown {
-  float:left;
-  height:30px;
-  line-height:25px;
-  margin-bottom:0;
-}
-
-.theme-field-dropdown .theme-field-right, x:-moz-any-link, x:default {
-  padding-top:6px;
-}
-
-.theme-field-dropdown select {
-  float: left;
-  margin-top: 7px\9;
+.theme-field-dropdown .theme-field-right {
+  padding-top: 2px;  
 }
 
 .theme-field-checkbox-enabled {
   background: transparent url(../images/icon-checkbox-enabled.png) no-repeat 0 0;
-  background-position: -5 3;
+  background-position: -5 -2;
   width: 16px;
   height: 16px;
 }
-
-.theme-field-checkboxes {
-  float:left;
-  height:23px;
-  line-height:14px;
-  margin-bottom:0;
-  width:100%;
-}
-
-.theme-field-checkboxes input { 
-  
- }
-
-.theme-field-password {
-  float:left;
-  height:30px;
-  line-height:22px;
-}
-
 
 .theme-field-password .theme-field-right {
   padding-top: 3px;
 }
 
-.theme-field-password, x:-moz-any-link, x:default {
-  height: 30px;
-}
-
-/* TODO - BC removed this because the password forms and input forms weren't the same width */
-/*.theme-field-password input {float: right; margin-right: 0px; width: 150px;}*/
-
-.theme-login-container.theme-field-password input {
-	float: right; margin-right: 0px; width: 150px;
-}
-
-.theme-field-progress-bar {
-  float: left;
-  height: 30px;
+.theme-field-progress-bar .theme-field-right {
+  padding-top: 3px;
 }
 
 td div.theme-progress-bar {
@@ -780,8 +669,10 @@ td div.theme-progress-bar {
 }
 
 .theme-field-info {
+/*
   float: left;
   height: 30px;
+*/
 }
 
 .theme-fieldset-header {
@@ -795,20 +686,9 @@ td div.theme-progress-bar {
 
 .theme-validation-error {
   color: red;
-  position: absolute;
-  position: relative\9;
-  line-height: 9px;
-  line-height: 5px\9;
-  top: -8px\9;
   font-size: 9px;
 }
 
-.theme-validation-error, x:-moz-any-link, x:default {
-  color: red;
-  position: absolute;
-  margin-top: -8px;
-  font-size: 9px;
-}
 /* ------------------------------------------------------------------------- */
 /* Whirlys */
 /* ------------------------------------------------------------------------- */
@@ -1995,9 +1875,12 @@ a.highlight-link:hover {
 }
 
 .theme-login-container .theme-field-left {
-  text-align: left;
-  width: 80px;
-  padding-left: 15px;
+  text-align: right;
+  width: 160px;
+}
+.theme-login-container .theme-field-right {
+  padding-right: 5px;
+  width: 180px;
 }
 
 .theme-login-container .theme-fieldview {
@@ -2006,95 +1889,9 @@ a.highlight-link:hover {
   float: right;
 }
 
-.theme-login-container select {
-  margin-left: 0px;
-  margin-right: 0px;
+.theme-login-container .theme-field-right input {
   width: 150px;
 }
-
-.theme-login-container .theme-fieldview .theme-field-left {
-  height: 0px;
-  width: 0px;
-  padding-top: 0px;
+.theme-login-container select {
+  width: 150px;
 }
-
-.theme-login-container .theme-fieldview .theme-field-left {
-  height: 0px;
-  width: 0px;
-  padding-top: 0px;
-}
-
-.theme-login-container .theme-fieldview .theme-field-right {
-  height: 0px;
-  padding: 0px;
-  padding-left: 0px;
-}
-
-
-
-/*
-.theme-login-container .theme-field-password {
-  width: 250px;
-}
-
-.theme-login-container .theme-field-dropdown {
-  width: 250px;
-}
-
-.theme-login-container .theme-fieldview {
-  width: 100px;
-  margin-right: 15px;
-  height: 15px;
-  float: right;
-}
-
-
-
-.theme-login-container .theme-field-left label {
-  float: left;
-}
-
-.theme-login-container .theme-field-left {
-  text-align: left;
-  /idth: 80px;
-  padding-left: 15px;
-  background: white;
-}
-
-.theme-login-container td.theme-field-left {
-  padding-right: 0px;
-}
-
-.theme-login-container .theme-field-right {
-  float: right;
-  padding-top: 3px;
-  margin-left: 0px;
-}
-
-.theme-login-container .theme-form-container {
-  width: auto;
-  float: left;
-}
-
-
-.theme-login-container .theme-fieldset {
-  width: 235px;
-  margin-left: 15px;
-}
-
-.theme-login-container .ui-widget {
-  border-radius: 5px;
-  -moz-border-radius: 5px;
-  -webkit-border-radius: 5px;
-  float: left;
-}
-
-.theme-login-container .theme-button-set {
-  margin-left: 0px;
-  float: right;
-}
-
-.theme-login-container .ui-buttonset {
-  margin-right: 15px;
-}
-*/
