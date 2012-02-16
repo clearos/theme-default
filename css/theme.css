@@ -621,19 +621,6 @@ td.theme-field-right {
 .theme-field-textarea-box input {
   width: 200px;
   margin-right: 10px;
-  margin-top: 0px;
-  margin-top: 2px\9;
-}
-
-.theme-field-textarea-box input, x:-moz-any-link, x:default {
-  width: 200px;
-  margin-right: 10px;
-  margin-bottom: 0px;
-  margin-top:0px;
-}
-
-.theme-field-textarea {
-  float: left;
 }
 
 .theme-multiselect-dropdown {
