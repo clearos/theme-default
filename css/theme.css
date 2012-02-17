@@ -549,6 +549,7 @@ table.display thead th div.DataTables_sort_wrapper {
 }
 
 .theme-form-header-heading {
+  white-space: nowrap;
   position: relative;
   left: 10px;
   color: #98bb60; 
@@ -1870,11 +1871,13 @@ a.highlight-link:hover {
   width: 180px;
 }
 
+/*
 .theme-login-container .theme-fieldview {
   width: 100px;
   margin-right: 15px;
   float: right;
 }
+*/
 
 .theme-login-container .theme-field-right input {
   width: 150px;
