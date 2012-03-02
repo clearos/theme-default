@@ -1,11 +1,11 @@
 Name: theme-default-community
 Group: Applications/Themes
-Version: 6.2.0.beta3.3
+Version: 6.2.0.beta3.4
 Release: 1%{dist}
 Summary: ClearOS Community 6 theme
-License: Copyright 2011-2012 ClearCenter
-Packager: ClearCenter
-Vendor: ClearCenter
+License: Copyright 2011-2012 ClearFoundation
+Packager: ClearFoundation
+Vendor: ClearFoundation
 Source: %{name}-%{version}.tar.gz
 Requires: theme-default
 Provides: theme-default-driver
