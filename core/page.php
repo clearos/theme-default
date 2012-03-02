@@ -712,10 +712,6 @@ function _get_menu($menu_data, $wizard = FALSE)
             }
         }
     }
-/*
-echo "asdfasdfasf $basepage---- " . $pageinfo['nav'] . "<pre>";
-print_r($highlight);
-*/
 
     // Loop through to build menu
     //---------------------------
