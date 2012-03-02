@@ -88,6 +88,18 @@ h1 {
   background-image: url(../images/orange-stroke-right.jpg);
 }
 
+.theme-content-border-console-top {
+  background-image: url(../images/console-orange-stroke-top.jpg);
+}
+
+.theme-content-border-console-left {
+  background-image: url(../images/console-orange-stroke-left.jpg);
+}
+
+.theme-content-border-console-right {
+  background-image: url(../images/console-orange-stroke-right.jpg);
+}
+
 #theme-sidebar-container h3 {
   color: #e1852e;
 }
