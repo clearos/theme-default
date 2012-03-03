@@ -1546,7 +1546,7 @@ function theme_summary_box($data)
 
     // TODO: move this out of the theme
     // TODO: remove sidebar unless it's directly related to this widget.
-    if (clearos_app_installed('marketplace')) {
+    if ($data['show_marketplace']) {
         $marketplace =  "
             <div class='marketplace-linkback'>" .
             anchor_custom('/app/marketplace/view/' . $data['basename'], lang('base_visit_marketplace')) . "
