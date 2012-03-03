@@ -80,8 +80,8 @@ function theme_page($page)
         return _configuration_page($page);
     else if ($page['type'] == MY_Page::TYPE_REPORT)
         return _report_page($page);
-    else if ($page['type'] == MY_Page::TYPE_MARKETPLACE)
-        return _marketplace_page($page);
+    else if ($page['type'] == MY_Page::TYPE_SPOTLIGHT)
+        return _spotlight_page($page);
     else if ($page['type'] == MY_Page::TYPE_SPLASH)
         return _splash_page($page);
     else if ($page['type'] == MY_Page::TYPE_LOGIN)
@@ -190,14 +190,14 @@ function _report_page($page)
 }
 
 /**
- * Returns the marketplace page.
+ * Returns the spotlight page.
  *
  * @param array $page page data   
  *
  * @return string HTML output
  */   
 
-function _marketplace_page($page)
+function _spotlight_page($page)
 {
     $menus = _get_menu($page['menus']);
 
@@ -516,24 +516,15 @@ function _get_banner($page, $menus = array())
 {
     $framework =& get_instance();
 
-    // Add marketplace link
-    if ((clearos_app_installed('marketplace') && !$framework->session->userdata('wizard')))
-        $marketplace_link = "<a href='/app/marketplace'>" . lang('base_marketplace') . "</a>&nbsp;&nbsp;|&nbsp;";
-    else
-        $marketplace_link = '';
+    // In this theme, we treat the "Spotlight" category a special way
+    //---------------------------------------------------------------
 
-    // Add wizard test link in devel mode
-    if ($_SERVER['SERVER_PORT'] == 1501) {
-        if ($framework->session->userdata('wizard'))
-            $wizard_link = "<a href='/app/base/wizard/stop'>Stop Wizard Test</a>&nbsp;&nbsp;|&nbsp;";
-        else
-            $wizard_link = "<a href='/app/base/wizard/start'>Start Wizard Test</a>&nbsp;&nbsp;|&nbsp;";
-    } else {
-        $wizard_link = '';
+    $banner_links = '';
+
+    foreach ($page['menus'] as $url => $details) {
+        if ($details['category'] == lang('base_category_spotlight'))
+            $banner_links .= '&nbsp;&nbsp;<a href="' . $url . '">' . $details['title'] . '</a>&nbsp;&nbsp;|';
     }
-
-    $dashboard_link = "<a href='/app/base'>" . "Dashboard" . "</a>&nbsp;&nbsp;|&nbsp;"; // FIXME: translate
-    $dashboard_link = ''; // FIXME: do this later
 
     $top_menu = empty($menus) ? '' : _get_top_menu($menus);
 
@@ -543,10 +534,7 @@ function _get_banner($page, $menus = array())
     <div id='theme-banner-background'></div>
     <div id='theme-banner-logo'></div>
     <div class='theme-banner-name-holder'>
-        $wizard_link
-        $marketplace_link
-        $dashboard_link
-        <a href='/app/base/session/logout'>" . lang('base_logout_as') . " " . $page['username'] . "</a>
+        $banner_links&nbsp;&nbsp;<a href='/app/base/session/logout'>" . lang('base_logout_as') . " " . $page['username'] . "</a>
     </div>
     $top_menu
 </div>
@@ -724,6 +712,9 @@ function _get_menu($menu_data, $wizard = FALSE)
     $active_category_number = 0;
 
     foreach ($menu_data as $url => $page) {
+
+        if ($page['category'] === lang('base_category_spotlight'))
+            continue;
 
         // Ugly hack - wizard menu data is different
         //------------------------------------------
