@@ -474,7 +474,7 @@ function theme_field_dropdown($name, $value, $label, $error, $values, $input_id,
     $label_id_html = (isset($options['label_id'])) ? $options['label_id'] : $input_id . '_label';
     $error_id_html = (isset($options['error_id'])) ? $options['error_id'] : $input_id . '_error';
 
-    $error_html = (empty($error)) ? "" : "<span class='theme-validation-error' id='$error_id_html'>$error</span>";
+    $error_html = (empty($error)) ? "" : "<br><span class='theme-validation-error' id='$error_id_html'>$error</span>";
 
     return "
         <tr id='$field_id_html' class='theme-field-dropdown'>
