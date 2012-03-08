@@ -1439,9 +1439,9 @@ function theme_help_box($data)
 {
     if (!empty($data['user_guide_url'])) {
         $user_guide_link = "
-            
-                <a target='_blank' href='" . $data['user_guide_url'] . "'><div class='theme-help-box-assets-icons theme-help-box-user-guide'>" . $data['user_guide_url_text'] . " </div></a>
-           
+            <div class='theme-help-box-assets-icons theme-help-box-user-guide'>
+                <a target='_blank' href='" . $data['user_guide_url'] . "'>" . $data['user_guide_url_text'] . "</a>
+            </div>
         ";
     } else {
         $user_guide_link = "";
