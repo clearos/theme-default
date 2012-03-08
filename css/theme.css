@@ -858,25 +858,36 @@ td div.theme-progress-bar {
   padding-bottom: 1px;
 }
 
-.theme-help-box-user-guide  {
-  background: url(../images/user-guide-green.png) no-repeat top left;
+.theme-help-box-user-guide a {
+  background: url(../images/user-guide-orange.png) no-repeat top left;
   padding-left: 20px;
-  margin-left: 8px;
-  margin-right: 5px;
-  height: 14px;
+  padding-top: 1px;
+  padding-bottom: 2px;
 }
 
-.theme-help-box-user-guide:hover {
+@media \0screen {
+  .theme-help-box-user-guide a, .theme-help-box-user-guide a {
+    padding-bottom: 0px;  
+  }
+}
+
+.theme-help-box-user-guide a:hover {
   background-position: 0px -15px;
+  padding-left: 20px;
+  padding-top: 1px;
   color: #62799a;
 }
 
+.theme-help-box-user-guide a, x:-moz-any-link, x:default {
+  padding-bottom: 1px;
+}
 
 .theme-help-box-support a {
-  background: url(../images/help-green.png) no-repeat top left;
+  background: url(../images/help-orange.png) no-repeat top left;
   padding-left: 25px;
   padding-top: 1px;
   padding-bottom: 2px;
+  padding-right: 10px;
 }
 
 @media \0screen {
@@ -889,6 +900,7 @@ td div.theme-progress-bar {
   background-position: 0px -15px;
   padding-left: 25px;
   padding-top: 1px;
+  padding-right: 10px;
   color: #62799a;
 }
 
