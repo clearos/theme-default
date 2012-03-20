@@ -523,10 +523,13 @@ function _get_banner($page, $menus = array())
     //---------------------------------------------------------------
 
     $banner_links = '';
+    $framework =& get_instance();
 
-    foreach ($page['menus'] as $url => $details) {
-        if ($details['category'] == lang('base_category_spotlight'))
-            $banner_links .= '&nbsp;&nbsp;<a href="' . $url . '">' . $details['title'] . '</a>&nbsp;&nbsp;|';
+    if (! isset($framework->session->userdata['wizard'])) {
+        foreach ($page['menus'] as $url => $details) {
+            if ($details['category'] == lang('base_category_spotlight'))
+                $banner_links .= '&nbsp;&nbsp;<a href="' . $url . '">' . $details['title'] . '</a>&nbsp;&nbsp;|';
+        }
     }
 
     $top_menu = empty($menus) ? '' : _get_top_menu($menus);
@@ -591,6 +594,10 @@ function _get_left_menu($menus)
     $left_menu = $menus['left_menu'];
     $active_category_number = $menus['active_category'];
 
+    // A link for testing wizards
+    if ($_SERVER['SERVER_PORT'] == 1501)
+        $wizard_test = "<p align='center'><a href='/app/base/wizard/stop'>Stop Wizard</a></p>";
+
     $html = "
     <!-- Left menu Javascript -->
     <script type='text/javascript'> 
@@ -605,6 +612,7 @@ function _get_left_menu($menus)
         <div id='theme-left-menu'>
 $left_menu
         </div>
+        $wizard_test
     </div>
     ";
 
@@ -629,7 +637,10 @@ function _get_wizard_navigation($nav_data)
     if (empty($nav_data['next']))
         $next = '';
     else
-        $next = theme_anchor($nav_data['next'], lang('base_next'), 'high', 'theme-anchor-next', array());
+        $next = anchor_javascript('wizard_nav_next', lang('base_next'), 'high', $options = NULL);
+
+    $framework =& get_instance();
+    $framework->session->set_userdata('wizard_redirect', preg_replace('/^\/app\//', '', $nav_data['next']));
 
     // FIXME: translate below
     return "
