@@ -596,7 +596,9 @@ function _get_left_menu($menus)
 
     // A link for testing wizards
     if ($_SERVER['SERVER_PORT'] == 1501)
-        $wizard_test = "<p align='center'><a href='/app/base/wizard/stop'>Stop Wizard</a></p>";
+        $wizard_test = "<p align='center'><a href='/app/base/wizard/stop'>Stop Wizard Test</a></p>";
+    else
+        $wizard_test = '';
 
     $html = "
     <!-- Left menu Javascript -->
