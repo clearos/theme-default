@@ -859,7 +859,7 @@ td div.theme-progress-bar {
 }
 
 .theme-help-box-user-guide a {
-  background: url(../images/user-guide-orange.png) no-repeat top left;
+  background: url(../images/user-guide-green.png) no-repeat top left;
   padding-left: 20px;
   padding-top: 1px;
   padding-bottom: 2px;
@@ -883,7 +883,7 @@ td div.theme-progress-bar {
 }
 
 .theme-help-box-support a {
-  background: url(../images/help-orange.png) no-repeat top left;
+  background: url(../images/help-green.png) no-repeat top left;
   padding-left: 25px;
   padding-top: 1px;
   padding-bottom: 2px;
