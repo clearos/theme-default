@@ -758,7 +758,7 @@ function theme_form_header($title, $options)
     return "<table border='0' cellpadding='0' cellspacing='0' class='theme-form-wrapper'$id_html>
         <tr class='theme-form-header'>
             <td><span class='theme-form-header-heading'>$title</span></td>
-            <td align='right'><span class='theme-form-header-status' $status_id_html></span></td>
+            <td align='right'><span class='theme-form-header-status' $status_id_html>&nbsp;</span></td>
         </tr>
     ";
 }
