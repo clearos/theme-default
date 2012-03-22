@@ -320,9 +320,20 @@ function _wizard_page($page)
     $sidebar = '';
     $help = '';
 
+    if ($page['wizard_type'] != 'intro') {
+        $help = "
+            <div id='theme-help-box-container'>
+                <div class='theme-help-box'>
+                " . $page['page_help'] . "
+                </div>
+            </div>
+        ";
+    }
+
     if ($page['wizard_type'] == 'normal') {
         $content = "
             <div id='theme-content-left'>
+                $help
                 $content
             </div>
         ";
@@ -332,16 +343,6 @@ function _wizard_page($page)
                 <div class='theme-sidebar-top'></div>
                 " . $page['page_inline_help'] . "
                 <div class='theme-sidebar-bottom'></div>
-            </div>
-        ";
-    }
-
-    if ($page['wizard_type'] != 'intro') {
-        $help = "
-            <div id='theme-help-box-container'>
-                <div class='theme-help-box'>
-                " . $page['page_help'] . "
-                </div>
             </div>
         ";
     }

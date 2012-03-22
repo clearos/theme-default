@@ -1457,18 +1457,26 @@ function theme_help_box($data)
         $support_link = "";
     }
 
-    // FIXME: translate
-    return theme_dialogbox_info("
-        <p class='theme-help-box-breadcrumb'>" . $data['name'] . "</p>
-        <div class='theme-help-box-content'>
-            <div class='theme-help-box-icon'><img src='" . $data['icon_path'] . "' alt=''></div>
-            <p class='theme-help-box-description'>" . $data['description'] . "</p>
+    if ($support_link || $user_guide_link) {
+        $help_box_assets = "
             <div class='theme-help-box-assets'>
                 <div class='theme-help-box-assets-style'>
                     $user_guide_link
                     $support_link
                 </div>
             </div>
+        ";
+    } else {
+        $help_box_assets = '';
+    }
+
+    // FIXME: translate
+    return theme_dialogbox_info("
+        <p class='theme-help-box-breadcrumb'>" . $data['name'] . "</p>
+        <div class='theme-help-box-content'>
+            <div class='theme-help-box-icon'><img src='" . $data['icon_path'] . "' alt=''></div>
+            <p class='theme-help-box-description'>" . $data['description'] . "</p>
+            $help_box_assets
         </div>
     ");
 }
