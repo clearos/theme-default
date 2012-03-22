@@ -368,7 +368,6 @@ function _wizard_page($page)
         "
         <!-- Content -->
         <div id='theme-content-container'>
-            $help
             $sidebar
             $content
         </div>
