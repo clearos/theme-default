@@ -319,6 +319,7 @@ function _wizard_page($page)
     $content = _get_message() . $page['app_view'];
     $sidebar = '';
     $help = '';
+    $nav = _get_wizard_navigation($page['wizard_navigation']);
 
     if ($page['wizard_type'] != 'intro') {
         $help = "
@@ -335,6 +336,7 @@ function _wizard_page($page)
             <div id='theme-content-left'>
                 $help
                 $content
+                $nav
             </div>
         ";
 
@@ -364,17 +366,14 @@ function _wizard_page($page)
             <div class='theme-content-border-right'></div>
         </div>
         <div class='theme-core-content'>
-        " .
-            _get_left_menu($menus) .
-        "
-        <!-- Content -->
-        <div id='theme-content-container'>
-            $sidebar
-            $content
-        </div>
-        " .
-            _get_wizard_navigation($page['wizard_navigation']) .
-        "
+            " .
+                _get_left_menu($menus) .
+            "
+            <!-- Content -->
+            <div id='theme-content-container'>
+                $sidebar
+                $content
+            </div>
         </div>
         " .
         _get_footer($page) .
