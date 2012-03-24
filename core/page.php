@@ -347,6 +347,8 @@ function _wizard_page($page)
                 <div class='theme-sidebar-bottom'></div>
             </div>
         ";
+    } else {
+        $content = $content . $nav;
     }
 
     return "
