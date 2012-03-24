@@ -72,7 +72,7 @@ function theme_anchor($url, $text, $importance, $class, $options)
     $text = htmlspecialchars($text, ENT_QUOTES);
     $target = isset($options['target']) ? " target='" . $options['target'] . "'" : ''; 
 
-    // FIXME: Aaron, I added the option of having a "disabled" anchor... hack is below.
+    // TODO: Aaron, I added the option of having a "disabled" anchor... hack is below.
     if (isset($options['state']) && ($options['state'] === FALSE))
         return  "<input disabled type='submit' name='' $id value='$text' class='ui-corner-all $class $importance_class' /><span class='theme-form-input'>&nbsp; </span>\n";
     else
@@ -639,12 +639,6 @@ function theme_field_textarea($name, $value, $label, $error, $input_id, $options
         </tr>
     ";
 }
-
-///////////////////////////////////////////////////////////////////////////////
-// R A D I O  S E T S
-///////////////////////////////////////////////////////////////////////////////
-
-// FIXME
 
 ///////////////////////////////////////////////////////////////////////////////
 // P R O G R E S S  B A R S
@@ -1293,8 +1287,6 @@ function theme_dialogbox_confirm_delete($message, $items, $ok_anchor, $cancel_an
 
 function theme_dialogbox_confirm($message, $ok_anchor, $cancel_anchor)
 {
-// FIXME - work in progress
-// FIXME - icons and translate
     $class = 'ui-state-error';
     $iconclass = 'ui-icon-alert';
 
@@ -1310,8 +1302,6 @@ function theme_dialogbox_confirm($message, $ok_anchor, $cancel_anchor)
 
 function theme_dialogbox_info($message)
 {
-// FIXME - work in progress
-// FIXME - icons and translate
     $class = 'ui-state-highlight';
 
     return "
@@ -1325,8 +1315,6 @@ function theme_dialogbox_info($message)
 
 function theme_dialog_warning($message)
 {
-// FIXME - work in progress
-// FIXME - icons and translate
     $class = 'ui-state-error';
     $iconclass = 'ui-icon-alert';
 
@@ -1470,7 +1458,6 @@ function theme_help_box($data)
         $help_box_assets = '';
     }
 
-    // FIXME: translate
     return theme_dialogbox_info("
         <p class='theme-help-box-breadcrumb'>" . $data['name'] . "</p>
         <div class='theme-help-box-content'>

@@ -438,10 +438,10 @@ function _console_page($page)
             </div>
         </div>
 
-        <!-- Footer FIXME: translation -->
-        <div id='theme-footer-console-container'>
-            Are you in a command line kind of mood? "
-            . anchor_custom('/app/graphical_console/shutdown', 'To the command line Batman', 'low') .
+        <!-- Footer -->
+        <div id='theme-footer-console-container'>" .
+            lang('base_looking_for_a_command_line?') . " "
+            . anchor_custom('/app/graphical_console/shutdown', lang('base_go_to_the_command_line'), 'high') .
             "
         </div>
     </div>
@@ -644,7 +644,6 @@ function _get_wizard_navigation($nav_data)
     $framework =& get_instance();
     $framework->session->set_userdata('wizard_redirect', preg_replace('/^\/app\//', '', $nav_data['next']));
 
-    // FIXME: translate below
     return "
         <div id='theme_wizard_nav'>
             <p align='center'>
@@ -653,7 +652,7 @@ function _get_wizard_navigation($nav_data)
             </p>
         </div>
         <div id='theme_wizard_complete' style='display: none'>
-            <p align='center'>" . theme_anchor('/app/base/wizard/stop', 'Finish Install Wizard...') . "</p>
+            <p align='center'>" . theme_anchor('/app/base/wizard/stop', lang('base_finish_install_wizard'), 'high') . "</p>
         </div>
     ";
 }
