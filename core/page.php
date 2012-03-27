@@ -369,7 +369,7 @@ function _wizard_page($page)
         </div>
         <div class='theme-core-content'>
             " .
-                _get_left_menu($menus) .
+                _get_left_menu($menus, TRUE) .
             "
             <!-- Content -->
             <div id='theme-content-container'>
@@ -590,13 +590,13 @@ $top_menu
  * @return string left navigation menu HTML
  */
 
-function _get_left_menu($menus)
+function _get_left_menu($menus, $is_wizard = FALSE)
 {
     $left_menu = $menus['left_menu'];
     $active_category_number = $menus['active_category'];
 
     // A link for testing wizards
-    if ($_SERVER['SERVER_PORT'] == 1501)
+    if (($_SERVER['SERVER_PORT'] == 1501) && $is_wizard)
         $wizard_test = "<p align='center'><a href='/app/base/wizard/stop'>Stop Wizard Test</a></p>";
     else
         $wizard_test = '';
