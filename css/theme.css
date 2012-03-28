@@ -1783,7 +1783,7 @@ ul#theme-top-menu-list .theme-top-menu-subcategory {
   clear: right;
   float: right;
   position: relative;
-  text-align: center;
+  text-align: right;
 }
 #pagination-bottom {
   float: right;
