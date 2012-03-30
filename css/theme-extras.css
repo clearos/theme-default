@@ -36,7 +36,7 @@ h1 {
   color: #e1852e;
 }
 
-.theme-help-box-user-guide  {
+.theme-help-box-user-guide a {
   background: url(../images/user-guide-orange.png) no-repeat top left;
 }
 
