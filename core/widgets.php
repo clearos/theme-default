@@ -54,6 +54,7 @@
  * Options:
  * - state: enabled/disabled
  * - target: href target (when enabled only)
+ * - tabindex: tabindex for the anchor
  * 
  * @param string $url        URL
  * @param string $text       anchor text
@@ -71,12 +72,13 @@ function theme_anchor($url, $text, $importance, $class, $options)
     $id = isset($options['id']) ? ' id=' . $options['id'] : '';
     $text = htmlspecialchars($text, ENT_QUOTES);
     $target = isset($options['target']) ? " target='" . $options['target'] . "'" : ''; 
+    $tabindex = isset($options['tabindex']) ? " tabindex='" . $options['tabindex'] . "'" : '';
 
     // TODO: Aaron, I added the option of having a "disabled" anchor... hack is below.
     if (isset($options['state']) && ($options['state'] === FALSE))
-        return  "<input disabled type='submit' name='' $id value='$text' class='ui-corner-all $class $importance_class' /><span class='theme-form-input'>&nbsp; </span>\n";
+        return  "<input disabled type='submit' name='' $id value='$text' class='ui-corner-all $class $importance_class' $tabindex/><span class='theme-form-input'>&nbsp; </span>\n";
     else
-        return "<a href='$url'$id class='theme-anchor $class $importance_class'$target>$text</a>";
+        return "<a href='$url'$id class='theme-anchor $class $importance_class'$target$tabindex>$text</a>";
 }
 
 function theme_anchor_dialog($url, $text, $importance, $class, $options)
@@ -131,6 +133,7 @@ function theme_anchor_dialog($url, $text, $importance, $class, $options)
  *
  * Options:
  * - state: enabled/disabled
+ * - tabindex: tabindex for the button
  *
  * @param string $name       button name,
  * @param string $text       text to be shown on the anchor
@@ -147,8 +150,9 @@ function theme_form_submit($name, $text, $importance, $class, $options)
 
     $id = isset($options['id']) ? ' id=' . $options['id'] : '';
     $text = htmlspecialchars($text, ENT_QUOTES);
+    $tabindex = isset($options['tabindex']) ? " tabindex='" . $options['tabindex'] . "'" : '';
 
-    return "<div style='height: 22px; ^height: 21px; display: inline;'><input type='submit' name='$name'$id value='$text' class='ui-corner-all $class $importance_class' /><span class='theme-form-input'>&nbsp; </span></div>\n";
+    return "<div style='height: 22px; ^height: 21px; display: inline;'><input type='submit' name='$name'$id value='$text' class='ui-corner-all $class $importance_class$tabindex' /><span class='theme-form-input'>&nbsp; </span></div>\n";
 }
 
 ///////////////////////////////////////////////////////////////////////////////

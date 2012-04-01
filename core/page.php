@@ -632,15 +632,19 @@ $left_menu
 
 function _get_wizard_navigation($nav_data)
 {
+    $options_previous['id'] = 'wizard_nav_previous';
+    $options_previous['tabindex'] = '1001';
+    $options_next['tabindex'] = '1000';
+
     if (empty($nav_data['previous']))
         $previous = '';
     else
-        $previous = theme_anchor($nav_data['previous'], lang('base_previous'), 'high', 'theme-anchor-previous', array());
+        $previous = theme_anchor($nav_data['previous'], lang('base_previous'), 'high', 'theme-anchor-previous', $options_previous);
 
     if (empty($nav_data['next']))
         $next = '';
     else
-        $next = anchor_javascript('wizard_nav_next', lang('base_next'), 'high', $options = NULL);
+        $next = anchor_javascript('wizard_nav_next', lang('base_next'), 'high', $options_next);
 
     $framework =& get_instance();
     $framework->session->set_userdata('wizard_redirect', preg_replace('/^\/app\//', '', $nav_data['next']));

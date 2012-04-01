@@ -61,6 +61,19 @@ $(function(){
 	$('fieldset').addClass('ui-widget-content ui-corner-all');
 	$('legend').addClass('ui-widget-header ui-corner-all');
 	$('label').addClass('ui-widget ui-corner-all');
+
+    // Wizard - "next" button triggered by hitting enter button
+    $("#theme_wizard_nav_next").keyup(function(event){
+        if (event.keyCode == 13) {
+            $("#wizard_nav_next").click();
+        }
+    });
+
+    $("#theme_wizard_nav_previous").keyup(function(event){
+        if (event.keyCode == 13) {
+            $("#wizard_nav_previous").click();
+        }
+    });
 });
 
 function theme_clearos_dialog_box(id, title, message, options)
