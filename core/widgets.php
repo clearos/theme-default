@@ -584,14 +584,13 @@ function theme_field_toggle_enable_disable($name, $selected, $label, $error, $va
  * @param string $value    value of checkbox 
  * @param string $label    label for checkbox field
  * @param string $error    validation error message
- * @param array  $values    hash list of values for dropdown
  * @param string $input_id input ID
  * @param array  $options  options
  *
  * @return string HTML
  */
 
-function theme_field_checkbox($name, $value, $label, $options, $input_id, $options)
+function theme_field_checkbox($name, $value, $label, $error, $input_id, $options)
 {
     $field_id_html = (isset($options['field_id'])) ? $options['field_id'] : $input_id . '_field';
     $label_id_html = (isset($options['label_id'])) ? $options['label_id'] : $input_id . '_label';
@@ -642,6 +641,87 @@ function theme_field_textarea($name, $value, $label, $error, $input_id, $options
             <td class='theme-field-right theme-field-textarea-box'> <textarea name='$name' id='$input_id'>$value</textarea>$error_html</td>
         </tr>
     ";
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// F I E L D  R A D I O  S E T S
+///////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Display radio sets.
+ *
+ * Supported options:
+ * - id 
+ *
+ * @param array  $radios  list of radios in HTML format
+ * @param array  $options options
+ *
+ * @return string HTML for field radio set
+ */
+
+function theme_field_radio_set($title, $radios, $options = array())
+{
+    $output = '';
+    $count = 0;
+
+    if ($options['orientation'] == 'horizontal') 
+        $output .= "<tr><td colspan='2'><table border='0' cellpadding='0' cellspacing='0' style='width: 75%' align='center'><tr>";
+
+    foreach ($radios as $radio) {
+        $output .= $radio;
+        $count++;
+
+        if (($options['orientation'] == 'horizontal') && ($count < count($radios)))
+            $output .= "<td width='100'>&nbsp;</td>";
+    }
+
+    if ($options['orientation'] == 'horizontal') 
+        $output .= '</tr></table><td></tr>';
+
+    return $output;
+}
+
+/**
+ * Return radio set items.
+ *
+ * @param string $name      name of text input element
+ * @param string $group     button group
+ * @param string $label     label for text input field
+ * @param string $checked   checked flag
+ * @param string $read_only read only flag
+ * @param array  $options   options
+ *
+ */
+
+function theme_field_radio_set_item($name, $group, $label, $checked, $error, $input_id, $options)
+{
+    $input_id_html = " id='" . $input_id . "'";
+    $field_id_html = (isset($options['field_id'])) ? $options['field_id'] : $input_id . '_field';
+    $label_id_html = (isset($options['label_id'])) ? $options['label_id'] : $input_id . '_label';
+    $error_id_html = (isset($options['error_id'])) ? $options['error_id'] : $input_id . '_error';
+    $select_html = ($checked) ? ' checked' : '';
+
+    $error_html = (empty($error)) ? "" : "<span class='theme-validation-error' id='$error_id_html'>$error</span>";
+
+    $image = ($options['image']) ? "<img src='" . $options['image'] . "' alt='' style='margin: 5px'><br>" : '';
+    $label_help = ($options['label_help']) ? $options['label_help'] : '';
+
+    if ($options['orientation'] == 'horizontal') {
+        return "
+            <td nowrap align='right'>$image<label for='$input_id' id='$label_id_html'>$label</label></td>
+            <td><input type='radio' name='$group' id='$input_id' value='$name' $select_html></td>
+        ";
+    } else {
+        return "
+            <tr id='$field_id_html'>
+                <td>
+                    <input tabindex='50' type='radio' name='$group' id='$input_id' value='$name' $select_html>
+                    <label for='$input_id' id='$label_id_html'>$label</label>$label_help
+                </td>
+                <td>$image</td>
+            </tr>
+        ";
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -757,6 +837,29 @@ function theme_form_header($title, $options)
         <tr class='theme-form-header'>
             <td><span class='theme-form-header-heading'>$title</span></td>
             <td align='right'><span class='theme-form-header-status' $status_id_html>&nbsp;</span></td>
+        </tr>
+    ";
+}
+
+/**
+ * Form banner.
+ *
+ * Supported options:
+ * - id 
+ *
+ * @param string $html    html payload
+ * @param array  $options options
+ *
+ * @return string HTML
+ */
+
+function theme_form_banner($html, $options)
+{
+    $id_html = (isset($options['id'])) ? " id='" . $options['id'] . "'" : '';
+ 
+    return "
+        <tr class='theme-form-header'$id_html>
+            <td colspan='2' class='theme-form-banner'>$html</td>
         </tr>
     ";
 }
@@ -1491,12 +1594,12 @@ function theme_inline_help_box($data)
     $help = '';
 
     foreach ($data['inline_help'] as $heading => $text) {
-        $help .= "<h4>$heading</h4>";
-        $help .= "<p>$text</p>";
+        $help .= "<h3 style='color: #666666; font-size: 13px; font-weight: bold;'>$heading</h3>";
+        $help .= "<p style='font-size: 13px;'>$text</p>";
     }
 
     $html = theme_dialogbox_info("
-        <h3>" . lang('base_help') . "</h3>
+        <h3 style='padding-top: 5px'>" . lang('base_help') . "</h3>
         $help
     ");
 

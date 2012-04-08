@@ -355,6 +355,11 @@ a.theme-button-set-middle {
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
 }
+
+/* ------------------------------------------------------------------------- */
+/* Radio Sets */
+/* ------------------------------------------------------------------------- */
+
 /* ------------------------------------------------------------------------- */
 /* List Table */
 /* ------------------------------------------------------------------------- */
@@ -575,6 +580,12 @@ table.display thead th div.DataTables_sort_wrapper {
   padding: 0\0/;
   line-height: 22px\0/;
   text-align: right;
+}
+
+.theme-form-banner {
+  padding: 15px !important;
+  padding-bottom: 4px;
+  background: transparent;
 }
 
 .theme-button-set-last .theme-form-submit-custom .theme-form-unimportant .ui-button .ui-widget .ui-state-default .ui-corner-right {
