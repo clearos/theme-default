@@ -294,9 +294,6 @@ function get_marketplace_data(basename) {
         $('#sidebar_additional_info').html('<a href=\'/app/network\' class=\'highlight-link\'>' + lang_internet_down + '</a>');
         $('#sidebar_additional_info_row').show(200);
         return;
-    } else {
-        // Now we know we have a fighting chance to get a response...show loading whirly
-        $('#sidebar_additional_info_row').removeClass('theme-hidden');
     }
     $.ajax({
         url: '/app/marketplace/ajax/get_app_details/' + basename,
@@ -314,9 +311,6 @@ function get_marketplace_data(basename) {
                 }
                 return;
             } else {
-                // This was just a placeholder
-                $('#sidebar_additional_info_row').hide();
-
                 // We add rows in the reverse order to keep this section under the Version/Vendor
 
                 // Redemption period
@@ -378,7 +372,7 @@ function get_marketplace_data(basename) {
             if (json.complementary_apps != undefined && json.complementary_apps.length > 0) {
                 comp_apps = '<h3>' + lang_marketplace_recommended_apps + '</h3>' +
                     '<div>' + lang_marketplace_sidebar_recommended_apps.replace('APP_NAME', '<b>' + json.name + '</b>') + ':</div>';
-		comp_apps += '<table border=\'0\' width=\'100%\'>';
+                comp_apps += '<table border=\'0\' width=\'100%\'>';
                 for (index = 0 ; index < json.complementary_apps.length; index++) {
                     comp_apps += '<tr><td width=\'5\' valign=\'top\'>&#8226;</td><td width=\'60%\'><a href=\'/app/marketplace/view/' +
                         json.complementary_apps[index].basename + '\'>' +
