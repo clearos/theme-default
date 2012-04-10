@@ -883,6 +883,39 @@ function theme_form_footer($options)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+// C H A R T  W I D G E T
+///////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Chart widget.
+ *
+ * Supported options:
+ * - id 
+ *
+ * @param string $title    form title
+ * @param string $payuload payload
+ * @param array  $options  options
+ *
+ * @return string HTML
+ */
+
+function theme_chart_widget($title, $payload, $options)
+{
+    $id_html = (isset($options['id'])) ? " id='" . $options['id'] . "'" : '';
+ 
+    return "
+        <table border='0' cellpadding='0' cellspacing='0' class='theme-chart-wrapper'$id_html>
+            <tr class='theme-chart-header'>
+                <td><span class='theme-form-header-heading'>$title</span></td>
+            </tr>
+            <tr>
+                <td>$payload</td>
+            </tr>
+        </table>
+    ";
+}
+
+///////////////////////////////////////////////////////////////////////////////
 // T A B  V I E W
 ///////////////////////////////////////////////////////////////////////////////
 
