@@ -56,7 +56,7 @@ function theme_page_head($theme_path)
 
 <!-- Theme Style Sheets -->
 <link type='text/css' href='$theme_path/css/jquery-ui-1.8.5.custom.css' rel='stylesheet'>
-<link type='text/css' href='$theme_path/css/jquery.jqplot.css' rel='stylesheet'>
+<link type='text/css' href='$theme_path/css/jquery.jqplot.min.css' rel='stylesheet'>
 <link type='text/css' href='$theme_path/css/superfish.css' rel='stylesheet'>
 <link type='text/css' href='$theme_path/css/jquery.lightbox-0.5.css' rel='stylesheet'>
 <link type='text/css' href='$theme_path/css/summary-table.css' rel='stylesheet'>
@@ -64,7 +64,7 @@ function theme_page_head($theme_path)
 $theme_extras
 <!-- Theme Javascript -->
 <script type='text/javascript' src='$theme_path/js/jquery-ui-1.8.5.custom.min.js'></script>
-<!--[if lt IE 9]><script type='text/javascript' src='$theme_path/js/jqplot/excanvas.js'></script><![endif]-->
+<!--[if lt IE 9]><script type='text/javascript' src='$theme_path/js/jqplot/excanvas.min.js'></script><![endif]-->
 <script type='text/javascript' src='$theme_path/js/jqplot/jquery.jqplot.min.js'></script>
 <script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.barRenderer.min.js'></script>
 <script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.pieRenderer.min.js'></script>
