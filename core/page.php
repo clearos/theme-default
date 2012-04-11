@@ -325,7 +325,7 @@ function _wizard_page($page)
         $help = "
             <div id='theme-help-box-container'>
                 <div class='theme-help-box'>
-                " . $page['page_help'] . "
+                " . $page['page_wizard_intro'] . "
                 </div>
             </div>
         ";

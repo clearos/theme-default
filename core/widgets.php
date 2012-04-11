@@ -1548,6 +1548,30 @@ function theme_confirm_delete($title, $confirm_uri, $cancel_uri, $items, $messag
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+// W I Z A R D  I N T R O  B O X
+///////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Displays an intro box when in wizard mode.
+ *
+ */
+
+function theme_wizard_intro_box($data)
+{
+    // TODO: bad hack.  Move to CSS if this is what we roll with.
+    $font = " style='font-size: 13px'";
+
+    return theme_dialogbox_info("
+        <p class='theme-help-box-breadcrumb'>" . $data['name'] . "</p>
+        <div class='theme-help-box-content'>
+            <div class='theme-help-box-icon'><img src='" . $data['icon_path'] . "' alt=''></div>
+            <p class='theme-help-box-description'$font>" . $data['description'] . "</p>
+            $help_box_assets
+        </div>
+    ");
+}
+
+///////////////////////////////////////////////////////////////////////////////
 // H E L P  B O X
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -1602,7 +1626,7 @@ function theme_help_box($data)
         <p class='theme-help-box-breadcrumb'>" . $data['name'] . "</p>
         <div class='theme-help-box-content'>
             <div class='theme-help-box-icon'><img src='" . $data['icon_path'] . "' alt=''></div>
-            <p class='theme-help-box-description'>" . $data['description'] . "</p>
+            <p class='theme-help-box-description'$font>" . $data['description'] . "</p>
             $help_box_assets
         </div>
     ");
