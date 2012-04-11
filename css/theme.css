@@ -1331,22 +1331,19 @@ table.display td.right {
 }
 
 #theme-sidebar-container {
+  width: 210px;
+  float: right;
+  margin-top: 0;
+  margin-bottom: 9px;
+}
+
+.theme-sidebar-top {
   background-color: white;
   border: 1px solid #e1e1e1;
   border-radius: 9px;
   -moz-border-radius: 9px;
   -webkit-border-radius: 9px;
-  width: 210px;
-  float: right;
-  margin-top: 0;
-  float: right;
-  margin-bottom: 9px;
-}
-
-.theme-sidebar-top {
-}
-
-.theme-sidebar-bottom {
+  margin-bottom: 10px;
 }
 
 #theme-sidebar-container .theme-dialogbox-info  {

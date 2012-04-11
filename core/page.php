@@ -342,9 +342,9 @@ function _wizard_page($page)
 
         $sidebar = "
             <div id='theme-sidebar-container'>
-                <div class='theme-sidebar-top'></div>
+                <div class='theme-sidebar-top'>
                 " . $page['page_inline_help'] . "
-                <div class='theme-sidebar-bottom'></div>
+                </div>
             </div>
         ";
     } else {
@@ -428,9 +428,9 @@ function _console_page($page)
         <div class='theme-core-content-console'>
             <div id='theme-content-container'>
                 <div id='theme-sidebar-container'>
-                    <div class='theme-sidebar-top'></div>
+                    <div class='theme-sidebar-top'>
                     " . $page['page_inline_help'] . "
-                    <div class='theme-sidebar-bottom'></div>
+                    </div>
                 </div>
                 <div id='theme-content-left'>
                     " . _get_message() . "
@@ -485,9 +485,12 @@ function _get_basic_app_layout($page)
                 </div>
             </div>
             <div id='theme-sidebar-container'>
-                <div class='theme-sidebar-top'></div>
+                <div class='theme-sidebar-top'>
                 " . $page['page_summary'] . "
+                </div>
+                <div class='theme-sidebar-top'>
                 " . $page['page_report'] . "
+                </div>
                 <div class='theme-sidebar-bottom'></div>
             </div>
             <div id='theme-content-left'>
