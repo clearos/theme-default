@@ -317,12 +317,12 @@ function _wizard_page($page)
 
     // Add a sidebar on normal pages.  Some pages need the full width.
     $content = _get_message() . $page['app_view'];
-    $sidebar = '';
-    $help = '';
     $nav = _get_wizard_navigation($page['wizard_navigation']);
+    $intro = '';
+    $sidebar = '';
 
-    if ($page['wizard_type'] != 'intro') {
-        $help = "
+    if ($page['page_wizard_intro']) {
+        $intro = "
             <div id='theme-help-box-container'>
                 <div class='theme-help-box'>
                 " . $page['page_wizard_intro'] . "
@@ -331,15 +331,7 @@ function _wizard_page($page)
         ";
     }
 
-    if ($page['wizard_type'] == 'normal') {
-        $content = "
-            <div id='theme-content-left'>
-                $help
-                $content
-                $nav
-            </div>
-        ";
-
+    if ($page['page_inline_help']) {
         $sidebar = "
             <div id='theme-sidebar-container'>
                 <div class='theme-sidebar-top'>
@@ -347,9 +339,15 @@ function _wizard_page($page)
                 </div>
             </div>
         ";
-    } else {
-        $content = $content . $nav;
     }
+
+    // Use a wide "intro" layout for pages without a sidebar.
+    // Add a sidebar div if a sidebar exists.
+
+    $content = $intro . $content . $nav;
+
+    if ($sidebar)
+        $content = "<div id='theme-content-left'>$content</div>";
 
     return "
 <!-- Body -->

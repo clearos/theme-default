@@ -1560,14 +1560,19 @@ function theme_confirm_delete($title, $confirm_uri, $cancel_uri, $items, $messag
 function theme_wizard_intro_box($data)
 {
     // TODO: bad hack.  Move to CSS if this is what we roll with.
+    // TODO: fix the CSS classes (stealing help-box stuff)
+    // TODO: sorry, div layout was causing grief.
     $font = " style='font-size: 13px'";
 
     return theme_dialogbox_info("
-        <p class='theme-help-box-breadcrumb'>" . $data['name'] . "</p>
+        <p class='theme-help-box-breadcrumb'>" . $data['wizard_name'] . "</p>
         <div class='theme-help-box-content'>
-            <div class='theme-help-box-icon'><img src='" . $data['icon_path'] . "' alt=''></div>
-            <p class='theme-help-box-description'$font>" . $data['description'] . "</p>
-            $help_box_assets
+            <table border='0' cellpadding='0' cellspacing='0'>
+                <tr>
+                    <td><div class='theme-wizard-intro-icon'><img src='" . $data['icon_path'] . "' alt=''></div></td>
+                    <td valign='top'><p class='theme-wizard-intro-description'$font>" . $data['wizard_description'] . "</p></td>
+                </tr>
+            </table>
         </div>
     ");
 }
