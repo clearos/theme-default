@@ -291,7 +291,7 @@ function _splash_page($page)
 <body>
 
 <!-- Page Container -->
-<div id='theme-page-container'>
+<div id='theme-page-console-container'>
     <div class='theme-splash-logo'></div>
     <div id='theme-content-splash-container'>
         " . _get_message() . "
