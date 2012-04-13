@@ -657,7 +657,7 @@ function _get_wizard_navigation($nav_data)
                 <span id='theme_wizard_nav_next'>$next</span>
             </p>
         </div>
-        <div id='theme_wizard_complete' style='display: none'>
+        <div id='theme_wizard_complete' style='display: none; clear: both;'>
             <p align='center'>" . theme_anchor('/app/base/wizard/stop', lang('base_finish_install_wizard'), 'high') . "</p>
         </div>
     ";
