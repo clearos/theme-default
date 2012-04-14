@@ -1,6 +1,6 @@
 Name: theme-default
 Group: Applications/Themes
-Version: 6.2.0.rc1
+Version: 6.2.1
 Release: 1%{dist}
 Summary: ClearOS 6 base theme
 License: Copyright 2011 ClearFoundation
