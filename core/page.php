@@ -76,7 +76,6 @@
 
 function theme_page($page)
 {
-    // FIXME: remove marketplace reference below after 6.2.0 RC1
     if ($page['type'] == MY_Page::TYPE_CONFIGURATION)
         return _configuration_page($page);
     else if ($page['type'] == MY_Page::TYPE_REPORT)
@@ -91,8 +90,6 @@ function theme_page($page)
         return _wizard_page($page);
     else if ($page['type'] == MY_Page::TYPE_CONSOLE)
         return _console_page($page);
-    else if ($page['type'] == 'marketplace')
-        return _spotlight_page($page);
 }
 
 /**
