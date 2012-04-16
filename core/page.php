@@ -471,6 +471,16 @@ function _get_message()
 
 function _get_basic_app_layout($page)
 {
+    if ($page['page_report']) {
+        $report = "
+            <div class='theme-sidebar-top'>
+            " . $page['page_report'] . "
+            </div>
+        ";
+    } else {
+        $report = '';
+    }
+
     return "
         <!-- Content -->
         <div id='theme-content-container'>
@@ -483,9 +493,7 @@ function _get_basic_app_layout($page)
                 <div class='theme-sidebar-top'>
                 " . $page['page_summary'] . "
                 </div>
-                <div class='theme-sidebar-top'>
-                " . $page['page_report'] . "
-                </div>
+                $report
                 <div class='theme-sidebar-bottom'></div>
             </div>
             <div id='theme-content-left'>
