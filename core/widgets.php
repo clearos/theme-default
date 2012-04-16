@@ -1648,7 +1648,7 @@ function theme_help_box($data)
                     <td valign='top' width='50'><div class='theme-help-box-icon'><img src='" . $data['icon_path'] . "' alt=''></div></td>
                     <td valign='top'><p class='theme-help-box-description'>" . $data['description'] . "</p></td>
 
-                    <td valign='top' width='$asset_width' class='theme-help-box-assets'><p>$help_box_assets</td>
+                    <td valign='top' width='$asset_width' class='theme-help-box-assets'>$help_box_assets</td>
                 </tr>
             </table>
         </div>
