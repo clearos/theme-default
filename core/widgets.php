@@ -706,11 +706,12 @@ function theme_field_radio_set_item($name, $group, $label, $checked, $error, $in
 
     $image = ($options['image']) ? "<img src='" . $options['image'] . "' alt='' style='margin: 5px'><br>" : '';
     $label_help = ($options['label_help']) ? $options['label_help'] : '';
+    $orientation = (isset($options['orientation'])) ? $options['orientation'] : 'vertical';
 
     $disabled = (isset($options['disabled']) && $options['disabled']) ? " disabled='disabled'" : "";
     $input = "<input tabindex='50' type='radio' name='$group' id='$input_id' value='$name' $select_html $disabled>";
 
-    if ($options['orientation'] == 'horizontal') {
+    if ($orientation == 'horizontal') {
         return "
             <td nowrap align='right'>$image<label for='$input_id' id='$label_id_html'>$label</label></td>
             <td>$input</td>
