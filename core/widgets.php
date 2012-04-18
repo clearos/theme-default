@@ -1644,7 +1644,7 @@ function theme_help_box($data)
     return theme_dialogbox_info("
         <p class='theme-help-box-breadcrumb'>" . $data['name'] . "</p>
         <div class='theme-help-box-content'>
-            <table border='0' cellpadding='0' cellspacing='0'>
+            <table border='0' cellpadding='0' cellspacing='0' width='100%'>
                 <tr>
                     <td valign='top' width='50'><div class='theme-help-box-icon'><img src='" . $data['icon_path'] . "' alt=''></div></td>
                     <td valign='top'><p class='theme-help-box-description'>" . $data['description'] . "</p></td>
@@ -1729,10 +1729,11 @@ function theme_summary_box($data)
 
     // TODO: move this out of the theme
     // TODO: remove sidebar unless it's directly related to this widget.
+    // TODO: translate
     if ($data['show_marketplace']) {
         $marketplace =  "
             <div class='marketplace-linkback'>" .
-            anchor_custom('/app/marketplace/view/' . $data['basename'], lang('base_visit_marketplace')) . "
+            anchor_custom('/app/marketplace/view/' . $data['basename'], 'App Details') . "
             </div>
             <div id='sidebar-recommended-apps'>
             </div>
