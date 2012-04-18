@@ -548,6 +548,7 @@ table.display thead th div.DataTables_sort_wrapper {
   background-image: url(../images/loading.gif);
   background-repeat: no-repeat;
   height: 23px;
+  padding-top: 4px;
   padding-left: 25px;
   margin: auto;
   display: inline-block;
