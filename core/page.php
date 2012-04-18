@@ -696,7 +696,10 @@ function _get_menu($menu_data, $wizard = FALSE)
 
     if ($wizard) {
         // Search for an exact match first.  Otherwise, use fuzzy matching.
-        $full_url = $_SERVER['PHP_SELF'];
+        // The edit preg is a hack - redo all of this wizard handling -- too messy.
+        $full_url = preg_replace('/\/(add|edit).*$/', '', $_SERVER['PHP_SELF']);
+        $full_url = preg_replace('/\/$/', '', $full_url);
+
         foreach ($menu_data as $url => $pageinfo) {
             if ($full_url == $pageinfo['nav']) {
                 $highlight['page'] = $pageinfo['nav'];
