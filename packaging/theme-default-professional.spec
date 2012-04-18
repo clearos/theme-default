@@ -8,6 +8,8 @@ Packager: ClearCenter
 Vendor: ClearCenter
 Source: %{name}-%{version}.tar.gz
 Requires: theme-default
+Requires: clearos-logos-professional
+Requires: plymouth-scripts
 Provides: theme-default-driver
 Provides: system-theme
 Obsoletes: app-theme-clearos5x
@@ -27,6 +29,10 @@ ClearOS Professional 6 webconfig theme
 %install
 mkdir -p -m 755 $RPM_BUILD_ROOT/usr/clearos/themes/default
 cp -r * $RPM_BUILD_ROOT/usr/clearos/themes/default
+
+%post
+/usr/sbin/plymouth-set-default-theme --rebuild-initrd rings
+exit 0
 
 %files
 %defattr(-,root,root)
