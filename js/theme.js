@@ -385,9 +385,9 @@ function get_marketplace_data(basename) {
                     comp_apps += '<tr><td width=\'5\' valign=\'top\'>&#8226;</td><td width=\'60%\'><a href=\'/app/marketplace/view/' +
                         json.complementary_apps[index].basename + '\'>' +
                         json.complementary_apps[index].name + '</a></td><td width=\'35%\' valign=\'top\'>\n';
-                    for (var counter = 5 ; counter > json.complementary_apps[index].rating; counter--)
+                    for (var counter = 5 ; counter > Math.round(json.complementary_apps[index].rating); counter--)
                         comp_apps += '<div class=\'star_off\' />';
-                    for (var counter = 0 ; counter < json.complementary_apps[index].rating; counter++)
+                    for (var counter = 0 ; counter < Math.round(json.complementary_apps[index].rating); counter++)
                         comp_apps += '<div class=\'star_on\' />';
                     comp_apps += '</td></tr>';
                 }
