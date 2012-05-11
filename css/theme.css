@@ -1854,9 +1854,9 @@ ul#theme-top-menu-list .theme-top-menu-subcategory {
 }
 
 #sdn_marketplace_setup_dialog {
-  background-image: url('../images/logo-clear-marketplace-setup.png');
+  background-image: url('../images/logo-marketplace-bottom.png');
   background-repeat: no-repeat;
-  background-position: 300px 20px;
+  background-position: 280px 20px;
 }
 .dialog_alert_icon {
   background-image: url('../images/icon-note.png');
