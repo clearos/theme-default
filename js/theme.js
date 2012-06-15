@@ -110,6 +110,7 @@ function theme_clearos_is_authenticated()
 {
 
     data_payload = 'ci_csrf_token=' + $.cookie('ci_csrf_token');
+    data_payload += '&username=' + $('#sdn_username').val();
     $('#sdn_login_dialog_message_bar').html('');
     if (auth_options.action_type == 'login') {
         if ($('#sdn_password').val() == '') {
@@ -132,7 +133,7 @@ function theme_clearos_is_authenticated()
     // Translations
     //-------------
 
-    lang_warnning = '<?php echo lang("base_warning"); ?>';
+    lang_warning = '<?php echo lang("base_warning"); ?>';
 
     $.ajax({
         type: 'POST',
@@ -151,8 +152,13 @@ function theme_clearos_is_authenticated()
                 if (auth_options.action_type == 'login' && auth_options.reload_after_auth)
                     window.location.reload();
             } else if (data.code == 0 && !data.authorized) {
-                // Auto-populate username
-                $('#sdn_username').val(data.sdn_username);
+                // Marketplace 1.1 sends back array of admins
+                $.each(data.sdn_admins, function(key, value) {   
+                    $('#sdn_username')
+                    .append($('<option>', { value : value })
+                    .text(value)); 
+                });
+
                 // Open dialog and change some look and feel
                 $('#sdn_login_dialog').dialog('open');
                 $('.ui-dialog-titlebar-close').hide();
@@ -198,7 +204,7 @@ function theme_clearos_on_page_ready(my_location)
         '<div id=\'sdn_login_dialog\' title=\'' + sdn_org + ' ' + lang_sdn_authentication_required + '\' class=\'theme-hidden\'> \
             <p style=\'text-align: left\'>' + lang_sdn_authentication_required_help + '</p> \
         <div style=\'padding: 0 170 10 0; text-align: right\'><span>' + lang_username + '</span> \
-            <input id=\'sdn_username\' type=\'text\' style=\'width: 120px\' readonly=\'readonly\' name=\'sdn_username\' value=\'\' /> \
+          <select id=\'sdn_username\' style=\'width: 120px;\'></select> \
         </div> \
         <div style=\'padding: 0 170 10 0; text-align: right\' id=\'sdn_password_group\'> \
             <span>' + lang_password + '</span> \

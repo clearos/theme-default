@@ -1786,19 +1786,26 @@ ul#theme-top-menu-list .theme-top-menu-subcategory {
 .marketplace-progress-spash {
   background-image: url('../images/marketplace-splash.png');
   background-repeat: no-repeat;
-  background-position: 0 25;
+  background-position: 0px 25px;
   height:300px;
 }
 .marketplace-search-bar {
   background-image: url('../images/icon-search.png');
   background-repeat: no-repeat;
-  background-position: 140px;
+  background-position: 0px 2px;
+  height: 20px;
+  width: 16px;
+  cursor: pointer;
+  margin-left: 140px;
+}
+.marketplace-search-no-focus:focus {
+  outline: none;
 }
 
 .rbs-progress-spash {
   background-image: url('../images/marketplace-splash.png');
   background-repeat: no-repeat;
-  background-position: 0 5;
+  background-position: 0px 5px;
   height:140px;
   padding: 0px;
   float: right;
