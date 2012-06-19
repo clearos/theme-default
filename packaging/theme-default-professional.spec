@@ -7,7 +7,7 @@ License: Copyright 2011-2012 ClearCenter
 Packager: ClearCenter
 Vendor: ClearCenter
 Source: %{name}-%{version}.tar.gz
-Requires: theme-default
+Requires: theme-default = %{version}
 Requires: clearos-logos-professional
 Requires: plymouth-scripts
 Provides: theme-default-driver
