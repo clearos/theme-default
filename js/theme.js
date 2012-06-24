@@ -110,7 +110,8 @@ function theme_clearos_is_authenticated()
 {
 
     data_payload = 'ci_csrf_token=' + $.cookie('ci_csrf_token');
-    data_payload += '&username=' + $('#sdn_username').val();
+    if ($('#sdn_username').val() != undefined)
+        data_payload += '&username=' + $('#sdn_username').val();
     $('#sdn_login_dialog_message_bar').html('');
     if (auth_options.action_type == 'login') {
         if ($('#sdn_password').val() == '') {
