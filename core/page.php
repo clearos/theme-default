@@ -663,7 +663,7 @@ function _get_wizard_navigation($nav_data)
             </p>
         </div>
         <div id='theme_wizard_complete' style='display: none; clear: both;'>
-            <p align='center'>" . theme_anchor('/app/base/wizard/stop', lang('base_finish_install_wizard'), 'high', 'theme_wizard_stop', NULL) . "</p>
+            <p align='center'>" . theme_anchor('/app/marketplace/wizard/stop', lang('base_finish_install_wizard'), 'high', 'theme_wizard_stop', NULL) . "</p>
         </div>
     ";
 }
