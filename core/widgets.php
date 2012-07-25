@@ -904,14 +904,17 @@ function theme_form_footer($options)
 function theme_chart_widget($title, $payload, $options)
 {
     $id_html = (isset($options['id'])) ? " id='" . $options['id'] . "'" : '';
- 
+
+    $action = ($options['action']) ? $options['action'] : '';
+
     return "
         <table border='0' cellpadding='0' cellspacing='0' class='theme-chart-wrapper'$id_html>
             <tr class='theme-chart-header'>
                 <td><span class='theme-form-header-heading'>$title</span></td>
+                <td align='right'>" . $action . " </td>
             </tr>
             <tr>
-                <td>$payload</td>
+                <td colspan='2'>$payload</td>
             </tr>
         </table>
     ";
