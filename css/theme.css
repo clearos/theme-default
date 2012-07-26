@@ -1798,6 +1798,9 @@ ul#theme-top-menu-list .theme-top-menu-subcategory {
   cursor: pointer;
   margin-left: 140px;
 }
+.marketplace-search-bar-cancel {
+  background-image: url('../images/icon-cancel.png');
+}
 .marketplace-search-no-focus:focus {
   outline: none;
 }
