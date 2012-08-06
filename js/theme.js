@@ -153,12 +153,6 @@ function theme_clearos_is_authenticated()
                 if (auth_options.action_type == 'login' && auth_options.reload_after_auth)
                     window.location.reload();
             } else if (data.code == 0 && !data.authorized) {
-                // Marketplace 1.1 sends back array of admins
-                $.each(data.sdn_admins, function(key, value) {   
-                    $('#sdn_username')
-                    .append($('<option>', { value : value })
-                    .text(value)); 
-                });
 
                 // Open dialog and change some look and feel
                 $('#sdn_login_dialog').dialog('open');
@@ -173,6 +167,13 @@ function theme_clearos_is_authenticated()
                     return;
                 }
                 
+                // Marketplace 1.1 sends back array of admins
+                $.each(data.sdn_admins, function(key, value) {   
+                    $('#sdn_username')
+                    .append($('<option>', { value : value })
+                    .text(value)); 
+                });
+
             } else if (data.code == 10) {
                 // Code 10 is an invalid email
                 $('#sdn_login_dialog_message_bar').html(lang_sdn_email_invalid);
@@ -202,23 +203,27 @@ function theme_clearos_on_page_ready(my_location)
 
     // Insert login dialog
     $('#theme-page-container').append(
-        '<div id=\'sdn_login_dialog\' title=\'' + sdn_org + ' ' + lang_sdn_authentication_required + '\' class=\'theme-hidden\'> \
-            <p style=\'text-align: left\'>' + lang_sdn_authentication_required_help + '</p> \
-        <div style=\'padding: 0 170 10 0; text-align: right\'><span>' + lang_username + '</span> \
-          <select id=\'sdn_username\' style=\'width: 120px;\'></select> \
-        </div> \
-        <div style=\'padding: 0 170 10 0; text-align: right\' id=\'sdn_password_group\'> \
-            <span>' + lang_password + '</span> \
-            <input id=\'sdn_password\' type=\'password\' style=\'width: 120px\' name=\'password\' value=\'\' class=\'autofocus\' /> \
-            <div style=\'padding: 2 2 0 0;\'> \
-                <a href=\'#\' id=\'sdn_forgot_password\' style=\'font-size: 7pt\'>' + lang_forgot_password + '</a> \
+       '<div id=\'sdn_login_dialog\' title=\'' + sdn_org + ' ' + lang_sdn_authentication_required + '\' class=\'theme-hidden\'> \
+          <p style=\'text-align: left\'>' + lang_sdn_authentication_required_help + '</p> \
+          <div style=\'float: left; width: 120px; text-align: right; padding-top: 4px;\'>' + lang_username + '</div> \
+          <div style=\'float: left; margin-left: 10px;\'><select id=\'sdn_username\' style=\'width: 120px;\'></select></div> \
+          <br><br> \
+          <div id=\'sdn_password_group\'> \
+            <div style=\'float: left; width: 120px; text-align: right; padding-top: 5px;\'>' + lang_password + '</div> \
+            <div style=\'float: left; margin-left: 10px;\'> \
+              <input id=\'sdn_password\' type=\'password\' style=\'width: 120px\' name=\'password\' value=\'\' class=\'autofocus\' /> \
             </div> \
-        </div> \
-        <div style=\'padding: 0 170 10 0; text-align: right\' id=\'sdn_lost_password_group\' class=\'theme-hidden\'> \
-            <span>' + lang_sdn_email + '</span> \
-            <input id=\'sdn_email\' type=\'text\' style=\'width: 120px\' name=\'sdn_email\' value=\'\' class=\'autofocus\' /> \
-        </div> \
-        <div style=\'padding: 0 170 10 0; text-align: right\' id=\'sdn_login_dialog_message_bar\'></div> \
+            <div style=\'padding: 2px 2px 0px 0px; width: 250px; text-align: right; clear: both;\'> \
+              <a href=\'#\' id=\'sdn_forgot_password\' style=\'font-size: 9px;\'>' + lang_forgot_password + '</a> \
+            </div> \
+          </div> \
+          <div id=\'sdn_lost_password_group\' class=\'theme-hidden\'> \
+            <div style=\'float: left; width: 120px; text-align: right; padding-top: 5px;\'>' + lang_sdn_email + '</div> \
+            <div style=\'float: left; width: 120px; margin-left: 10px;\'> \
+              <input id=\'sdn_email\' type=\'text\' style=\'width: 120px\' name=\'sdn_email\' value=\'\' class=\'autofocus\' /> \
+            </div> \
+          </div> \
+          <div style=\'padding: 0px 170px 10px 0px; text-align: right\' id=\'sdn_login_dialog_message_bar\'></div> \
         </div>'
     );
 

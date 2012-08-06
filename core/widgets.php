@@ -152,7 +152,7 @@ function theme_form_submit($name, $text, $importance, $class, $options)
     $text = htmlspecialchars($text, ENT_QUOTES);
     $tabindex = isset($options['tabindex']) ? " tabindex='" . $options['tabindex'] . "'" : '';
 
-    return "<div style='height: 22px; ^height: 21px; display: inline;'><input type='submit' name='$name'$id value='$text' class='ui-corner-all $class $importance_class$tabindex' /><span class='theme-form-input'>&nbsp; </span></div>\n";
+    return "<input type='submit' name='$name'$id value='$text' class='ui-corner-all $class $importance_class$tabindex' /><span class='theme-form-input'>&nbsp; </span>\n";
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -1041,7 +1041,7 @@ function theme_action_table($title, $anchors, $items, $options = NULL)
     <div class='theme-summary-table-title'>$title</div>
     <div class='theme-summary-table-action'>$add_html</div>
   </div>
-  <table cellspacing='0' cellpadding='2' width='100%' border='0' class='theme-summary-table theme-summary-table-small display' id='$dom_id'>
+  <table cellspacing='0' cellpadding='0' width='100%' border='0' class='theme-summary-table theme-summary-table-small display' id='$dom_id'>
     <thead>
       <tr class='theme-hidden'><th colspan='100'>bob</th> </tr>
     </thead>
@@ -1223,7 +1223,7 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
     <div class='theme-summary-table-title'>$title</div>
     <div class='theme-summary-table-action'>$add_html</div>
   </div>
-  <table cellspacing='0' cellpadding='2' width='100%' border='0' class='theme-summary-table $size_class display' id='$dom_id'>
+  <table cellspacing='0' cellpadding='0' width='100%' border='0' class='theme-summary-table $size_class display' id='$dom_id'>
    <thead>
     <tr>$header_html
     </tr>
@@ -1379,7 +1379,7 @@ function theme_list_table($title, $anchors, $headers, $items, $options = NULL)
     <div class='theme-list-table-title'>$title</div>
     <div class='theme-list-table-action'>$add_html</div>
   </div>
-  <table cellspacing='0' cellpadding='2' width='100%' border='0' class='theme-list-table display' id='$dom_id'>
+  <table cellspacing='0' cellpadding='0' width='100%' border='0' class='theme-list-table display' id='$dom_id'>
    <thead>
     <tr>$header_html
     </tr>
