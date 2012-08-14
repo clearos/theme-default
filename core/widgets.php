@@ -76,7 +76,7 @@ function theme_anchor($url, $text, $importance, $class, $options)
 
     // TODO: Aaron, I added the option of having a "disabled" anchor... hack is below.
     if (isset($options['state']) && ($options['state'] === FALSE))
-        return  "<input disabled type='submit' name='' $id value='$text' class='ui-corner-all $class $importance_class' $tabindex/><span class='theme-form-input'>&nbsp; </span>\n";
+        return  "<input disabled type='submit' name='' $id value='$text' class='ui-corner-all $class $importance_class' $tabindex />\n";
     else
         return "<a href='$url'$id class='theme-anchor $class $importance_class'$target$tabindex>$text</a>";
 }
@@ -152,7 +152,7 @@ function theme_form_submit($name, $text, $importance, $class, $options)
     $text = htmlspecialchars($text, ENT_QUOTES);
     $tabindex = isset($options['tabindex']) ? " tabindex='" . $options['tabindex'] . "'" : '';
 
-    return "<input type='submit' name='$name'$id value='$text' class='ui-corner-all $class $importance_class$tabindex' /><span class='theme-form-input'>&nbsp; </span>\n";
+    return "<input type='submit' name='$name'$id value='$text' class='ui-corner-all $class $importance_class$tabindex' />\n";
 }
 
 ///////////////////////////////////////////////////////////////////////////////
