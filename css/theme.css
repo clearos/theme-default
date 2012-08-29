@@ -1877,8 +1877,8 @@ ul#theme-top-menu-list .theme-top-menu-subcategory {
 }
 
 #app_list .theme-button-set {
-  margin-left: 0;
-  padding-left: 0;
+  margin-left: 0px;
+  padding-left: 0px;
   margin-top: 5px;
 }
 
@@ -1886,14 +1886,13 @@ ul#theme-top-menu-list .theme-top-menu-subcategory {
   background-image: url('../images/left-menu-shadow.png') ;
   background-position: 5px 5px;
   background-repeat: no-repeat;  
-  padding: 15 0 10 0;
+  padding: 15px 0px 10px 0px;
   text-align: center;
   margin-top: 5px;
 }
 
 .marketplace-linkback a {
   margin-top: 5px;
-  margin-top: 15px;
   margin-bottom: 5px;
 }
 
