@@ -401,6 +401,10 @@ td div.theme-button-set {
   margin-top: 3px;
 }
 
+tr.even, tr.odd {
+  height: 25px;
+}
+
 .even td .theme-button-set {
   margin-bottom: 3px;
   margin-left:2px;
@@ -455,6 +459,14 @@ a.theme-button-set-middle, input.theme-button-set-middle {
   border-radius: 0px;
   -moz-border-radius: 0px;
   -webkit-border-radius: 0px;
+}
+
+/* ------------------------------------------------------------------------- */
+/* Tables */
+/* ------------------------------------------------------------------------- */
+/* Prevent wrapping of button sets */
+.table-buttonset-column {
+  white-space: nowrap;
 }
 
 /* ------------------------------------------------------------------------- */

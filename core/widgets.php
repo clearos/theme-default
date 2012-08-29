@@ -1027,7 +1027,7 @@ function theme_action_table($title, $anchors, $items, $options = NULL)
     foreach ($items as $item) {
         $item_html .= "\t<tr>\n";
         $item_html .= "\t\t<td>" . $item['title'] . "</td>\n";
-        $item_html .= "\t\t<td>" . button_set($item['anchors']) . "</td>\n";
+        $item_html .= "\t\t<td class='table-buttonset-column'>" . button_set($item['anchors']) . "</td>\n";
         $item_html .= "\t</tr>\n";
     }
 
@@ -1134,7 +1134,7 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
                 $item_html .= "\t\t" . "<td>$value</td>\n";
 
             if ($action_col)
-                $item_html .= "\t\t<td>" . $item['anchors'] . "</td>";
+                $item_html .= "\t\t<td class='table-buttonset-column'>" . $item['anchors'] . "</td>";
             $item_html .= "\t</tr>\n";
         }
     }
@@ -1363,7 +1363,7 @@ function theme_list_table($title, $anchors, $headers, $items, $options = NULL)
             $item_html .= "\t\t<td>$type<td>";
         } else {
             $select_html = ($item['state']) ? 'checked' : ''; 
-            $item_html .= "\t\t<td><input type='checkbox' name='" . $item['name'] . "' $select_html></td>\n";
+            $item_html .= "\t\t<td class='table-buttonset-column'><input type='checkbox' name='" . $item['name'] . "' $select_html></td>\n";
         }
 
         $item_html .= "\t</tr>\n";
