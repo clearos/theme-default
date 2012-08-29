@@ -10,10 +10,6 @@ h1 {
   background: #FFFFFF url(../images/header-bg-orange.png) repeat-x;
 }
 
-.theme-list-table-container input.theme-form-submit-update:hover {
-  border: 1px solid #e1852e;
-}
-
 .theme-summary-table-header {
   background: #FFFFFF url(../images/header-bg-orange.png) repeat-x;
 }

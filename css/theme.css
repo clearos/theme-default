@@ -120,7 +120,6 @@ button {background: white url(../images/button-bg.png) no-repeat top;}
 /* ========================================================================= */
 
 .ui-state-error {border-radius: 0px; -moz-border-radius: 0px; -webkit-border-radius: 0px; border: 1px solid red; margin-bottom: 10px;}
-.ui-state-default {margin-bottom: 10px;}
 .ui-state-highlight {
   border-radius: 0px; -moz-border-radius: 0px; -webkit-border-radius: 0px;
   border: 1px solid #e5d33e;
@@ -505,7 +504,6 @@ a.theme-button-set-middle, input.theme-button-set-middle {
   color: #e1852e; 
   padding-bottom: 2px;
   padding-top: 2px;
-  float: right;
 }
 
 .theme-list-table-container input.theme-form-submit-update:hover {
@@ -519,7 +517,7 @@ a.theme-button-set-middle, input.theme-button-set-middle {
 
 /* Fixes buttons inside data tables */
 .datatables_wrapper .theme-button-set a {
-  padding: 3px 5px;
+  padding: 1px 5px;
 }
 
 /* ------------------------------------------------------------------------- */
@@ -569,9 +567,16 @@ a.theme-button-set-middle, input.theme-button-set-middle {
 /* The following two styles give us much more room to display information
  * The default css has too much left/right spacing (15px) */
 
-table.display td {
-  padding: 3px 5px;
+.theme-summary-table-header input {
+  padding-top: 2px;
 }
+table.theme-summary-table.theme-summary-table-large.display td {
+  padding: 1px 5px;
+}
+table.theme-summary-table.theme-summary-table-small.display td {
+  padding: 1px 5px;
+}
+
 table.display thead th div.DataTables_sort_wrapper {
   padding-left: 5px;
 }
@@ -607,7 +612,6 @@ table.display thead th div.DataTables_sort_wrapper {
   border: 1px solid #e1e1e1;
    width: 505px; 
   ^width: 100%;
-  /* Aaron: the float below screws up vertical alignment of RHS widget, LHS menu and the form [BC] Can this be removed for good? */
   float: left;
   padding-bottom: 5px;
   margin-bottom: 0px;
@@ -713,7 +717,6 @@ table.display thead th div.DataTables_sort_wrapper {
   border: 1px solid #e1e1e1;
    width: 505px; 
   ^width: 100%;
-  /* Aaron: the float below screws up vertical alignment of RHS widget, LHS menu and the form [BC] Can this be removed for good? */
   float: left;
   padding-bottom: 5px;
   margin-bottom: 0px;
@@ -1166,7 +1169,7 @@ border-right: none;
   -webkit-border-radius: 0px;
 }
 
-.ui-toolbar { padding: 5px 2px; }
+.ui-toolbar { padding: 5px 14px; }
 
 /* FIXME: Review */
 /* Rename - used in summary table, list table, etc. */
