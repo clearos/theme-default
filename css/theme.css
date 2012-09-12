@@ -2025,8 +2025,7 @@ a.highlight-link:hover {
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  top: 30%;
-  top: 270px;
+  margin-top: 15%;
   ^margin-bottom: 800px;
 }
 
