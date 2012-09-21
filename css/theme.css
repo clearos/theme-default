@@ -950,30 +950,22 @@ td div.theme-progress-bar {
   background: none;  
   border: none;
   color: #686868;
+  margin-bottom: 5px;
 }
 
 .theme-help-box p {
   margin-left: 15px;  
 }
 
-.theme-help-box ul {
-  margin-bottom: 0px;
-}
-
 .theme-help-box-icon {
   height: 50px;
   width: 50px;
+  margin: 0px 15px 10px 15px;
   float: left;
-  margin-left: 15px;
-  margin-bottom: 15px;
-  margin-top: 0px;
 }
 
 .theme-help-box-description {
-  /* width: 360px; */
   display: inline;
-  float: left;
-  clear: right;
   margin-top: 2px;
 }
 
@@ -985,8 +977,9 @@ td div.theme-progress-bar {
 }
 
 .theme-help-box-assets {
-  /* display: inline; */
-  margin-top: 10px;
+  float: right;
+  margin-left: 5px;
+  margin-bottom: 10px;
 }
 
 .theme-help-box-assets-style {
@@ -2082,4 +2075,17 @@ a.highlight-link:hover {
 }
 .theme-login-container select {
   width: 150px;
+}
+
+.tooltip {
+    display:none;
+    z-index: 999;
+    text-align: left;
+    background-color: #ffa;
+    height: auto;
+    padding: 0px 10px;
+    width: 240px;
+    font-size:11px;
+    border: 1px solid #d1d3d4;
+    border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
 }

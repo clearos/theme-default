@@ -1599,17 +1599,6 @@ function theme_wizard_intro_box($data)
 
 function theme_help_box($data)
 {
-    // FIXME: the asset_width is just a temporary hack.
-    // If returning to divs, it must handle dynamic allocation of two links, e.g.
-    // Community:    help link
-    // Professional: help link + support link
-    // Partner:      no links at all
-    //
-    // Translations might have a very different number of characters, so this 
-    // also needs to be taken into account.
-
-    $asset_width = '120';
-
     if (!empty($data['user_guide_url'])) {
         $user_guide_link = "
             <div class='theme-help-box-assets-icons theme-help-box-user-guide'>
@@ -1626,7 +1615,6 @@ function theme_help_box($data)
                 <a target='_blank' href='" . $data['support_url'] . "'>" . $data['support_url_text'] . "</a>
             </div>
         ";
-        $asset_width = '250';
     } else {
         $support_link = "";
     }
@@ -1647,14 +1635,9 @@ function theme_help_box($data)
     return theme_dialogbox_info("
         <p class='theme-help-box-breadcrumb'>" . $data['name'] . "</p>
         <div class='theme-help-box-content'>
-            <table border='0' cellpadding='0' cellspacing='0' width='100%'>
-                <tr>
-                    <td valign='top' width='50'><div class='theme-help-box-icon'><img src='" . $data['icon_path'] . "' alt=''></div></td>
-                    <td valign='top'><p class='theme-help-box-description'>" . $data['description'] . "</p></td>
-
-                    <td valign='top' width='$asset_width' class='theme-help-box-assets'>$help_box_assets</td>
-                </tr>
-            </table>
+          <div class='theme-help-box-icon'><img src='" . $data['icon_path'] . "' alt=''></div>
+          <div class='theme-help-box-assets'>$help_box_assets</div>
+          <div class='theme-help-box-description'>" . $data['description'] . "</div>
         </div>
     ");
 }
