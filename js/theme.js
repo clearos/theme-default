@@ -333,50 +333,135 @@ function get_marketplace_data(basename) {
             } else {
                 // We add rows in the reverse order to keep this section under the Version/Vendor
 
-                // Redemption period
-                if (json.license_info != undefined && json.license_info.redemption != undefined && json.license_info.redemption == true) {
-                    $('#sidebar_additional_info_row').after(
-                        c_row(
-                            lang_status,
-                            '<span style=\'color: red\'>' + lang_marketplace_redemption + '</span>'
-                        )
-                    );
-                }
-
-                // No Subscription
-                if (json.license_info != undefined && json.license_info.no_subscription != undefined && json.license_info.no_subscription == true) {
-                    $('#sidebar_additional_info_row').after(
-                        c_row(
-                            lang_status,
-                            '<span style=\'color: red\'>' + lang_marketplace_expired_no_subscription + '</span>'
-                        )
-                    );
-                }
-
-                // Subscription?  A unit of 100 or greater represents a recurring subscription
-                if (json.license_info != undefined && json.license_info.unit >= 100) {
-                    var bill_cycle = lang_marketplace_billing_cycle_monthly;
-                    if (json.license_info.unit == 1000)
-                        bill_cycle = lang_marketplace_billing_cycle_yearly;
-                    else if (json.license_info.unit == 2000)
-                        bill_cycle = lang_marketplace_billing_cycle_2_years;
-                    else if (json.license_info.unit == 3000)
-                        bill_cycle = lang_marketplace_billing_cycle_3_years;
-    
-                    $('#sidebar_additional_info_row').after(
-                        c_row(
-                            lang_marketplace_billing_cycle,
-                            bill_cycle
-                        )
-                    );
-                    if (json.license_info.expire != undefined) {
+                // Evaluation
+                if (json.license_info != undefined && json.license_info.evaluation != undefined && json.license_info.evaluation == true) {
+                    if (json.license_info.eval_limitations != undefined) {
                         $('#sidebar_additional_info_row').after(
                             c_row(
-                                lang_marketplace_renewal_date,
-                                $.datepicker.formatDate('M d, yy', new Date(json.license_info.expire))
+                                lang_marketplace_eval_limitations,
+                                '<a id=\'eval-limit-anchor\' href=\'javascript: void(0)\'>' + lang_yes + '</a>' +
+                                '<div class=\'theme-rhs-tooltip\'>' + json.license_info.eval_limitations + '</div>'
+                            )
+                        );
+                        $('#eval-limit-anchor').tooltip({
+                            offset: [-140, -315],
+                            position: 'center left',
+                            effect: 'slide',
+                            direction: 'left',
+                            slideOffset: 110, 
+                            opacity: 0.95
+                        });
+                    }
+                    $('#sidebar_additional_info_row').after(
+                        c_row(
+                            lang_marketplace_trial_ends,
+                            $.datepicker.formatDate('M d, yy', new Date(json.license_info.expire))
+                        )
+                    );
+                    $('#sidebar_additional_info_row').after(
+                        c_row(
+                            lang_status,
+                            '<span style=\'color: red\'>' + lang_marketplace_evaluation + '</span>'
+                        )
+                    );
+                } else {
+                    // Redemption period
+                    if (json.license_info != undefined && json.license_info.redemption != undefined && json.license_info.redemption == true) {
+                        $('#sidebar_additional_info_row').after(
+                            c_row(
+                                lang_status,
+                                '<span style=\'color: red\'>' + lang_marketplace_redemption + '</span>'
                             )
                         );
                     }
+
+                    // No Subscription
+                    if (json.license_info != undefined && json.license_info.no_subscription != undefined && json.license_info.no_subscription == true) {
+                        $('#sidebar_additional_info_row').after(
+                            c_row(
+                                lang_status,
+                                '<span style=\'color: red\'>' + lang_marketplace_expired_no_subscription + '</span>'
+                            )
+                        );
+                    }
+
+                    // Subscription?  A unit of 100 or greater represents a recurring subscription
+                    if (json.license_info != undefined && json.license_info.unit >= 100) {
+                        var bill_cycle = lang_marketplace_billing_cycle_monthly;
+                        if (json.license_info.unit == 1000)
+                            bill_cycle = lang_marketplace_billing_cycle_yearly;
+                        else if (json.license_info.unit == 2000)
+                            bill_cycle = lang_marketplace_billing_cycle_2_years;
+                        else if (json.license_info.unit == 3000)
+                            bill_cycle = lang_marketplace_billing_cycle_3_years;
+        
+                        $('#sidebar_additional_info_row').after(
+                            c_row(
+                                lang_marketplace_billing_cycle,
+                                bill_cycle
+                            )
+                        );
+                        if (json.license_info.expire != undefined) {
+                            $('#sidebar_additional_info_row').after(
+                                c_row(
+                                    lang_marketplace_renewal_date,
+                                    $.datepicker.formatDate('M d, yy', new Date(json.license_info.expire))
+                                )
+                            );
+                        }
+                    }
+                }
+
+                // Support Policy
+                if (json.supported != undefined && !json.hide_support_policy) {
+                    var symbol = '\u2b1b';
+                    // TODO - there are some clearcenter references here
+                    $('#sidebar_additional_info_row').after(
+                        c_row(
+                            lang_marketplace_support_policy,
+                            '<a id=\'support_policy_trigger\' href=\'javascript: void(0)\'>' +
+                            '<div class=\'theme-support-' + (json.supported & 1) + '\'>' + symbol + '</div>' +
+                            '<div class=\'theme-support-' + (json.supported & 2) + '\'>' + symbol + '</div>' +
+                            '<div class=\'theme-support-' + (json.supported & 4) + '\'>' + symbol + '</div>' +
+                            '<div class=\'theme-support-' + (json.supported & 8) + '\'>' + symbol + '</div>' +
+                            '<div class=\'theme-support-' + (json.supported & 16) + '\'>' + symbol + '</div>' +
+                            '</a>' +
+                            '<div class=\'theme-rhs-tooltip\'>' +
+                            '<p class=\'theme-support-legend-title\'>' + lang_marketplace_support_legend + '</p>' +
+                            '<p><div class=\'theme-support-1\' style=\'padding-right: 5px;\'>' + symbol + '</div>' +
+                            '<div class=\'theme-support-type\'>' + lang_marketplace_support_1_title + '</div>' +
+                            lang_marketplace_support_1_description +
+                            '</p>' +
+                            '<p><div class=\'theme-support-2\' style=\'padding-right: 5px;\'>' + symbol + '</div>' +
+                            '<div class=\'theme-support-type\'>' + lang_marketplace_support_2_title + '</div>' +
+                            lang_marketplace_support_2_description +
+                            '</p>' +
+                            '<p><div class=\'theme-support-4\' style=\'padding-right: 5px;\'>' + symbol + '</div>' +
+                            '<div class=\'theme-support-type\'>' + lang_marketplace_support_4_title + '</div>' +
+                            lang_marketplace_support_4_description +
+                            '</p>' +
+                            '<p><div class=\'theme-support-8\' style=\'padding-right: 5px;\'>' + symbol + '</div>' +
+                            '<div class=\'theme-support-type\'>' + lang_marketplace_support_8_title + '</div>' +
+                            lang_marketplace_support_8_description +
+                            '</p>' +
+                            '<p><div class=\'theme-support-16\' style=\'padding-right: 5px;\'>' + symbol + '</div>' +
+                            '<div class=\'theme-support-type\'>' + lang_marketplace_support_16_title + '</div>' +
+                            lang_marketplace_support_16_description +
+                            '</p>' +
+                            '<div class=\'theme-support-learn-more\'>' +
+                            '<a href=\'http://www.clearcenter.com/clearcare/landing\' target=\'_blank\'>' + lang_marketplace_learn_more + '...</a>' +
+                            '</div>' +
+                            '</div>'
+                        )
+                    );
+                    $('#support_policy_trigger').tooltip({
+                        offset: [-140, -315],
+                        position: 'center left',
+                        effect: 'slide',
+                        direction: 'left',
+                        slideOffset: 110, 
+                        opacity: 0.95
+                    });
                 }
 
                 // Version updates
@@ -389,7 +474,7 @@ function get_marketplace_data(basename) {
                     );
                 }
             }
-            if (json.complementary_apps != undefined && json.complementary_apps.length > 0) {
+            if (json.complementary_apps != undefined && json.complementary_apps.length > 0 && !json.hide_recommended_apps) {
                 comp_apps = '<h3>' + lang_marketplace_recommended_apps + '</h3>' +
                     '<div>' + lang_marketplace_sidebar_recommended_apps.replace('APP_NAME', '<b>' + json.name + '</b>') + ':</div>';
                 comp_apps += '<table border=\'0\' width=\'100%\'>';

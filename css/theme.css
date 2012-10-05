@@ -1791,6 +1791,54 @@ ul#theme-top-menu-list .theme-top-menu-subcategory {
   color: #98bb60; 
 }
 
+.theme-support-0 {
+  color: #dddddd;
+  float: left;
+}
+.theme-support-1 {
+  color: #ffff66; 
+  float: left;
+}
+.theme-support-2 {
+  color: #98bb60; 
+  float: left;
+}
+.theme-support-4 {
+  color: #008080;
+  float: left;
+}
+.theme-support-8 {
+  color: #e1852e;
+  float: left;
+}
+.theme-support-16 {
+  color: #000000;
+  float: left;
+}
+.theme-support-legend-title {
+  font-weight: bold;
+  font-size: 12px;
+}
+.theme-support-type {
+  font-weight: bold;
+}
+.theme-support-learn-more {
+  float: right;
+  padding-bottom: 10px;
+}
+.theme-rhs-tooltip {
+  display:none;
+  z-index: 999;
+  width: 340px;
+  text-align: left;
+  background-color: #ffa;
+  height: auto;
+  padding: 0px 10px;
+  font-size:11px;
+  border: 1px solid #d1d3d4;
+  border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
+}
+
 /* ------------------------------------------------------------------------- */
 /* Marketplace and Registration */
 /* ------------------------------------------------------------------------- */
@@ -2075,17 +2123,4 @@ a.highlight-link:hover {
 }
 .theme-login-container select {
   width: 150px;
-}
-
-.tooltip {
-    display:none;
-    z-index: 999;
-    text-align: left;
-    background-color: #ffa;
-    height: auto;
-    padding: 0px 10px;
-    width: 240px;
-    font-size:11px;
-    border: 1px solid #d1d3d4;
-    border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
 }

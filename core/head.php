@@ -73,6 +73,7 @@ $theme_extras
 <script type='text/javascript' src='$theme_path/js/jquery.dataTables.min.js'></script>
 <script type='text/javascript' src='$theme_path/js/jquery.lightbox-0.5.min.js'></script>
 <script type='text/javascript' src='$theme_path/js/superfish.js'></script>
+<script type='text/javascript' src='$theme_path/js/jquery-tools-tooltip-1.2.7.js'></script>
 <script type='text/javascript' src='$theme_path/js/theme.js'></script>
 
 ";

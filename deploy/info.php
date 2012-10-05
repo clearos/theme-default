@@ -8,7 +8,7 @@ $package['title'] = 'Default theme';
 $package['description'] = 'Default theme';
 
 $package['version'] = '6.0';
-$package['release'] = '0.2';
+$package['release'] = '0.3';
 
 $package['vendor'] = 'ClearFoundation';
 $package['packager'] = 'ClearFoundation';
