@@ -55,8 +55,11 @@
  * - Configuration - this contains all elements
  *   - content, banner, footer, status, menu, help, summary, report
  *
- * - Report - reports need more real estate, so summary and report elements are omitted
- *   - content, banner, footer, status, menu, help    
+ * - Wide Configuration - to allow for more width, the summary and report sidebars are dropped
+ *   - content, banner, footer, status, menu, help
+ *
+ * - Report - reports are made up of 3 widgets: chart, data table and helper widget.
+ *   - content, banner, footer, status, menu, help
  *
  * - Splash - minimalist page (e.g. login)
  *    - content, status
@@ -78,7 +81,11 @@ function theme_page($page)
 {
     if ($page['type'] == MY_Page::TYPE_CONFIGURATION)
         return _configuration_page($page);
-    else if ($page['type'] == MY_Page::TYPE_REPORT)
+    else if ($page['type'] == MY_Page::TYPE_WIDE_CONFIGURATION)
+        return _wide_configuration_page($page);
+    else if ($page['type'] == MY_Page::TYPE_REPORT) // TODO: deprecated
+        return _wide_configuration_page($page);
+    else if ($page['type'] == MY_Page::TYPE_REPORTS)
         return _report_page($page);
     else if ($page['type'] == MY_Page::TYPE_SPOTLIGHT)
         return _spotlight_page($page);
@@ -137,14 +144,14 @@ function _configuration_page($page)
 }
 
 /**
- * Returns the report page.
+ * Returns the wide configuration page.
  *
  * @param array $page page data   
  *
  * @return string HTML output
  */   
 
-function _report_page($page)
+function _wide_configuration_page($page)
 {
     $menus = _get_menu($page['menus']);
 
@@ -178,6 +185,69 @@ function _report_page($page)
                 </div>
             </div>
 
+        </div>
+        " .
+        _get_footer($page) .
+        "
+    </div>
+</div>
+</body>
+</html>
+";
+}
+
+/**
+ * Returns the report page.
+ *
+ * @param array $page page data   
+ *
+ * @return string HTML output
+ */   
+
+function _report_page($page)
+{
+    $menus = _get_menu($page['menus']);
+
+    return "
+<!-- Body -->
+<body>
+
+<!-- Page Container -->
+<div id='theme-page-container'>
+    " .
+    _get_banner($page, $menus) .
+    "
+    <!-- Main Content Container -->
+    <div id='theme-main-content-container'>
+        <div class='theme-main-content-top'>
+            <div class='theme-content-border-top'></div>
+            <div class='theme-content-border-left'></div>
+            <div class='theme-content-border-right'></div>
+        </div>
+        <div class='theme-core-content'>
+        " .
+            _get_left_menu($menus) .
+        "
+            <!-- Content -->
+            <div id='theme-content-container'>
+                <div id='theme-help-box-container'>
+                    <div class='theme-help-box'>
+                    " . $page['page_help'] . "
+                    </div>
+                </div>
+                <div id='theme-sidebar-container'>
+                    <div class='theme-sidebar-top'>
+                    " . $page['page_report_helper'] . "
+                    </div>
+                    $report
+                    <div class='theme-sidebar-bottom'></div>
+                </div>
+                <div id='theme-content-left'>
+                    " . _get_message() . "
+                    " . $page['page_report_chart'] . "
+                    " . $page['page_report_table'] . "
+                </div>
+            </div>
         </div>
         " .
         _get_footer($page) .

@@ -907,11 +907,18 @@ function theme_chart_widget($title, $payload, $options)
 
     $action = ($options['action']) ? $options['action'] : '';
 
+    if ($options['loading_id']) {
+        $options_loading['id'] = $options['loading_id'];
+        $loading = theme_loading('small', lang('base_loading'), $options_loading);
+    } else {
+        $loading = '';
+    }
+
     return "
         <table border='0' cellpadding='0' cellspacing='0' class='theme-chart-wrapper'$id_html>
             <tr class='theme-chart-header'>
                 <td><span class='theme-form-header-heading'>$title</span></td>
-                <td align='right'>" . $action . " </td>
+                <td align='right'>" . $loading . " &nbsp; " . $action . "</td>
             </tr>
             <tr>
                 <td colspan='2'>$payload</td>
@@ -1145,7 +1152,7 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
     $default_rows = (empty($options['default_rows'])) ? 10 : $options['default_rows'];
 
     // Show a reasonable number of entries
-    if (count($items) >= 100) {
+    if ((count($items) > 100) || (isset($options['paginate_large']) && $options['paginate_large'])) {
         $row_options = '[10, 25, 50, 100, 200, 250, 500, -1], [10, 25, 50, 100, 200, 250, 500, "' . lang('base_all') . '"]';
     } else {
         if ($default_rows >= 100)
@@ -1157,20 +1164,23 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
     // Size
     //-----
 
-    $size_class = (count($items) > 10) ? 'theme-summary-table-large' : 'theme-summary-table-small';
+    if ($options['table_size']) 
+        $size_class = ($options['table_size'] == 'large') ? 'theme-summary-table-large' : 'theme-summary-table-small';
+    else
+        $size_class = 'theme-summary-table-large';
 
     // Paginate
     // --------
 
     $paginate = FALSE;
-    if (count($items) > 10 && (!isset($options['paginate']) || $options['paginate']))
+    if ((count($items) > 10) || (isset($options['paginate']) && $options['paginate']))
         $paginate = TRUE;
 
     // Filter
     //-------
 
     $filter = FALSE;
-    if (count($items) > 10 && (!isset($options['filter']) || $options['filter']))
+    if ((count($items) > 10) || (isset($options['filter']) && $options['filter']))
         $filter = TRUE;
 
     // Sort
@@ -1189,11 +1199,19 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
     $sorting_type = '';
     if (isset($options['sorting-type'])) {
         $sorting_type = "\"aoColumns\": [\n";
+
         foreach ($options['sorting-type'] as $s_type) {
-            if ($s_type == NULL)
+            if ($s_type == NULL) {
                 $sorting_type .= "              null,\n";
-            else
-                $sorting_type .= "              {\"sType\": \"" . $s_type . "\"},\n";
+            } else {
+                // Map int/string/ip to datables values
+                if ($s_type == 'int')
+                    $datatables_type = 'numeric';
+                else
+                    $datatables_type = $s_type;
+
+                $sorting_type .= "              {\"sType\": \"" . $datatables_type . "\"},\n";
+            }
         }
         $sorting_type .= "          ],";
     }

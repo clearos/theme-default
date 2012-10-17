@@ -622,7 +622,7 @@ table.display thead th div.DataTables_sort_wrapper {
   -moz-border-radius: 9px;
   -webkit-border-radius: 9px;
   border: 1px solid #e1e1e1;
-   width: 505px; 
+/*   width: 505px;  FIXME: review */
   ^width: 100%;
   float: left;
   padding-bottom: 5px;
@@ -821,6 +821,11 @@ td div.theme-progress-bar {
 .theme-validation-error {
   color: red;
   font-size: 11px;
+}
+
+/* jqPlot override */
+.jqplot-base-canvas {
+  z-index: -1;
 }
 
 /* ------------------------------------------------------------------------- */
