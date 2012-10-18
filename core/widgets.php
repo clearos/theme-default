@@ -894,9 +894,9 @@ function theme_form_footer($options)
  * Supported options:
  * - id 
  *
- * @param string $title    form title
- * @param string $payuload payload
- * @param array  $options  options
+ * @param string $title   form title
+ * @param string $payload payload
+ * @param array  $options options
  *
  * @return string HTML
  */
@@ -907,18 +907,11 @@ function theme_chart_widget($title, $payload, $options)
 
     $action = ($options['action']) ? $options['action'] : '';
 
-    if ($options['loading_id']) {
-        $options_loading['id'] = $options['loading_id'];
-        $loading = theme_loading('small', lang('base_loading'), $options_loading);
-    } else {
-        $loading = '';
-    }
-
     return "
         <table border='0' cellpadding='0' cellspacing='0' class='theme-chart-wrapper'$id_html>
             <tr class='theme-chart-header'>
                 <td><span class='theme-form-header-heading'>$title</span></td>
-                <td align='right'>" . $loading . " &nbsp; " . $action . "</td>
+                <td align='right'>" . $action . "</td>
             </tr>
             <tr>
                 <td colspan='2'>$payload</td>
