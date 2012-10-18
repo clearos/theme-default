@@ -87,6 +87,8 @@ function theme_page($page)
         return _wide_configuration_page($page);
     else if ($page['type'] == MY_Page::TYPE_REPORTS)
         return _report_page($page);
+    else if ($page['type'] == MY_Page::TYPE_REPORT_OVERVIEW)
+        return _report_overview_page($page);
     else if ($page['type'] == MY_Page::TYPE_SPOTLIGHT)
         return _spotlight_page($page);
     else if ($page['type'] == MY_Page::TYPE_SPLASH)
@@ -246,6 +248,72 @@ function _report_page($page)
                     " . _get_message() . "
                     " . $page['page_report_chart'] . "
                     " . $page['page_report_table'] . "
+                </div>
+            </div>
+        </div>
+        " .
+        _get_footer($page) .
+        "
+    </div>
+</div>
+</body>
+</html>
+";
+}
+
+/**
+ * Returns the configuration type page.
+ *
+ * @param array $page page data
+ *
+ * @return string HTML output
+ */
+
+function _report_overview_page($page)
+{
+    $menus = _get_menu($page['menus']);
+
+    return "
+<!-- Body -->
+<body>
+
+<!-- Page Container -->
+<div id='theme-page-container'>
+    " .
+    _get_banner($page, $menus) .
+    "
+    <!-- Main Content Container -->
+    <div id='theme-main-content-container'>
+        <div class='theme-main-content-top'>
+            <div class='theme-content-border-top'></div>
+            <div class='theme-content-border-left'></div>
+            <div class='theme-content-border-right'></div>
+        </div>
+        <div class='theme-core-content'>
+        " .
+            _get_left_menu($menus) .
+        "
+            <!-- Content -->
+            <div id='theme-content-container'>
+                <div id='theme-help-box-container'>
+                    <div class='theme-help-box'>
+                    " . $page['page_help'] . "
+                    </div>
+                </div>
+                <div id='theme-sidebar-container'>
+                    <div class='theme-sidebar-top'>
+                    " . $page['page_report_helper'] . "
+                    </div>
+                    &nbsp; 
+                    <div class='theme-sidebar-top'>
+                    " . $page['page_summary'] . "
+                    </div>
+                    $report
+                    <div class='theme-sidebar-bottom'></div>
+                </div>
+                <div id='theme-content-left'>
+                    " . _get_message() . "
+                    " . $page['app_view'] . "
                 </div>
             </div>
         </div>
