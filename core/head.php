@@ -68,7 +68,11 @@ $theme_extras
 <script type='text/javascript' src='$theme_path/js/jqplot/jquery.jqplot.min.js'></script>
 <script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.barRenderer.min.js'></script>
 <script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.pieRenderer.min.js'></script>
+<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.dateAxisRenderer.min.js'></script>
 <script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.categoryAxisRenderer.min.js'></script>
+<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.canvasAxisLabelRenderer.min.js'></script>
+<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.canvasAxisTickRenderer.min.js'></script>
+<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.canvasTextRenderer.min.js'></script>
 <script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.pointLabels.min.js'></script>
 <script type='text/javascript' src='$theme_path/js/jquery.dataTables.min.js'></script>
 <script type='text/javascript' src='$theme_path/js/jquery.lightbox-0.5.min.js'></script>

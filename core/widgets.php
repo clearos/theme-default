@@ -914,7 +914,7 @@ function theme_chart_widget($title, $payload, $options)
                 <td align='right'>" . $action . "</td>
             </tr>
             <tr>
-                <td colspan='2'>$payload</td>
+                <td colspan='2' class='theme-chart-payload'>$payload</td>
             </tr>
         </table>
     ";
@@ -1200,8 +1200,14 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
                 // Map int/string/ip to datables values
                 if ($s_type == 'int')
                     $datatables_type = 'numeric';
+                else if ($s_type == 'float')
+                    $datatables_type = 'numeric';
+                else if ($s_type == 'date')
+                    $datatables_type = 'date';
+                else if ($s_type == 'string')
+                    $datatables_type = 'string';
                 else
-                    $datatables_type = $s_type;
+                    $datatables_type = 'html';
 
                 $sorting_type .= "              {\"sType\": \"" . $datatables_type . "\"},\n";
             }
