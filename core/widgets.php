@@ -1157,7 +1157,7 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
     // Size
     //-----
 
-    if ($options['table_size']) 
+    if (isset($options['table_size'])) 
         $size_class = ($options['table_size'] == 'large') ? 'theme-summary-table-large' : 'theme-summary-table-small';
     else
         $size_class = 'theme-summary-table-large';
