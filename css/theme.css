@@ -81,19 +81,23 @@ select {
 }
 
 a:link {
-  text-decoration: none;
   color: #686868;
-  ^color: #e1852e;
+  ^color: #686868;
 }
 
 a:visited {
-  text-decoration: none;
   color: #686868;
-  ^color: #e1852e;
+  ^color: #686868;
 }
 
 a:active {
+  color: #686868;
+  ^color: #686868;
+}
+
+a:hover {
   color: #e1852e;
+  ^color: #e1852e;
 }
 
 button {background: white url(../images/button-bg.png) no-repeat top;}
@@ -1013,6 +1017,7 @@ td div.theme-progress-bar {
 }
 
 .theme-help-box-user-guide a {
+  text-decoration: none;
   background: url(../images/user-guide-green.png) no-repeat top left;
   padding-left: 20px;
   padding-top: 1px;
@@ -1037,6 +1042,7 @@ td div.theme-progress-bar {
 }
 
 .theme-help-box-support a {
+  text-decoration: none;
   background: url(../images/help-green.png) no-repeat top left;
   padding-left: 25px;
   padding-top: 1px;
@@ -1783,6 +1789,11 @@ ul#theme-top-menu-list .theme-top-menu-subcategory {
   background-image: url(../images/small-left-arrow.png);
   background-repeat: no-repeat;
   background-position: 0 4px;
+}
+
+#theme-left-menu a {
+  text-decoration: none;
+  color: #686868;
 }
 
 #theme-left-menu a:hover {
