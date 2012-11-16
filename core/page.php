@@ -247,6 +247,8 @@ function _report_page($page)
                 <div id='theme-content-left'>
                     " . _get_message() . "
                     " . $page['page_report_chart'] . "
+                </div>
+                <div>
                     " . $page['page_report_table'] . "
                 </div>
             </div>
