@@ -847,9 +847,22 @@ td div.theme-progress-bar {
   background: rgba(255, 255, 255, 0.75);
   padding: 1px;
 }
+
 /* Reduce the alpha on the legend.  Default is hard to read sometimes */
 table.jqplot-table-legend, table.jqplot-cursor-legend {
   background-color: rgba(255, 255, 255, 0.75);
+}
+
+/* Pie chart labels */
+.jqplot-pie-series {
+  border: 1px solid #CCCCCC;
+  font-size: 0.9em;
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.6);
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 /* ------------------------------------------------------------------------- */
