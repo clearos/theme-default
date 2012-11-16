@@ -419,7 +419,7 @@ tr.even, tr.odd {
   margin-left:2px;
 }
 
-div.theme-button-set { background-image: url();  }
+/* div.theme-button-set { background-image: url();  } */
 
 .theme-summary-table-action .theme-button-set {float: right; margin-top: 2px;}
 
