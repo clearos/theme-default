@@ -835,15 +835,21 @@ td div.theme-progress-bar {
 }
 
 /* jqPlot override */
+/* Don't let canvas stomp on other page elements */
 .jqplot-base-canvas {
   z-index: -1;
 }
+/* Tweak the highlighter (the little popup when hovering over a data point) */
 .jqplot-highlighter-tooltip, .jqplot-canvasoverlay-tooltip {
   border: 1px solid #999999;
   font-size: 0.9em;
   white-space: nowrap;
-  background: rgba(208, 208, 208, 0.5);
+  background: rgba(255, 255, 255, 0.75);
   padding: 1px;
+}
+/* Reduce the alpha on the legend.  Default is hard to read sometimes */
+table.jqplot-table-legend, table.jqplot-cursor-legend {
+  background-color: rgba(255, 255, 255, 0.75);
 }
 
 /* ------------------------------------------------------------------------- */
