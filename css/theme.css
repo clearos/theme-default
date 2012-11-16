@@ -838,6 +838,13 @@ td div.theme-progress-bar {
 .jqplot-base-canvas {
   z-index: -1;
 }
+.jqplot-highlighter-tooltip, .jqplot-canvasoverlay-tooltip {
+  border: 1px solid #999999;
+  font-size: 0.9em;
+  white-space: nowrap;
+  background: rgba(208, 208, 208, 0.5);
+  padding: 1px;
+}
 
 /* ------------------------------------------------------------------------- */
 /* Whirlys */
