@@ -1,13 +1,13 @@
 Name: theme-default
 Group: Applications/Themes
-Version: 6.4.3
+Version: 6.4.4
 Release: 1%{dist}
 Summary: ClearOS 6 base theme
 License: Copyright 2011-2012 ClearFoundation
 Packager: ClearFoundation
 Vendor: ClearFoundation
 Source: %{name}-%{version}.tar.gz
-Requires: clearos-framework >= 6.4.0
+Requires: clearos-framework >= 6.4.4
 Requires: theme-default-driver
 Buildarch: noarch
 
