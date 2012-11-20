@@ -837,19 +837,28 @@ td div.theme-progress-bar {
 /* jqPlot override */
 /* Don't let canvas stomp on other page elements */
 .jqplot-base-canvas {
-  z-index: -1;
+  z-index: -2;
 }
+/* IE 8 kludge - black pie chart */
+/*
+.jqplot-event-canvas {
+  z-index: -1;
+  background-color: white;
+}
+*/
 /* Tweak the highlighter (the little popup when hovering over a data point) */
 .jqplot-highlighter-tooltip, .jqplot-canvasoverlay-tooltip {
   border: 1px solid #999999;
   font-size: 0.9em;
   white-space: nowrap;
+  background-color: rgb(245, 245, 245);
   background: rgba(255, 255, 255, 0.75);
   padding: 1px;
 }
 
 /* Reduce the alpha on the legend.  Default is hard to read sometimes */
 table.jqplot-table-legend, table.jqplot-cursor-legend {
+  background-color: rgb(245, 245, 245);
   background-color: rgba(255, 255, 255, 0.75);
 }
 
@@ -858,6 +867,7 @@ table.jqplot-table-legend, table.jqplot-cursor-legend {
   border: 1px solid #CCCCCC;
   font-size: 0.9em;
   white-space: nowrap;
+  background-color: rgb(245, 245, 245);
   background: rgba(255, 255, 255, 0.6);
   padding-top: 1px;
   padding-bottom: 1px;

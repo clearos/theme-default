@@ -1212,8 +1212,13 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
                 $sorting_type .= "              {\"sType\": \"" . $datatables_type . "\"},\n";
             }
         }
+
+        // IE8 - strip off trailing comma (sigh)
+        $sorting_type = preg_replace("/,\n$/", "\n", $sorting_type);
+
         $sorting_type .= "          ],";
     }
+
     $col_widths = '';
     if (isset($options['col-widths'])) {
         $col_widths .= "\"aoColumns\": [\n";
