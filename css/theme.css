@@ -233,6 +233,28 @@ input.ui-button {
   padding: 0px;
 }
 
+/* ------------------------------------------------------------------------- */
+/* Icons */
+/* ------------------------------------------------------------------------- */
+
+.theme-icon-ok {
+  background-image: url(../images/icon-checkmark.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  height: 16px;
+  width: 16px;
+  float: left;
+}
+
+.theme-icon-fail {
+  background-image: url(../images/icon-xmark.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  height: 16px;
+  width: 16px;
+  float: left;
+}
+
 /* ========================================================================= */
 /* W I D G E T S */
 /* ========================================================================= */
@@ -547,6 +569,7 @@ a.theme-button-set-middle, input.theme-button-set-middle {
 .theme-summary-table {
   border-bottom: 1px solid #e1e1e1;
   ^border: 1px solid #e1e1e1;
+  border: 1px solid #e1e1e1;
 }
 
 .theme-summary-table-container {
