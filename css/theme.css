@@ -270,6 +270,7 @@ a.theme-anchor {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     padding-bottom: 0px;
+    text-decoration: none;
 }
 
 a.theme-anchor:hover {
