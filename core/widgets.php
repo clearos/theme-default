@@ -1382,7 +1382,7 @@ function theme_list_table($title, $anchors, $headers, $items, $options = NULL)
 
         if (isset($options['read_only']) && $options['read_only']) {
             $type = ($item['state']) ? "<span class='ui-icon ui-icon-check'>&nbsp; </span>" : ''; 
-            $item_html .= "\t\t<td>$type<td>";
+            $item_html .= "\t\t<td>$type</td>";
         } else {
             $select_html = ($item['state']) ? 'checked' : ''; 
             $item_html .= "\t\t<td class='table-buttonset-column'><input type='checkbox' name='" . $item['name'] . "' $select_html></td>\n";
