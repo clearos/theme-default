@@ -1184,7 +1184,7 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
         $sort = FALSE;
     $sorting_cols = '"bSortable": false, "aTargets": [ ' . ($action_col ? '-1' : '') . ' ]';
 
-    if (is_array($options['sort']))
+    if (isset($options['sort']) && is_array($options['sort']))
 		$sorting_cols = '"bSortable": false, "aTargets": [ ' . implode(',', $options['sort']) . ' ]';
 
     // Sorting type option
