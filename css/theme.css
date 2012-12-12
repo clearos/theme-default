@@ -1878,29 +1878,35 @@ ul#theme-top-menu-list .theme-top-menu-subcategory {
   color: #98bb60; 
 }
 
-.theme-support-0 {
-  color: #dddddd;
+#theme-support-policy-trigger {
+  width: 100%;
+  height: 14px;
+}
+.theme-support {
+  border: 1px solid;
+  border-color: #a9a9a9;
   float: left;
+  margin: 1px;
+  width: 8px;
+  height: 8px;
+}
+.theme-support-0 {
+  background-color: #dddddd;
 }
 .theme-support-1 {
-  color: #ffff66; 
-  float: left;
+  background-color: #ffff66; 
 }
 .theme-support-2 {
-  color: #98bb60; 
-  float: left;
+  background-color: #98bb60; 
 }
 .theme-support-4 {
-  color: #008080;
-  float: left;
+  background-color: #008080;
 }
 .theme-support-8 {
-  color: #e1852e;
-  float: left;
+  background-color: #e1852e;
 }
 .theme-support-16 {
-  color: #000000;
-  float: left;
+  background-color: #000000;
 }
 .theme-support-legend-title {
   font-weight: bold;
@@ -1908,6 +1914,8 @@ ul#theme-top-menu-list .theme-top-menu-subcategory {
 }
 .theme-support-type {
   font-weight: bold;
+  padding-top: 0px;
+  margin-bottom: 2px;
 }
 .theme-support-learn-more {
   float: right;

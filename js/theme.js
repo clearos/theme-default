@@ -414,37 +414,36 @@ function get_marketplace_data(basename) {
 
                 // Support Policy
                 if (json.supported != undefined && !json.hide_support_policy) {
-                    var symbol = '\u2b1b';
                     // TODO - there are some clearcenter references here
                     $('#sidebar_additional_info_row').after(
                         c_row(
                             lang_marketplace_support_policy,
-                            '<a id=\'support_policy_trigger\' href=\'javascript: void(0)\'>' +
-                            '<div class=\'theme-support-' + (json.supported & 1) + '\'>' + symbol + '</div>' +
-                            '<div class=\'theme-support-' + (json.supported & 2) + '\'>' + symbol + '</div>' +
-                            '<div class=\'theme-support-' + (json.supported & 4) + '\'>' + symbol + '</div>' +
-                            '<div class=\'theme-support-' + (json.supported & 8) + '\'>' + symbol + '</div>' +
-                            '<div class=\'theme-support-' + (json.supported & 16) + '\'>' + symbol + '</div>' +
-                            '</a>' +
+                            '<div id=\'theme-support-policy-trigger\'>' +
+                            '<div class=\'theme-support theme-support-' + (json.supported & 1) + '\'></div>' +
+                            '<div class=\'theme-support theme-support-' + (json.supported & 2) + '\'></div>' +
+                            '<div class=\'theme-support theme-support-' + (json.supported & 4) + '\'></div>' +
+                            '<div class=\'theme-support theme-support-' + (json.supported & 8) + '\'></div>' +
+                            '<div class=\'theme-support theme-support-' + (json.supported & 16) + '\'></div>' +
+                            '</div>' +
                             '<div class=\'theme-rhs-tooltip\'>' +
                             '<p class=\'theme-support-legend-title\'>' + lang_marketplace_support_legend + '</p>' +
-                            '<p><div class=\'theme-support-1\' style=\'padding-right: 5px;\'>' + symbol + '</div>' +
+                            '<div class=\'theme-support theme-support-1\' style=\'margin-right: 5px;\'></div>' +
                             '<div class=\'theme-support-type\'>' + lang_marketplace_support_1_title + '</div>' +
                             lang_marketplace_support_1_description +
                             '</p>' +
-                            '<p><div class=\'theme-support-2\' style=\'padding-right: 5px;\'>' + symbol + '</div>' +
+                            '<p><div class=\'theme-support theme-support-2\' style=\'margin-right: 5px;\'></div>' +
                             '<div class=\'theme-support-type\'>' + lang_marketplace_support_2_title + '</div>' +
                             lang_marketplace_support_2_description +
                             '</p>' +
-                            '<p><div class=\'theme-support-4\' style=\'padding-right: 5px;\'>' + symbol + '</div>' +
+                            '<p><div class=\'theme-support theme-support-4\' style=\'margin-right: 5px;\'></div>' +
                             '<div class=\'theme-support-type\'>' + lang_marketplace_support_4_title + '</div>' +
                             lang_marketplace_support_4_description +
                             '</p>' +
-                            '<p><div class=\'theme-support-8\' style=\'padding-right: 5px;\'>' + symbol + '</div>' +
+                            '<p><div class=\'theme-support theme-support-8\' style=\'margin-right: 5px;\'></div>' +
                             '<div class=\'theme-support-type\'>' + lang_marketplace_support_8_title + '</div>' +
                             lang_marketplace_support_8_description +
                             '</p>' +
-                            '<p><div class=\'theme-support-16\' style=\'padding-right: 5px;\'>' + symbol + '</div>' +
+                            '<p><div class=\'theme-support theme-support-16\' style=\'margin-right: 5px;\'></div>' +
                             '<div class=\'theme-support-type\'>' + lang_marketplace_support_16_title + '</div>' +
                             lang_marketplace_support_16_description +
                             '</p>' +
@@ -454,8 +453,8 @@ function get_marketplace_data(basename) {
                             '</div>'
                         )
                     );
-                    $('#support_policy_trigger').tooltip({
-                        offset: [-140, -315],
+                    $('#theme-support-policy-trigger').tooltip({
+                        offset: [-140, -310],
                         position: 'center left',
                         effect: 'slide',
                         direction: 'left',
