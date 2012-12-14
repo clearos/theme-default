@@ -327,7 +327,10 @@ function get_marketplace_data(basename) {
                     // Could put real message for codes < 0, but it gets a bit technical
                     $('#sidebar_additional_info').html(lang_marketplace_connection_failure);
                 } else {
-                    $('#sidebar_additional_info').html(json.errmsg);
+                    if (json.code == 3)
+                        $('#sidebar_additional_info').html('<a href=\'/app/registration/register\'>' + json.errmsg + '</a>');
+                    else
+                        $('#sidebar_additional_info').html(json.errmsg);
                 }
                 return;
             } else {
