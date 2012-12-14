@@ -238,7 +238,7 @@ function _report_page($page)
                     </div>
                 </div>
                 <div id='theme-sidebar-container'>
-                    <div class='theme-sidebar-top'>
+                    <div class='theme-sidebar-report-top'>
                     " . $page['page_report_helper'] . "
                     </div>
                     $report
@@ -303,7 +303,7 @@ function _report_overview_page($page)
                     </div>
                 </div>
                 <div id='theme-sidebar-container'>
-                    <div class='theme-sidebar-top'>
+                    <div class='theme-sidebar-report-top'>
                     " . $page['page_report_helper'] . "
                     </div>
                     &nbsp; 

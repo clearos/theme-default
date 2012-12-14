@@ -1550,7 +1550,15 @@ table.display td.right {
 
 .theme-sidebar-top {
   background-color: white;
-  /* border: 1px solid #e1e1e1; */
+  border: 1px solid #e1e1e1; 
+  border-radius: 9px;
+  -moz-border-radius: 9px;
+  -webkit-border-radius: 9px;
+  margin-bottom: 10px;
+}
+
+.theme-sidebar-report-top {
+  background-color: white;
   border-radius: 9px;
   -moz-border-radius: 9px;
   -webkit-border-radius: 9px;
