@@ -7,7 +7,7 @@ License: Copyright 2011-2012 ClearFoundation
 Packager: ClearFoundation
 Vendor: ClearFoundation
 Source: %{name}-%{version}.tar.gz
-Requires: clearos-framework >= 6.4.4
+Requires: clearos-framework >= 6.4.8
 Requires: theme-default-driver
 Buildarch: noarch
 
