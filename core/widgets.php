@@ -834,13 +834,21 @@ function theme_form_header($title, $options)
 {
     $id_html = (isset($options['id'])) ? " id='" . $options['id'] . "'" : '';
     $status_id_html = (isset($options['id'])) ? " id='status_" . $options['id'] . "'" : '';
- 
-    return "<table border='0' cellpadding='0' cellspacing='0' class='theme-form-wrapper'$id_html>
-        <tr class='theme-form-header'>
-            <td><span class='theme-form-header-heading'>$title</span></td>
-            <td align='right'><span class='theme-form-header-status' $status_id_html>&nbsp;</span></td>
-        </tr>
-    ";
+
+    if (isset($options['id'])) {
+        return "<table border='0' cellpadding='0' cellspacing='0' class='theme-form-wrapper'$id_html>
+            <tr class='theme-form-header'>
+                <td><span class='theme-form-header-heading'>$title</span></td>
+                <td align='right'><span class='theme-form-header-status' $status_id_html>&nbsp;</span></td>
+            </tr>
+        ";
+    } else {
+        return "<table border='0' cellpadding='0' cellspacing='0' class='theme-form-wrapper'$id_html>
+            <tr class='theme-form-header'>
+                <td colspan='2'><span class='theme-form-header-heading'>$title</span></td>
+            </tr>
+        ";
+    }
 }
 
 /**
