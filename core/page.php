@@ -91,6 +91,8 @@ function theme_page($page)
         return _report_overview_page($page);
     else if ($page['type'] == MY_Page::TYPE_SPOTLIGHT)
         return _spotlight_page($page);
+    else if ($page['type'] == MY_Page::TYPE_DASHBOARD)
+        return _dashboard_page($page);
     else if ($page['type'] == MY_Page::TYPE_SPLASH)
         return _splash_page($page);
     else if ($page['type'] == MY_Page::TYPE_LOGIN)
@@ -318,6 +320,50 @@ function _report_overview_page($page)
                     " . $page['app_view'] . "
                 </div>
             </div>
+        </div>
+        " .
+        _get_footer($page) .
+        "
+    </div>
+</div>
+</body>
+</html>
+";
+}
+
+/**
+ * Returns the dashboard page.
+ *
+ * @param array $page page data   
+ *
+ * @return string HTML output
+ */   
+
+function _dashboard_page($page)
+{
+    $menus = _get_menu($page['menus']);
+
+    return "
+<!-- Body -->
+<body>
+
+<!-- Page Container -->
+<div id='theme-page-container'>
+    " .
+    _get_banner($page, $menus) .
+    "
+    <!-- Main Content Container -->
+    <div id='theme-main-content-container'>
+        <div class='theme-main-content-top'>
+            <div class='theme-content-border-top'></div>
+            <div class='theme-content-border-left'></div>
+            <div class='theme-content-border-right'></div>
+        </div>
+        <div class='theme-core-content'>
+        " .
+            _get_left_menu($menus) .
+            _get_basic_app_layout($page) .
+        "
         </div>
         " .
         _get_footer($page) .
@@ -831,6 +877,11 @@ function _get_menu($menu_data, $wizard = FALSE)
     preg_match('/\/app\/[^\/]*/', $_SERVER['PHP_SELF'], $matches);
     $basepage = $matches[0];
 
+    // FIXME: temporary hack until full dashboard is implemented. 
+    // Load the "reports" menu when the dashboard is selected.
+    if ($basepage == '/app/dashboard')
+        $basepage = '/app/system_report';
+
     // The menu data format is a little different for the wizard,
     // so the logic for detecting the "highlight" is different.
 
@@ -863,7 +914,10 @@ function _get_menu($menu_data, $wizard = FALSE)
     } else {
         foreach ($menu_data as $url => $pageinfo) {
             if ($url == $basepage) {
-                $highlight['page'] = $url;
+                // FIXME: temporary hack until full dashboard is implemented. 
+                if (! preg_match('/app\/dashboard/', $_SERVER['PHP_SELF']))
+                    $highlight['page'] = $url;
+
                 $highlight['category'] = $pageinfo['category'];
                 $highlight['subcategory'] = $pageinfo['category'] . $pageinfo['subcategory'];
             }
