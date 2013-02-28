@@ -255,6 +255,15 @@ input.ui-button {
   float: left;
 }
 
+.theme-icon-warning {
+  background-image: url(../images/icon-warning.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  height: 16px;
+  width: 16px;
+  float: left;
+}
+
 /* ========================================================================= */
 /* W I D G E T S */
 /* ========================================================================= */
@@ -655,6 +664,7 @@ table.display thead th div.DataTables_sort_wrapper {
   -webkit-border-radius: 9px;
   border: 1px solid #e1e1e1;
 /*   width: 505px;  FIXME: review */
+  width: 100%;
   ^width: 100%;
   float: left;
   padding-bottom: 5px;
@@ -666,9 +676,11 @@ table.display thead th div.DataTables_sort_wrapper {
   width: 490px;
 }
 
+/* FIXME: goes with review above
 .theme-form-wrapper table {
   width: 505px;
 }
+*/
 
 .theme-form-wrapper td {
   padding: 5px;
