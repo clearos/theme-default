@@ -93,7 +93,7 @@ function theme_page($page)
         return _spotlight_page($page);
     else if ($page['type'] == MY_Page::TYPE_DASHBOARD)
         return _dashboard_page($page);
-    else if ($page['type'] == MY_Page::TYPE_SPLASH)
+    else if (($page['type'] == MY_Page::TYPE_SPLASH) || ($page['type'] == MY_Page::TYPE_SPLASH_ORGANIZATION))
         return _splash_page($page);
     else if ($page['type'] == MY_Page::TYPE_LOGIN)
         return _login_page($page);
@@ -469,13 +469,18 @@ function _login_page($page)
 
 function _splash_page($page)
 {
+    if (!preg_match('/Community/', $page['os_name']) && ($page['type'] == MY_Page::TYPE_SPLASH_ORGANIZATION))
+        $class = 'theme-splash-organization-logo';
+    else
+        $class = 'theme-splash-logo';
+
     return "
 <!-- Body -->
 <body>
 
 <!-- Page Container -->
 <div id='theme-page-console-container'>
-    <div class='theme-splash-logo'></div>
+    <div class='$class'></div>
     <div id='theme-content-splash-container'>
         " . _get_message() . "
         " . $page['app_view'] . "

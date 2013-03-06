@@ -40,10 +40,13 @@ function theme_page_head($theme_path)
 {
 	$basepath = preg_replace('/\/core\/.*/', '', realpath(__FILE__));
 
+    $theme_extras = '';
+
 	if (file_exists("$basepath/css/theme-extras.css"))
-		$theme_extras = "<link type='text/css' href='$theme_path/css/theme-extras.css' rel='stylesheet'>\n";
-	else
-		$theme_extras = "\n";
+		$theme_extras .= "<link type='text/css' href='$theme_path/css/theme-extras.css' rel='stylesheet'>\n";
+
+	if (file_exists("$basepath/css/theme-organization.css"))
+		$theme_extras .= "<link type='text/css' href='$theme_path/css/theme-organization.css' rel='stylesheet'>\n";
 
 	if (file_exists("$basepath/images/favicon-orange.ico"))
 		$color = "orange";
