@@ -469,7 +469,9 @@ function _login_page($page)
 
 function _splash_page($page)
 {
-    if (!preg_match('/Community/', $page['os_name']) && ($page['type'] == MY_Page::TYPE_SPLASH_ORGANIZATION))
+    $org_css = preg_replace('/\/core\/.*/', '', realpath(__FILE__)) . '/css/theme-organization.css';
+
+    if (!preg_match('/Community/', $page['os_name']) && ($page['type'] == MY_Page::TYPE_SPLASH_ORGANIZATION) && file_exists($org_css))
         $class = 'theme-splash-organization-logo';
     else
         $class = 'theme-splash-logo';
