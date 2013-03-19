@@ -666,7 +666,7 @@ function _get_basic_app_layout($page)
 {
     if ($page['page_report']) {
         $report = "
-            <div class='theme-sidebar-top'>
+            <div>
             " . $page['page_report'] . "
             </div>
         ";

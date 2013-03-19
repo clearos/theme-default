@@ -893,6 +893,101 @@ function theme_form_footer($options)
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+// S I D B A R  W I D G E T
+///////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Sidebar header.
+ *
+ * Supported options:
+ * - id 
+ *
+ * @param string $title form title
+ * @param array  $options options
+ *
+ * @return string HTML
+ */
+
+function theme_sidebar_header($title, $options)
+{
+    $id_html = (isset($options['id'])) ? " id='" . $options['id'] . "'" : '';
+    $status_id_html = (isset($options['id'])) ? " id='status_" . $options['id'] . "'" : '';
+
+    if (isset($options['id'])) {
+        return "<table border='0' cellpadding='0' cellspacing='0' class='theme-form-wrapper'$id_html>
+            <tr class='theme-form-header'>
+                <td><span class='theme-form-header-heading'>$title</span></td>
+                <td align='right'><span class='theme-form-header-status' $status_id_html>&nbsp;</span></td>
+            </tr>
+        ";
+    } else {
+        return "<table border='0' cellpadding='0' cellspacing='0' class='theme-form-wrapper'$id_html>
+            <tr class='theme-form-header'>
+                <td colspan='2'><span class='theme-form-header-heading'>$title</span></td>
+            </tr>
+        ";
+    }
+}
+
+/**
+ * Sidebar banner.
+ *
+ * Supported options:
+ * - id 
+ *
+ * @param string $html    html payload
+ * @param array  $options options
+ *
+ * @return string HTML
+ */
+
+function theme_sidebar_banner($html, $options)
+{
+    $id_html = (isset($options['id'])) ? " id='" . $options['id'] . "'" : '';
+ 
+    return "
+        <tr class='theme-form-header'$id_html>
+            <td colspan='2' class='theme-form-banner'>$html</td>
+        </tr>
+    ";
+}
+
+/**
+ * Sidebar text.
+ *
+ * Supported options:
+ * - id 
+ *
+ * @param string $html    html payload
+ * @param array  $options options
+ *
+ * @return string HTML
+ */
+
+function theme_sidebar_text($html, $options)
+{
+    $id_html = (isset($options['id'])) ? " id='" . $options['id'] . "'" : '';
+    $align = (isset($options['align'])) ? " align='" . $options['align'] . "'" : '';
+ 
+    return "
+        <tr$id_html>
+            <td colspan='2'$align>$html</td>
+        </tr>
+    ";
+}
+
+/**
+ * Sidebar footer.
+ *
+ * @return string HTML
+ */
+
+function theme_sidebar_footer()
+{
+    return "</table>";
+}
+
+///////////////////////////////////////////////////////////////////////////////
 // C H A R T  W I D G E T
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -1778,26 +1873,6 @@ function theme_summary_box($data)
         </table>
         $tooltip
         $marketplace
-    ");
-
-    return $html;
-}
-
-///////////////////////////////////////////////////////////////////////////////
-// R E P O R T  B O X
-///////////////////////////////////////////////////////////////////////////////
-
-/**
- * Displays a report box.
- */
-
-function theme_report_box($title, $data)
-{
-    clearos_load_language('base');
-
-    $html = theme_dialogbox_info("
-        <h3>$title</h3>
-        $data
     ");
 
     return $html;
