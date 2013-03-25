@@ -123,6 +123,14 @@ button {background: white url(../images/button-bg.png) no-repeat top;}
   color: red;
 }
 
+.theme-text-bad-status {
+  color: red;
+}
+
+.theme-text-good-status {
+  color: green;
+}
+
 /* ========================================================================= */
 /* J Q U E R Y U I - C O M M O N */
 /* ========================================================================= */

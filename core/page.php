@@ -527,6 +527,9 @@ function _wizard_page($page)
                 <div class='theme-sidebar-top'>
                 " . $page['page_inline_help'] . "
                 </div>
+                <div>
+                " . $page['page_report'] . "
+                </div>
             </div>
         ";
     }

@@ -953,6 +953,40 @@ function theme_sidebar_banner($html, $options)
 }
 
 /**
+ * Sidebar key value.
+ *
+ * Supported options:
+ * - id 
+ * - value_id
+ *
+ * @param string $value   value
+ * @param string $label   label
+ * @param string $base_id base ID
+ * @param array  $options options
+ *
+ * @return string HTML
+ */
+
+function theme_sidebar_value($value, $label, $base_id, $options)
+{
+    if (empty($base_id))
+        $base_id = 'clearos_sidebar_' . mt_rand();
+
+    $field_id_html = (isset($options['field_id'])) ? $options['field_id'] : $base_id . '_field';
+    $label_id_html = (isset($options['label_id'])) ? $options['label_id'] : $base_id . '_label';
+    $text_id_html = (isset($options['text_id'])) ? $options['text_id'] : $base_id . '_text';
+    $hide_field = (isset($options['hide_field'])) ? ' theme-hidden' : '';
+    $input_html = "<input type='hidden' name='$base_id' value='$value' id='$base_id'>";
+ 
+    return "
+        <tr id='$field_id_html' class='theme-fieldview" . $hide_field . "'>
+            <td class='theme-field-left'><label for='$base_id' id='$label_id_html'>$label</label></td>
+            <td class='theme-field-right'><span id='$text_id_html'>$value</span>$input_html</td>
+        </tr>
+    ";
+}
+
+/**
  * Sidebar text.
  *
  * Supported options:
