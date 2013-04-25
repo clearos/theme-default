@@ -288,6 +288,9 @@ function theme_clearos_on_page_ready(my_location)
 
 function get_marketplace_data(basename) {
 
+    // Avoid Ajax calls if target fields do not exist
+    if ($('#sidebar_additional_info').length == 0)
+        return;
 
     // Let's see if we have a connection to the Internet
     // Block on this call (async set to false)
@@ -309,11 +312,6 @@ function get_marketplace_data(basename) {
         $('#sidebar_additional_info_row').show(200);
         return;
     }
-
-    // Avoid generating Marketplace (and yum) triggers on all page loads
-    // TODO: implement this in a better way
-    if ($('#sidebar_additional_info').length == 0)
-        return;
 
     $.ajax({
         url: '/app/marketplace/ajax/get_app_details/' + basename,
