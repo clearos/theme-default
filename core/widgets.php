@@ -1416,6 +1416,11 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
     // Summary table
     //--------------
 
+    // FIXME: dom IDS with periods are valid, but some massaging is required.
+    // Implement below in other places.
+    $dom_id_var = preg_replace('/\./', '_', $dom_id);
+    $dom_id_selector = preg_replace('/\./', '\\\\\\.', $dom_id);
+
     return "
 
 <div class='theme-summary-table-container ui-widget'>
@@ -1434,7 +1439,7 @@ $item_html
   </table>
 </div>
 <script type='text/javascript'>
-	var table_" . $dom_id . " = $('#" . $dom_id . "').dataTable({
+	var table_" . $dom_id_var . " = $('#" . $dom_id_selector . "').dataTable({
 		\"aoColumnDefs\": [
 			{ $sorting_cols },
 			{ \"bVisible\": $first_column_visible, \"aTargets\": [ 0 ] }
