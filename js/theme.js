@@ -288,15 +288,11 @@ function theme_clearos_on_page_ready(my_location)
 
 function get_marketplace_data(basename) {
 
-    // Avoid Ajax calls if target fields do not exist
-    if ($('#sidebar_additional_info').length == 0)
-        return;
-
     // Let's see if we have a connection to the Internet
     // Block on this call (async set to false)
     $.ajax({
         url: '/app/network/get_internet_connection_status',
-        method: 'POST',
+        method: 'GET',
         dataType: 'json',
         async: false,
         success : function(status) {
@@ -306,6 +302,11 @@ function get_marketplace_data(basename) {
         error: function (xhr, text_status, error_thrown) {
         }
     });
+
+    // Avoid furter calls if target fields do not exist
+    if ($('#sidebar_additional_info').length == 0)
+        return;
+
     // No connection to Internet...let's bail
     if (!internet_connection) {
         $('#sidebar_additional_info').html('<a href=\'/app/network\' class=\'highlight-link\'>' + lang_internet_down + '</a>');
@@ -460,7 +461,9 @@ function get_marketplace_data(basename) {
                         effect: 'slide',
                         direction: 'left',
                         slideOffset: 110, 
-                        opacity: 0.95
+                        opacity: 0.95,
+                        delay: 500,
+                        predelay: 1000
                     });
                 }
 
