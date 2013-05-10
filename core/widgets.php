@@ -1768,15 +1768,23 @@ function theme_confirm_delete($title, $confirm_uri, $cancel_uri, $items, $messag
  *
  */
 
-function theme_wizard_intro_box($data)
+function theme_wizard_intro_box($data, $options)
 {
     // TODO: bad hack.  Move to CSS if this is what we roll with.
     // TODO: fix the CSS classes (stealing help-box stuff)
     // TODO: sorry, div layout was causing grief.
     $font = " style='font-size: 13px'";
 
+    $action = '';
+    if (isset($options['action']))
+        $action = anchor_custom(
+            $options['action']['url'], 
+            $options['action']['text'], 
+            $options['action']['priority'], 
+            $options['action']['js'] 
+        );
     return theme_dialogbox_info("
-        <p class='theme-help-box-breadcrumb'>" . $data['wizard_name'] . "</p>
+        <div class='theme-help-box-breadcrumb'>" . $data['wizard_name'] . "</div><div style='float: right; margin-right: 15px;'>" . $action . "</div>
         <div class='theme-help-box-content'>
             <table border='0' cellpadding='0' cellspacing='0'>
                 <tr>
@@ -1839,8 +1847,17 @@ function theme_help_box($data)
         $help_box_assets = '';
     }
 
+    $action = '';
+    if (isset($data['action']))
+        $action = anchor_custom(
+            $data['action']['url'], 
+            $data['action']['text'], 
+            $data['action']['priority'], 
+            $data['action']['js'] 
+        );
+
     return theme_dialogbox_info("
-        <p class='theme-help-box-breadcrumb'>" . $data['name'] . "</p>
+        <div class='theme-help-box-breadcrumb' >" . $data['name'] . "</div><div style='float: right; margin-right: 15px;'>" . $action . "</div>
         <div class='theme-help-box-content'>
           <div class='theme-help-box-icon'><img src='" . $data['icon_path'] . "' alt=''></div>
           <div class='theme-help-box-assets'>$help_box_assets</div>
@@ -1867,9 +1884,11 @@ function theme_inline_help_box($data)
 {
     $help = '';
 
+    $index = 0;
     foreach ($data['inline_help'] as $heading => $text) {
-        $help .= "<h3 style='color: #666666; font-size: 13px; font-weight: bold;'>$heading</h3>";
-        $help .= "<p style='font-size: 13px;'>$text</p>";
+        $help .= "<h3 style='color: #666666; font-size: 13px; font-weight: bold; margin-top: 15px;' id='inline-help-title-$index'>$heading</h3>";
+        $help .= "<p style='font-size: 13px;' id='inline-help-content-$index'>$text</p>";
+        $index++;
     }
 
     $html = theme_dialogbox_info("

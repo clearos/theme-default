@@ -537,7 +537,7 @@ function _wizard_page($page)
     // Use a wide "intro" layout for pages without a sidebar.
     // Add a sidebar div if a sidebar exists.
 
-    $content = $intro . $content . $nav;
+    $content = $intro . $content;
 
     if ($sidebar)
         $content = "<div id='theme-content-left'>$content</div>";
@@ -560,7 +560,7 @@ function _wizard_page($page)
         </div>
         <div class='theme-core-content'>
             " .
-                _get_left_menu($menus, TRUE) .
+                _get_left_menu($menus, TRUE, $nav) .
             "
             <!-- Content -->
             <div id='theme-content-container'>
@@ -792,7 +792,7 @@ $top_menu
  * @return string left navigation menu HTML
  */
 
-function _get_left_menu($menus, $is_wizard = FALSE)
+function _get_left_menu($menus, $is_wizard = FALSE, $nav_buttons = NULL)
 {
     $left_menu = $menus['left_menu'];
     $active_category_number = $menus['active_category'];
@@ -817,6 +817,7 @@ function _get_left_menu($menus, $is_wizard = FALSE)
         <div id='theme-left-menu'>
 $left_menu
         </div>
+        $nav_buttons
         $wizard_test
     </div>
     ";
@@ -835,6 +836,7 @@ $left_menu
 function _get_wizard_navigation($nav_data)
 {
     $options_previous['id'] = 'wizard_nav_previous';
+    $options_previous['class'] = 'shit';
     $options_previous['tabindex'] = '1001';
     $options_next['tabindex'] = '1000';
 
@@ -902,7 +904,7 @@ function _get_menu($menu_data, $wizard = FALSE)
         $full_url = preg_replace('/\/$/', '', $full_url);
 
         foreach ($menu_data as $url => $pageinfo) {
-            if ($full_url == $pageinfo['nav']) {
+            if ($full_url == $pageinfo['nav'] || preg_match('|' . addslashes($pageinfo['nav']) . '.*|', $full_url)) {
                 $highlight['page'] = $pageinfo['nav'];
                 $highlight['category'] = $pageinfo['category'];
                 $highlight['subcategory'] = $pageinfo['category'] . $pageinfo['subcategory'];
