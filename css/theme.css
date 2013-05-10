@@ -168,10 +168,11 @@ button {background: white url(../images/button-bg.png) no-repeat top;}
   background: none;
   border-bottom: 1px solid #F1F0F0;
 }
+/*
 .ui-state-default {
   background: none;
-  border: none;
 }
+*/
 .ui-helper-reset, .ui-widget {
   font-size: 11px;
 }
@@ -246,7 +247,9 @@ button {background: white url(../images/button-bg.png) no-repeat top;}
 .ui-button-text-only .ui-button-text {
   padding: 0px .2em;
 }
-.ui-button-text-only:hover {color: #e1852e;}
+.ui-button-text-only:hover {
+  color: #e1852e;
+}
 
 /* ------------------------------------------------------------------------- */
 /* Icons */
@@ -299,6 +302,15 @@ a.theme-anchor {
 
 a.theme-anchor:hover {
   color: #e1852e;
+}
+/* Next two styles are for radio input as buttons */
+.ui-buttonset .ui-button { 
+  background: transparent url('../images/button-bg.png') repeat-x !important;
+  color: #e1852e;
+  padding: 1px 5px;
+}
+label.ui-state-active span.ui-button-text {
+  color: #686868;
 }
 
 a.theme-anchor-important { 
@@ -623,6 +635,10 @@ a.theme-button-set-middle, input.theme-button-set-middle {
 .theme-summary-table-header input {
   padding-top: 2px;
 }
+.theme-summary-table td, .theme-summary-table th {
+  border: none;
+}
+
 table.theme-summary-table.theme-summary-table-large.display td {
   padding: 1px 5px;
 }
