@@ -1,6 +1,6 @@
 Name: theme-default-community
 Group: Applications/Themes
-Version: 6.3.1
+Version: 6.4.26
 Release: 1%{dist}
 Summary: ClearOS Community 6 theme
 License: Copyright 2011-2012 ClearFoundation

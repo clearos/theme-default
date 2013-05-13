@@ -413,8 +413,10 @@ function _spotlight_page($page)
             </script>
 
             <!-- Left Menu -->
-            <div id='theme-left-menu-container'>"
+            <div id='theme-left-menu-container'>
+                <div id='theme-left-menu-container-border'>"
                     . $page['page_app_helper'] . " 
+                </div>
             </div>
 
         <div id='theme-content-container'>
@@ -813,9 +815,11 @@ function _get_left_menu($menus, $is_wizard = FALSE, $nav_buttons = NULL)
 
     <!-- Left Menu -->
     <div id='theme-left-menu-container'>
-        <div id='theme-left-menu-top'></div>
-        <div id='theme-left-menu'>
-$left_menu
+        <div id='theme-left-menu-container-border'>
+            <div id='theme-left-menu-top'></div>
+            <div id='theme-left-menu'>
+                $left_menu
+            </div>
         </div>
         $nav_buttons
         $wizard_test

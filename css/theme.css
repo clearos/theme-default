@@ -1826,8 +1826,6 @@ ul#theme-top-menu-list .theme-top-menu-subcategory {
 }
 
 #theme-left-menu-container {
-  background-image: url(../images/left-menu-bg.png);
-  background-repeat: repeat-y;
   width: 213px;
   height: auto;
   float: left;
@@ -1835,6 +1833,11 @@ ul#theme-top-menu-list .theme-top-menu-subcategory {
   margin-bottom: 2px;
   position: relative;
   top: -1px;
+}
+
+#theme-left-menu-container-border {
+  background-image: url(../images/left-menu-bg.png);
+  background-repeat: repeat-y;
 }
 
 #theme-left-menu-top {
