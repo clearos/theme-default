@@ -244,6 +244,10 @@ button {background: white url(../images/button-bg.png) no-repeat top;}
   color: #e1852e;
 }
 
+.theme-summary-table-header input[type="submit"], .theme-list-table-header input[type="submit"] {
+  height: 19px !important;
+}
+
 .ui-button-text-only .ui-button-text {
   padding: 0px .2em;
 }
@@ -448,9 +452,6 @@ input.theme-form-unimportant:hover {
 
 .theme-button-set .ui-buttonset span { display: none;}
 
-.ui-buttonset .ui-button {
-  vertical-align: top;
-}
 /* ------------------------------------------------------------------------- */
 /* Buttons Sets */
 /* ------------------------------------------------------------------------- */
