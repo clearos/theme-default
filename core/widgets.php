@@ -1313,6 +1313,16 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
     if ((count($items) > 10) || (isset($options['filter']) && $options['filter']))
         $filter = TRUE;
 
+    // Empty table
+    if (isset($options['empty_table_message'])) 
+        $empty_table = "
+            \"oLanguage\": {
+                \"sEmptyTable\": \"" . $options['empty_table_message'] . "</div>\"
+            },
+        ";
+    else
+        $empty_table = '';
+
     // Sort
     //-----
 
@@ -1444,6 +1454,7 @@ $item_html
 			{ $sorting_cols },
 			{ \"bVisible\": $first_column_visible, \"aTargets\": [ 0 ] }
 		],
+        " . $empty_table . "
 		\"bJQueryUI\": true,
         \"bInfo\": false,
         \"iDisplayLength\": $default_rows,
