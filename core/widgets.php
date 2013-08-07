@@ -1317,7 +1317,7 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
     if (isset($options['empty_table_message'])) 
         $empty_table = "
             \"oLanguage\": {
-                \"sEmptyTable\": \"" . $options['empty_table_message'] . \"
+                \"sEmptyTable\": \"" . $options['empty_table_message'] . "\"
             },
         ";
     else
