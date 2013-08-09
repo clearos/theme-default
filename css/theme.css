@@ -2145,9 +2145,9 @@ ul#theme-top-menu-list .theme-top-menu-subcategory {
   background-position: 8px 0px;
 }
 .marketplace-novice.novice-selected {
-  padding: 2px;
-  display: inline-block;
-  width:70%;
+  padding-left: 2px;
+  padding-right: 2px;
+  text-align: left;
 }
 #marketplace-novice-step {
   font-size: 8px;
