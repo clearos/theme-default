@@ -1302,9 +1302,14 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
     // Paginate
     // --------
 
-    $paginate = FALSE;
-    if ((count($items) > 10) || (isset($options['paginate']) && $options['paginate']))
-        $paginate = TRUE;
+    if (isset($options['paginate'])) {
+        $paginate = $options['paginate'];
+        $default_rows = 10000;
+    } else {
+        $paginate = FALSE;
+        if ((count($items) > 10) || (isset($options['paginate']) && $options['paginate']))
+            $paginate = TRUE;
+    }
 
     // Filter
     //-------
