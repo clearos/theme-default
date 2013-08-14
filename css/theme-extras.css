@@ -112,3 +112,6 @@ h1 {
   background: url(../images/login-orange.png) no-repeat;
 }
 
+.marketplace-installed, .marketplace-installed-list {
+   background-color: #e1852e;
+}
