@@ -69,6 +69,7 @@ $theme_extras
 <script type='text/javascript' src='$theme_path/js/jquery-ui-1.8.22.custom.min.js'></script>
 <!--[if lt IE 9]><script type='text/javascript' src='$theme_path/js/jqplot/excanvas.min.js'></script><![endif]-->
 <script type='text/javascript' src='$theme_path/js/jqplot/jquery.jqplot.min.js'></script>
+<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.json2.min.js'></script>
 <script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.barRenderer.min.js'></script>
 <script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.pieRenderer.min.js'></script>
 <script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.dateAxisRenderer.min.js'></script>
