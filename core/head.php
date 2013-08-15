@@ -63,6 +63,7 @@ function theme_page_head($theme_path)
 <link type='text/css' href='$theme_path/css/superfish.css' rel='stylesheet'>
 <link type='text/css' href='$theme_path/css/jquery.lightbox-0.5.css' rel='stylesheet'>
 <link type='text/css' href='$theme_path/css/summary-table.css' rel='stylesheet'>
+<link type='text/css' href='$theme_path/css/font-awesome.min.css' rel='stylesheet'>
 <link type='text/css' href='$theme_path/css/theme.css' rel='stylesheet'>
 $theme_extras
 <!-- Theme Javascript -->
