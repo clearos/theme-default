@@ -70,7 +70,8 @@ function theme_anchor($url, $text, $importance, $class, $options)
     $importance_class = ($importance === 'high') ? 'theme-anchor-important' : 'theme-anchor-unimportant';
 
     $id = isset($options['id']) ? ' id=' . $options['id'] : '';
-    $text = htmlspecialchars($text, ENT_QUOTES);
+    if (!isset($options['no_escape_html']) || $options['no_escape_html'] == FALSE)
+        $text = htmlspecialchars($text, ENT_QUOTES);
     $target = isset($options['target']) ? " target='" . $options['target'] . "'" : ''; 
     $tabindex = isset($options['tabindex']) ? " tabindex='" . $options['tabindex'] . "'" : '';
 
@@ -1467,8 +1468,9 @@ $item_html
 		\"bPaginate\": " . ($paginate ? 'true' : 'false') . ",
 		\"bFilter\": " . ($filter ? 'true' : 'false') . ",
 		\"bSort\": " . ($sort ? 'true' : 'false') . ",
-        " . $sorting_type . "
-        " . $col_widths . "
+        " . $sorting_type .
+        (isset($col_widths) ? "\"bAutoWidth\": false," : "") .
+        $col_widths . "
 		\"sPaginationType\": \"full_numbers\",
 		$group_javascript
 		\"aaSorting\": [ $first_column_fixed_sort ]
