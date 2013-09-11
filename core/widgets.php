@@ -1227,8 +1227,8 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
     $first_column_fixed_sort = "[ 0, 'asc' ]";
 
     // Tabs are just for clean indentation HTML output
-    $header_html = '';
-    $empty_row = '';
+    $header_html = (isset($options['row-enable-disable']) ? '<th></th>' : '');
+    $empty_row = (isset($options['row-enable-disable']) ? '<td></td>' : '');
 
     foreach ($headers as $header) {
         $header_html .= "\n\t\t" . trim("<th>$header</th>");
@@ -1266,7 +1266,33 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
         $item_html = '';
 
         foreach ($items as $item) {
-            $item_html .= "\t<tr>\n";
+            $item_html .= "\t<tr>";
+            if (isset($item['current_state']) && $item['current_state'] === TRUE) {
+                $item_html .= "
+                    <td>
+                      <i class='theme-summary-table-entry-state theme-text-good-status icon-off'>
+                        <span class='theme-hidden'>0</span>
+                      </i>
+                    </td>\n
+                ";
+            } else if (isset($item['current_state']) && $item['current_state'] === FALSE) {
+                $item_html .= "
+                    <td>
+                      <i class='theme-summary-table-entry-state theme-text-bad-status icon-off'>
+                        <span class='theme-hidden'>1</span>
+                      </i>
+                    </td>\n
+                ";
+            } else if (isset($options['row-enable-disable'])) {
+                // Developer forgot to set enable/disable toggles in item array...need this to keep table td's in check
+                $item_html .= "
+                    <td>
+                      <i class='theme-summary-table-entry-state icon-question-sign'>
+                        <span class='theme-hidden'>2</span>
+                      </i>
+                    </td>\n
+                ";
+            }
 
             foreach ($item['details'] as $value)
                 $item_html .= "\t\t" . "<td>$value</td>\n";
@@ -1475,6 +1501,12 @@ $item_html
 		$group_javascript
 		\"aaSorting\": [ $first_column_fixed_sort ]
     });
+    " . (isset($options['row-enable-disable']) ? "
+        $('#$dom_id tr').each(function() {
+            $(this).find('th:eq(0)').attr('width', '12px'); 
+            $(this).find('td:eq(0)').css('padding', '0px'); 
+        });
+    " : "") . "
 </script>
     ";
 }

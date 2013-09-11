@@ -629,6 +629,10 @@ a.theme-button-set-middle, input.theme-button-set-middle {
   font-size: 11px !important;
 }
 
+.theme-summary-table-entry-state {
+  padding-left: 8px;
+}
+
 /* jQuery and Datatables overrides */
 /* The following two styles give us much more room to display information
  * The default css has too much left/right spacing (15px) */
