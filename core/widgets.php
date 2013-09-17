@@ -1162,7 +1162,9 @@ function theme_action_table($title, $anchors, $items, $options = NULL)
 
     $item_html = '';
 
+    $table_header = '';
     foreach ($items as $item) {
+        $table_header .= "<th>" . $item['title'] . "</th>\n";
         $item_html .= "\t<tr>\n";
         $item_html .= "\t\t<td>" . $item['title'] . "</td>\n";
         $item_html .= "\t\t<td class='table-buttonset-column'>" . button_set($item['anchors']) . "</td>\n";
@@ -1181,7 +1183,7 @@ function theme_action_table($title, $anchors, $items, $options = NULL)
   </div>
   <table cellspacing='0' cellpadding='0' width='100%' border='0' class='theme-summary-table theme-summary-table-small display' id='$dom_id'>
     <thead>
-      <tr class='theme-hidden'><th colspan='100'>bob</th> </tr>
+      <tr class='theme-hidden'>$table_header</tr>
     </thead>
    <tbody>
 $item_html
@@ -1266,7 +1268,7 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
         $item_html = '';
 
         foreach ($items as $item) {
-            $item_html .= "\t<tr>";
+            $item_html .= "\t<tr" . (isset($item['row_id']) ? " id='r-" . $item['row_id'] : '') . "'>";
             if (isset($item['current_state']) && $item['current_state'] === TRUE) {
                 $item_html .= "
                     <td>
