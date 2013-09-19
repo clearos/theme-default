@@ -1162,9 +1162,7 @@ function theme_action_table($title, $anchors, $items, $options = NULL)
 
     $item_html = '';
 
-    $table_header = '';
     foreach ($items as $item) {
-        $table_header .= "<th>" . $item['title'] . "</th>\n";
         $item_html .= "\t<tr>\n";
         $item_html .= "\t\t<td>" . $item['title'] . "</td>\n";
         $item_html .= "\t\t<td class='table-buttonset-column'>" . button_set($item['anchors']) . "</td>\n";
@@ -1183,7 +1181,10 @@ function theme_action_table($title, $anchors, $items, $options = NULL)
   </div>
   <table cellspacing='0' cellpadding='0' width='100%' border='0' class='theme-summary-table theme-summary-table-small display' id='$dom_id'>
     <thead>
-      <tr class='theme-hidden'>$table_header</tr>
+      <tr class='theme-hidden'>
+        <th>Item</th>
+        <th>Action</th>
+       </tr>
     </thead>
    <tbody>
 $item_html
