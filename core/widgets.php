@@ -388,13 +388,16 @@ function _theme_field_input_password($name, $value, $label, $error, $input_id, $
     $label_id_html = (isset($options['label_id'])) ? $options['label_id'] : $input_id . '_label';
     $error_id_html = (isset($options['error_id'])) ? $options['error_id'] : $input_id . '_error';
     $hide_field = (isset($options['hide_field'])) ? ' theme-hidden' : '';
+    $style = '';
+    if (isset($options['width']))
+        $style .= 'width: ' . $options['width'] . '; ';
 
     $error_html = (empty($error)) ? "" : "<br/><span class='theme-validation-error' id='$error_id_html'>$error</span>";
 
     return "
         <tr id='$field_id_html' class='theme-field-$type" . $hide_field . "'>
             <td class='theme-field-left'><label for='$input_id' id='$label_id_html'>$label</label></td>
-            <td class='theme-field-right'> <input type='$type' name='$name' value='$value' id='$input_id'> $error_html</td>
+            <td class='theme-field-right'> <input type='$type' name='$name' value='$value' id='$input_id' style='$style'> $error_html</td>
         </tr>
     ";
 }
