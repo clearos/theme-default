@@ -235,7 +235,6 @@ button {background: white url(../images/button-bg.png) no-repeat top;}
   border: none;
 }
 
-.ui-state-hover .ui-icon, .ui-state-focus .ui-icon {background-image: url(../images/arrow-up.png); }
 .ui-state-active .ui-icon {
   background-image: url(../images/arrow-down-green.png); height: 9px; width: 9px; background-position: right 0;
 }
@@ -631,6 +630,10 @@ a.theme-button-set-middle, input.theme-button-set-middle {
 
 .theme-summary-table-entry-state {
   padding-left: 8px;
+}
+
+table.display td {
+  padding: 3px 6px;
 }
 
 /* jQuery and Datatables overrides */
