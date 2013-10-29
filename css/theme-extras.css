@@ -48,7 +48,7 @@ h1 {
   background: #FFFFFF url(../images/header-bg-orange.png) repeat-x;
 }
 
-.ui-tabs-nav .ui-tabs-selected a {
+.ui-tabs-nav .ui-tabs-active a {
   background: #FFFFFF url(../images/tabs-nav-selected-orange.png) repeat-x scroll 50% 50%;
 }
 
