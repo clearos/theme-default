@@ -153,6 +153,7 @@ button {background: white url(../images/button-bg.png) no-repeat top;}
 .ui-accordion .ui-accordion-header a {
   padding: 5px;
   font-size: 14px;
+  font-weight: normal;
 }
 .ui-widget-content {
   color: #686868;
@@ -161,6 +162,11 @@ button {background: white url(../images/button-bg.png) no-repeat top;}
   color: #e1852e;
 }
 
+/* Override table headers */
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+  color: #686868;
+  font-weight: normal;
+}
 
 /* Override LHS menu style */
 #left-menu-container .ui-state-default, .ui-widget-header .ui-state-default {
@@ -248,8 +254,11 @@ button {background: white url(../images/button-bg.png) no-repeat top;}
 }
 
 .ui-button-text-only .ui-button-text {
-  padding: 0px .2em;
+  padding: .1em .1em;
+  font-weight: normal;
+  line-height: 1.2em;
 }
+
 .ui-button-text-only:hover {
   color: #e1852e;
 }
@@ -1874,15 +1883,18 @@ ul#theme-top-menu-list .theme-top-menu-subcategory {
 }
 
 #theme-left-menu {
-  margin-top: -4px;  
+  margin-top: -6px;  
 }
 
 #theme-left-menu, x:-moz-any-link, x:default {
-  margin-top: -6px;  
+  margin-top: -8px;  
 }
 
 #theme-left-menu.ui-accordion {
   width: 213px;
+}
+.ui-accordion .ui-accordion-icons {
+  padding-left: 0px;
 }
 
 .theme-left-menu-category {

@@ -408,7 +408,7 @@ function _spotlight_page($page)
             <!-- Left menu Javascript -->
             <script type='text/javascript'> 
                 $(document).ready(function(){
-                    $('#theme-left-menu').accordion({ autoHeight: false, active: 0, collapsible: false });
+                    $('#theme-left-menu').accordion({ heightStyle: 'content', active: 0, collapsible: false });
                 });
             </script>
 
@@ -809,7 +809,7 @@ function _get_left_menu($menus, $is_wizard = FALSE, $nav_buttons = NULL)
     <!-- Left menu Javascript -->
     <script type='text/javascript'> 
         $(document).ready(function(){
-            $('#theme-left-menu').accordion({ autoHeight: false, active: $active_category_number, collapsible: false });
+            $('#theme-left-menu').accordion({ heightStyle: 'content', active: $active_category_number, collapsible: false });
         });
     </script>
 
@@ -991,7 +991,7 @@ function _get_menu($menu_data, $wizard = FALSE)
             //---------
 
             $top_menu .= "\t\t<li class='$class'>\n";
-            $top_menu .= "\t\t\t<a class='sf-with-url $class' href='#' onclick=\"$('#theme-left-menu').accordion('activate', $category_count);\">" . $page['category'] . "</a>\n";
+            $top_menu .= "\t\t\t<a class='sf-with-url $class' href='#' onclick=\"$('#theme-left-menu').accordion('option', 'active', $category_count);\">" . $page['category'] . "</a>\n";
 
             $top_menu .= "\t\t\t<ul>\n";
 
