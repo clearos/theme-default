@@ -242,8 +242,9 @@ button {background: white url(../images/button-bg.png) no-repeat top;}
 }
 
 /* Override border of radio button set */
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { border: 1px solid #A5A4A4; }
-.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { border: 1px solid #A5A4A4; }
+.ui-state-active, .ui-state-hover {
+  border: 1px solid #A5A4A4;
+}
 
 .ui-state-active .ui-icon {
   background-image: url(../images/arrow-down-green.png); height: 9px; width: 9px; background-position: right 0;
