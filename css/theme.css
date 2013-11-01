@@ -241,11 +241,6 @@ button {background: white url(../images/button-bg.png) no-repeat top;}
   border: none;
 }
 
-/* Override border of radio button set */
-.ui-state-active, .ui-state-hover {
-  border: 1px solid #A5A4A4;
-}
-
 .ui-state-active .ui-icon {
   background-image: url(../images/arrow-down-green.png); height: 9px; width: 9px; background-position: right 0;
 }
@@ -320,7 +315,7 @@ a.theme-anchor {
 a.theme-anchor:hover {
   color: #e1852e;
 }
-/* Next two styles are for radio input as buttons */
+/* Next three styles are for radio input as buttons */
 .ui-buttonset .ui-button { 
   background: transparent url('../images/button-bg.png') repeat-x !important;
   color: #e1852e;
@@ -328,6 +323,11 @@ a.theme-anchor:hover {
 }
 label.ui-state-active span.ui-button-text {
   color: #686868;
+}
+
+/* Override border of radio button set */
+.ui-buttonset .ui-state-hover, label.ui-widget.ui-state-active {
+  border: 1px solid #A5A4A4;
 }
 
 a.theme-anchor-important { 
