@@ -79,6 +79,23 @@
 
 function theme_page($page)
 {
+    if ($_SERVER['SERVER_PORT'] == 1501) {
+        $page['devel_theme_source'] = (preg_match('/^\/usr\/clearos/', __FILE__)) ? 'Live' : 'Development';
+
+        $app_style = ($page['devel_app_source'] == 'Live') ? 'green' : '#daa520';
+        $framework_style = ($page['devel_framework_source'] == 'Live') ? 'green' : '#daa520';
+        $theme_style = ($page['devel_theme_source'] == 'Live') ? 'green' : '#daa520';
+
+        $page['devel_message'] = 
+            "<p>" .
+                "App: <span style='color: $app_style'>" . $page['devel_app_source'] . "</span> | " .
+                "Framework: <span style='color: $framework_style'>" . $page['devel_framework_source'] . "</span> | " .
+                "Theme: <span style='color: $theme_style'>" . $page['devel_theme_source'] . "</span>" .
+            "</p>";
+    } else {
+        $page['devel_message'] = '';
+    }
+
     if ($page['type'] == MY_Page::TYPE_CONFIGURATION)
         return _configuration_page($page);
     else if ($page['type'] == MY_Page::TYPE_WIDE_CONFIGURATION)
@@ -118,6 +135,7 @@ function _configuration_page($page)
     return "
 <!-- Body -->
 <body>
+" . $page['devel_message'] . "
 
 <!-- Page Container -->
 <div id='theme-page-container'>
@@ -162,6 +180,7 @@ function _wide_configuration_page($page)
     return "
 <!-- Body -->
 <body>
+" . $page['devel_message'] . "
 
 <!-- Page Container -->
 <div id='theme-page-container'>
@@ -215,6 +234,7 @@ function _report_page($page)
     return "
 <!-- Body -->
 <body>
+" . $page['devel_message'] . "
 
 <!-- Page Container -->
 <div id='theme-page-container'>
@@ -280,6 +300,7 @@ function _report_overview_page($page)
     return "
 <!-- Body -->
 <body>
+" . $page['devel_message'] . "
 
 <!-- Page Container -->
 <div id='theme-page-container'>
