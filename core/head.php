@@ -40,13 +40,15 @@ function theme_page_head($theme_path)
 {
 	$basepath = preg_replace('/\/core\/.*/', '', realpath(__FILE__));
 
+    $version = '6.5.0';
+
     $theme_extras = '';
 
 	if (file_exists("$basepath/css/theme-extras.css"))
-		$theme_extras .= "<link type='text/css' href='$theme_path/css/theme-extras.css' rel='stylesheet'>\n";
+		$theme_extras .= "<link type='text/css' href='$theme_path/css/theme-extras.css?v=$version' rel='stylesheet'>\n";
 
 	if (file_exists("$basepath/css/theme-organization.css"))
-		$theme_extras .= "<link type='text/css' href='$theme_path/css/theme-organization.css' rel='stylesheet'>\n";
+		$theme_extras .= "<link type='text/css' href='$theme_path/css/theme-organization.css?v=$version' rel='stylesheet'>\n";
 
 	if (file_exists("$basepath/images/favicon-orange.ico"))
 		$color = "orange";
@@ -58,32 +60,32 @@ function theme_page_head($theme_path)
 <link href='$theme_path/images/favicon-$color.ico' rel='shortcut icon' >
 
 <!-- Theme Style Sheets -->
-<link type='text/css' href='$theme_path/css/jquery-ui-1.10.3.custom.css' rel='stylesheet'>
-<link type='text/css' href='$theme_path/css/jquery.jqplot.min.css' rel='stylesheet'>
-<link type='text/css' href='$theme_path/css/superfish.css' rel='stylesheet'>
-<link type='text/css' href='$theme_path/css/jquery.lightbox-0.5.css' rel='stylesheet'>
-<link type='text/css' href='$theme_path/css/summary-table.css' rel='stylesheet'>
-<link type='text/css' href='$theme_path/css/font-awesome.min.css' rel='stylesheet'>
-<link type='text/css' href='$theme_path/css/theme.css' rel='stylesheet'>
+<link type='text/css' href='$theme_path/css/jquery-ui-1.10.3.custom.css?v=$version' rel='stylesheet'>
+<link type='text/css' href='$theme_path/css/jquery.jqplot.min.css?v=$version' rel='stylesheet'>
+<link type='text/css' href='$theme_path/css/superfish.css?v=$version' rel='stylesheet'>
+<link type='text/css' href='$theme_path/css/jquery.lightbox-0.5.css?v=$version' rel='stylesheet'>
+<link type='text/css' href='$theme_path/css/summary-table.css?v=$version' rel='stylesheet'>
+<link type='text/css' href='$theme_path/css/font-awesome.min.css?v=$version' rel='stylesheet'>
+<link type='text/css' href='$theme_path/css/theme.css?v=$version' rel='stylesheet'>
 $theme_extras
 <!-- Theme Javascript -->
-<script type='text/javascript' src='$theme_path/js/jquery-ui-1.10.3.custom.min.js'></script>
-<script type='text/javascript' src='$theme_path/js/jqplot/jquery.jqplot.min.js'></script>
-<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.json2.min.js'></script>
-<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.barRenderer.min.js'></script>
-<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.pieRenderer.min.js'></script>
-<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.dateAxisRenderer.min.js'></script>
-<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.categoryAxisRenderer.min.js'></script>
-<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.canvasAxisLabelRenderer.min.js'></script>
-<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.canvasAxisTickRenderer.min.js'></script>
-<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.canvasTextRenderer.min.js'></script>
-<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.pointLabels.min.js'></script>
-<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.highlighter.min.js'></script>
-<script type='text/javascript' src='$theme_path/js/jquery.dataTables.min.js'></script>
-<script type='text/javascript' src='$theme_path/js/jquery.lightbox-0.5.min.js'></script>
-<script type='text/javascript' src='$theme_path/js/superfish.js'></script>
-<script type='text/javascript' src='$theme_path/js/jquery-tools-tooltip-1.2.7.js'></script>
-<script type='text/javascript' src='$theme_path/js/theme.js'></script>
+<script type='text/javascript' src='$theme_path/js/jquery-ui-1.10.3.custom.min.js?v=$version'></script>
+<script type='text/javascript' src='$theme_path/js/jqplot/jquery.jqplot.min.js?v=$version'></script>
+<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.json2.min.js?v=$version'></script>
+<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.barRenderer.min.js?v=$version'></script>
+<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.pieRenderer.min.js?v=$version'></script>
+<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.dateAxisRenderer.min.js?v=$version'></script>
+<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.categoryAxisRenderer.min.js?v=$version'></script>
+<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.canvasAxisLabelRenderer.min.js?v=$version'></script>
+<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.canvasAxisTickRenderer.min.js?v=$version'></script>
+<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.canvasTextRenderer.min.js?v=$version'></script>
+<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.pointLabels.min.js?v=$version'></script>
+<script type='text/javascript' src='$theme_path/js/jqplot/plugins/jqplot.highlighter.min.js?v=$version'></script>
+<script type='text/javascript' src='$theme_path/js/jquery.dataTables.min.js?v=$version'></script>
+<script type='text/javascript' src='$theme_path/js/jquery.lightbox-0.5.min.js?v=$version'></script>
+<script type='text/javascript' src='$theme_path/js/superfish.js?v=$version'></script>
+<script type='text/javascript' src='$theme_path/js/jquery-tools-tooltip-1.2.7.js?v=$version'></script>
+<script type='text/javascript' src='$theme_path/js/theme.js?v=$version'></script>
 
 ";
 }
