@@ -760,13 +760,38 @@ function _get_banner($page, $menus = array())
 
     $top_menu = empty($menus) ? '' : _get_top_menu($menus);
 
+    // FIXME: continue with edge cases
+    $banner_menu = '';
+    foreach ($page['menus'] as $route => $details) {
+        if ($details['category'] == lang('base_category_my_account')) {
+            $banner_menu .= "<li><a class='' href='$route'>" . $details['title'] . "</a></li>\n";
+        }
+    }
+
     return "
 <!-- Banner -->
 <div id='theme-banner-container'>
     <div id='theme-banner-background'></div>
     <div id='theme-banner-logo'></div>
     <div class='theme-banner-name-holder'>
-        $banner_links&nbsp;&nbsp;<a href='/app/base/session/logout'>" . lang('base_logout_as') . " " . $page['username'] . "</a>
+        <table border='0' cellpadding='0' cellspacing='0' align='right'>
+            <tr>
+                <td class='theme-banner-nav'>$banner_links&nbsp;&nbsp;</span></td>
+                <td class='theme-banner-nav'>
+                    <ul id='theme-nav-menu-list' class='sf-menu'>
+                        <li class=''>
+                            <a class='sf-with-url ' href='#' onclick=\"$('#theme-left-menu').accordion('option', 'active', 0);\">" . lang('base_category_my_account') . "</a>
+                            <ul>
+                                <li class='theme-nav-menu-subcategory'>Apps</li>
+                                $banner_menu
+                                <li class='theme-nav-menu-subcategory'>Account</li>
+                                <li><a class='' href='/app/base/session/logout'>" . lang('base_logout') . "</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </table>
     </div>
     $top_menu
 </div>
@@ -973,7 +998,7 @@ function _get_menu($menu_data, $wizard = FALSE)
 
     foreach ($menu_data as $url => $page) {
 
-        if ($page['category'] === lang('base_category_spotlight'))
+        if (($page['category'] === lang('base_category_spotlight')) || ($page['category'] === lang('base_category_my_account')))
             continue;
 
         // Ugly hack - wizard menu data is different

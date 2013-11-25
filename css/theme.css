@@ -1440,6 +1440,77 @@ table.display td.right {
   font-weight: bold;
 }
 
+.theme-banner-nav {
+  right: 3px;
+  top: 15px;
+  font-size: 14px;
+}
+
+#theme-nav-menu-list {
+  height: 35px;
+  left: -20px;
+  padding-left: 12px;
+  color: #686868;
+  line-height: 19px;
+  ^z-index: 999;
+}
+
+#theme-nav-menu-list a:hover {
+  color: white;
+}  
+  
+#theme-nav-menu-list .sfhover a {
+  color: white;
+}
+
+  
+ul#theme-nav-menu-list li.sfhover a {
+  color: #FFFFFF;
+  ^z-index: 999;
+}
+
+ul#theme-nav-menu-list li.sfhover li a {
+  color: #686868;
+  ^z-index: 999;
+}
+
+ul#theme-nav-menu-list li {
+  border-left: 1px solid #f1f0f0;
+  border-right: 1px solid #f1f0f0;
+  padding-top: 2px !important; /*moz*/
+  padding-top: 1px; /*IE*/
+  ^z-index: 999;
+}
+
+ul#theme-nav-menu-list ul {
+  padding-top: 8px;
+  color: #686868;
+  ^z-index: 999;
+}
+
+ul#theme-nav-menu-list li li a:hover {
+  color: #e1852e;
+  ^z-index: 999;
+}
+
+#theme-nav-menu-list a:active {
+  background-color: transparent;
+  ^z-index: 999;
+}
+
+ul#theme-nav-menu-list .theme-nav-menu-subcategory {
+  background-image: url('../images/menu-bg-hover.gif');
+  background-repeat: repeat-x;
+  font-weight: bold;
+  color: #686868;
+  line-height: 19px !important; /*moz*/
+  line-height: 21px; /*IE*/
+  padding-left: 5px;
+  width: 205px !important; /*moz*/
+  width: 200px; /*IE*/
+  ^z-index: 999;
+}
+
 /* ------------------------------------------------------------------------- */
 /* Content Area */
 /* ------------------------------------------------------------------------- */
