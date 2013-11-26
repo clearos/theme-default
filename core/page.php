@@ -751,22 +751,43 @@ function _get_banner($page, $menus = array())
     $banner_links = '';
     $framework =& get_instance();
 
+    // Set to FALSE if you hate icons
+    $use_icons = TRUE;
+    $icon_mapping = array(
+        lang('base_subcategory_dashboard') => '<i class="theme-banner-nav-icons fa fa-dashboard"></i>',
+        lang('base_marketplace') => '<i class="theme-banner-nav-icons fa fa-cloud-download"></i>',
+        lang('base_category_my_account') => '<i class="theme-banner-nav-icons fa fa-user"></i>',
+    );
+
     if (! isset($framework->session->userdata['wizard'])) {
         foreach ($page['menus'] as $url => $details) {
             if ($details['category'] == lang('base_category_spotlight'))
-                $banner_links .= '&nbsp;&nbsp;<a href="' . $url . '">' . $details['title'] . '</a>&nbsp;&nbsp;|';
+                $banner_links .= '<a href="' . $url . '">' . ($use_icons ? $icon_mapping[$details['title']] : $details['title']) . '</a>|';
         }
     }
 
     $top_menu = empty($menus) ? '' : _get_top_menu($menus);
 
     // FIXME: continue with edge cases
-    $banner_menu = '';
+    $my_account = "<h1 style='padding-bottom: 5px;'>" . lang('base_category_my_account') . "</h1>";
     foreach ($page['menus'] as $route => $details) {
         if ($details['category'] == lang('base_category_my_account')) {
-            $banner_menu .= "<li><a class='' href='$route'>" . $details['title'] . "</a></li>\n";
+            $my_account .= "<div class='theme-banner-my-account-links'><a href='$route'>" . $details['title'] . "</a></div>\n";
         }
     }
+
+    // Add 'My Account'
+    $banner_links .= "<a id='theme-banner-my-account-nav' href='#'>" .
+        ($use_icons ? $icon_mapping[lang('base_category_my_account')] : lang('base_category_my_account')) . "</a>";
+
+    // div block directly after link must contain contents of pop-up
+    $banner_links .= "<div id='theme-banner-my-account-container'><div id='theme-banner-my-account-content'>" . $my_account . "</div>";
+
+    // Add styled logout button
+    $banner_links .= "<div class='theme-banner-my-account-logout'><a class='' href='/app/base/session/logout'><i class='fa fa-sign-out' style='padding-right: 5px;'></i>" . lang('base_logout') . "</a></div>";
+
+    // Close out div
+    $banner_links .= "</div>";
 
     return "
 <!-- Banner -->
@@ -774,24 +795,7 @@ function _get_banner($page, $menus = array())
     <div id='theme-banner-background'></div>
     <div id='theme-banner-logo'></div>
     <div class='theme-banner-name-holder'>
-        <table border='0' cellpadding='0' cellspacing='0' align='right'>
-            <tr>
-                <td class='theme-banner-nav'>$banner_links&nbsp;&nbsp;</span></td>
-                <td class='theme-banner-nav'>
-                    <ul id='theme-nav-menu-list' class='sf-menu'>
-                        <li class=''>
-                            <a class='sf-with-url ' href='#' onclick=\"$('#theme-left-menu').accordion('option', 'active', 0);\">" . lang('base_category_my_account') . "</a>
-                            <ul>
-                                <li class='theme-nav-menu-subcategory'>Apps</li>
-                                $banner_menu
-                                <li class='theme-nav-menu-subcategory'>Account</li>
-                                <li><a class='' href='/app/base/session/logout'>" . lang('base_logout') . "</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </td>
-            </tr>
-        </table>
+       <div class='theme-banner-nav'>$banner_links</div>
     </div>
     $top_menu
 </div>

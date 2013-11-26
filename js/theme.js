@@ -284,6 +284,19 @@ function theme_clearos_on_page_ready(my_location)
         $('.autofocus').focus();
         $('.ui-dialog-buttonpane button:contains(\'' + lang_authenticate + '\') span').text(lang_reset_password_and_send);
     });
+
+    $('#theme-banner-my-account-nav').click(function (e) {
+        e.preventDefault();
+        if (!$('#theme-banner-my-account-container').is(':visible')) {
+            $('#theme-banner-my-account-container').show('slide', {direction: 'right'}, 500);
+        } else {
+            $('#theme-banner-my-account-container').hide('slide', {direction: 'right'}, 500);
+        }
+    });
+
+    $('#theme-banner-my-account-container').mouseleave(function (e) {
+        setTimeout(function() {$('#theme-banner-my-account-container').hide('slide', {direction: 'right'}, 500)}, 1000);
+    });
 }
 
 function get_marketplace_data(basename) {
