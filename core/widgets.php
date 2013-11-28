@@ -1276,7 +1276,7 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
             if (isset($item['current_state']) && $item['current_state'] === TRUE) {
                 $item_html .= "
                     <td>
-                      <i class='theme-summary-table-entry-state theme-text-good-status icon-off'>
+                      <i class='theme-summary-table-entry-state theme-text-good-status fa fa-power-off'>
                         <span class='theme-hidden'>0</span>
                       </i>
                     </td>\n
@@ -1284,7 +1284,7 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
             } else if (isset($item['current_state']) && $item['current_state'] === FALSE) {
                 $item_html .= "
                     <td>
-                      <i class='theme-summary-table-entry-state theme-text-bad-status icon-off'>
+                      <i class='theme-summary-table-entry-state theme-text-bad-status fa fa-power-off'>
                         <span class='theme-hidden'>1</span>
                       </i>
                     </td>\n
@@ -1293,7 +1293,7 @@ function theme_summary_table($title, $anchors, $headers, $items, $options = NULL
                 // Developer forgot to set enable/disable toggles in item array...need this to keep table td's in check
                 $item_html .= "
                     <td>
-                      <i class='theme-summary-table-entry-state icon-question-sign'>
+                      <i class='theme-summary-table-entry-state fa fa-question'>
                         <span class='theme-hidden'>2</span>
                       </i>
                     </td>\n
