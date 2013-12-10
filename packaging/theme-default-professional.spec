@@ -1,6 +1,6 @@
 Name: theme-default-professional
 Group: Applications/Themes
-Version: 6.5.5
+Version: 6.5.6
 Release: 1%{dist}
 Summary: ClearOS Professional 6 theme
 License: Copyright 2011-2012 ClearCenter
