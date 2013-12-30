@@ -1004,7 +1004,7 @@ function _get_menu($menu_data, $wizard = FALSE)
 
     foreach ($menu_data as $url => $page) {
 
-        if (($page['category'] === lang('base_category_spotlight')) || ($page['category'] === lang('base_category_my_account')))
+        if ($page['category'] === lang('base_category_spotlight'))
             continue;
 
         // Ugly hack - wizard menu data is different
@@ -1032,8 +1032,10 @@ function _get_menu($menu_data, $wizard = FALSE)
             //-------------------------------------------
 
             if (! empty($top_menu)) {
-                $top_menu .= "\t\t\t</ul>\n";
-                $top_menu .= "\t\t</li>\n";
+                if ($page['category'] !== lang('base_category_my_account')) {
+                    $top_menu .= "\t\t\t</ul>\n";
+                    $top_menu .= "\t\t</li>\n";
+                }
 
                 $left_menu .= "\t\t\t</ul>\n";
                 $left_menu .= "\t\t</div>\n";
@@ -1042,10 +1044,12 @@ function _get_menu($menu_data, $wizard = FALSE)
             // Top Menu
             //---------
 
-            $top_menu .= "\t\t<li class='$class'>\n";
-            $top_menu .= "\t\t\t<a class='sf-with-url $class' href='#' onclick=\"$('#theme-left-menu').accordion('option', 'active', $category_count);\">" . $page['category'] . "</a>\n";
+            if ($page['category'] !== lang('base_category_my_account')) {
+                $top_menu .= "\t\t<li class='$class'>\n";
+                $top_menu .= "\t\t\t<a class='sf-with-url $class' href='#' onclick=\"$('#theme-left-menu').accordion('option', 'active', $category_count);\">" . $page['category'] . "</a>\n";
 
-            $top_menu .= "\t\t\t<ul>\n";
+                $top_menu .= "\t\t\t<ul>\n";
+            }
 
             // Left Menu
             //----------
@@ -1067,7 +1071,9 @@ function _get_menu($menu_data, $wizard = FALSE)
         if ($current_subcategory != $page['subcategory']) {
             $current_subcategory = $page['subcategory'];
             $left_menu .= "\t\t\t\t<li class='theme-left-menu-subcategory'>{$page['subcategory']}</li>\n";
-            $top_menu .= "\t\t\t\t<li class='theme-top-menu-subcategory'>{$page['subcategory']}</li>\n";
+
+            if ($page['category'] !== lang('base_category_my_account'))
+                $top_menu .= "\t\t\t\t<li class='theme-top-menu-subcategory'>{$page['subcategory']}</li>\n";
         }
 
         // Page transition
@@ -1087,8 +1093,10 @@ function _get_menu($menu_data, $wizard = FALSE)
             // $top_menu .= "\t\t\t\t<li><a class='{$activeClass}' href='{$url}'>$new_app{$page['title']}</a></li>\n";
             $left_menu .= "\t\t\t\t<li class='theme-left-menu-item'><span class='{$activeClass}'>{$page['title']}</span></li>\n";
         } else {
-            $top_menu .= "\t\t\t\t<li><a class='{$activeClass}' href='{$url}'>$new_app{$page['title']}</a></li>\n";
             $left_menu .= "\t\t\t\t<li class='theme-left-menu-item'><a class='{$activeClass}' href='{$url}'>$new_app{$page['title']}</a></li>\n";
+
+            if ($page['category'] !== lang('base_category_my_account'))
+                $top_menu .= "\t\t\t\t<li><a class='{$activeClass}' href='{$url}'>$new_app{$page['title']}</a></li>\n";
         }
     }
 
