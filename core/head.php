@@ -42,6 +42,9 @@ function theme_page_head($theme_path)
 
     $version = '6.5.0';
 
+    // TODO fix theme paths in get_theme_url in libraries/Config.php
+    $theme_path = preg_replace(array('|^//|', '|/$|'), array('/', ''), $theme_path);
+
     $theme_extras = '';
 
 	if (file_exists("$basepath/css/theme-extras.css"))
