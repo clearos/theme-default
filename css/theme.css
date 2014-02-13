@@ -2444,6 +2444,11 @@ ul#theme-top-menu-list .theme-top-menu-subcategory {
   border: 1px solid #d1d3d4;
   border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px;
 }
+.marketplace-description-tooltip-content {
+  padding-right: 10px;
+  max-height: 200px;
+  overflow: auto;
+}
 
 .marketplace-installed, .marketplace-installed-list {
    display: block;
