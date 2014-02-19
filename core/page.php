@@ -754,9 +754,9 @@ function _get_banner($page, $menus = array())
     // Set to FALSE if you hate icons
     $use_icons = TRUE;
     $icon_mapping = array(
-        lang('base_subcategory_dashboard') => '<i class="theme-banner-nav-icons fa fa-dashboard"></i>',
-        lang('base_marketplace') => '<i class="theme-banner-nav-icons fa fa-cloud-download"></i>',
-        lang('base_category_my_account') => '<i class="theme-banner-nav-icons fa fa-user"></i>',
+        lang('base_subcategory_dashboard') => "<i class='theme-banner-nav-icons fa fa-dashboard' title='" . lang('base_subcategory_dashboard') . "'></i>",
+        lang('base_marketplace') => "<i class='theme-banner-nav-icons fa fa-cloud-download' title='" . lang('base_marketplace') . "'></i>",
+        lang('base_category_my_account') => "<i class='theme-banner-nav-icons fa fa-user' title='" . lang('base_category_my_account') . "'></i>",
     );
 
     if (! isset($framework->session->userdata['wizard'])) {
@@ -1088,7 +1088,7 @@ function _get_menu($menu_data, $wizard = FALSE)
         $new_app = '';
 
         if (isset($page['new']) && $page['new'])
-            $new_app = "<span class='theme-menu-new-install'><!-- new --></span>";
+            $new_app = "<span class='theme-menu-new-install' title='" . lang('base_new_or_upgraded_app') . "'><!-- new --></span>";
 
         if ($wizard) {
             // $top_menu .= "\t\t\t\t<li><a class='{$activeClass}' href='{$url}'>$new_app{$page['title']}</a></li>\n";
