@@ -1470,6 +1470,11 @@ table.display td.right {
   overflow: hidden;
 }
 
+.theme-banner-my-account-login {
+  font-weight: bold;
+  padding: 5px 0px;
+}
+
 .theme-banner-my-account-links {
   padding-top: 3px;
 }

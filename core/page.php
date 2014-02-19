@@ -770,6 +770,7 @@ function _get_banner($page, $menus = array())
 
     // FIXME: continue with edge cases
     $my_account = "<h1 style='padding-bottom: 5px;'>" . lang('base_category_my_account') . "</h1>";
+    $my_account .= "<div class='theme-banner-my-account-login'>" . lang('base_username') . ":  " . $framework->session->userdata['username'] . "</div>";
     if (! isset($framework->session->userdata['wizard'])) {
         foreach ($page['menus'] as $route => $details) {
             if ($details['category'] == lang('base_category_my_account')) {
