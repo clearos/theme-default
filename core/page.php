@@ -79,7 +79,8 @@
 
 function theme_page($page)
 {
-    if ($_SERVER['SERVER_PORT'] == 1501) {
+    if ($_SERVER['SERVER_PORT'] == 1501 && !preg_match('/.*hide_devel$/', $_SERVER['REQUEST_URI'])) {
+
         $page['devel_theme_source'] = (preg_match('/^\/usr\/clearos/', __FILE__)) ? 'Live' : 'Development';
 
         $app_style = ($page['devel_app_source'] == 'Live') ? 'green' : '#daa520';
