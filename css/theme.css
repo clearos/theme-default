@@ -680,6 +680,10 @@ table.display thead th div.DataTables_sort_wrapper {
 .datatables_length { margin-left: 13px; }
 .datatables_paginate { position: relative; }
 
+.dataTables_empty {
+	padding-top: 6px !important;
+}
+
 /* ------------------------------------------------------------------------- */
 /* Forms */
 /* ------------------------------------------------------------------------- */
