@@ -2006,8 +2006,15 @@ function theme_summary_box($data)
             <div id='sidebar-recommended-apps'>
             </div>
         ";
+        $sidebar = "
+            <tr id='sidebar_additional_info_row' class='theme-hidden'>
+                <td valign='top'><b>" . lang('base_additional_info') . "</b></td>
+                <td id='sidebar_additional_info'>" . theme_loading('small') . "</td>
+            </tr>
+        ";
     } else {
         $marketplace = '';
+        $sidebar = "";
     }
 
     $html = theme_dialogbox_info("
@@ -2021,10 +2028,7 @@ function theme_summary_box($data)
                 <td><b>" . lang('base_version') . "</b></td>
                 <td>" . $data['version'] . '-' . $data['release'] . "</td>
             </tr>
-            <tr id='sidebar_additional_info_row' class='theme-hidden'>
-                <td valign='top'><b>" . lang('base_additional_info') . "</b></td>
-                <td id='sidebar_additional_info'>" . theme_loading('small') . "</td>
-            </tr>
+            $sidebar
         </table>
         $tooltip
         $marketplace
