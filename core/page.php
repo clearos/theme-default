@@ -97,6 +97,10 @@ function theme_page($page)
         $page['devel_message'] = '';
     }
 
+    if (clearos_version() == 7) {
+        $page['devel_message'] .= "<p align='center' style='color:red; font-weight:bold'>The ClearOS 6 theme has not yet been ported to the ClearOS 7 framework.  Things are broken!</p>";
+    }
+
     if ($page['type'] == MY_Page::TYPE_CONFIGURATION)
         return _configuration_page($page);
     else if ($page['type'] == MY_Page::TYPE_WIDE_CONFIGURATION)

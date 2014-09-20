@@ -31,19 +31,18 @@
 /**
  * Returns additional <head> data required for the theme.
  *
- * @param string $theme_path them path
+ * @param array $settings theme settings
  *
  * @return string HTML output
  */
 
-function theme_page_head($theme_path)
+function theme_page_head($settings)
 {
+    $theme_path = clearos_theme_url('default');
+
 	$basepath = preg_replace('/\/core\/.*/', '', realpath(__FILE__));
 
     $version = '6.5.0';
-
-    // TODO fix theme paths in get_theme_url in libraries/Config.php
-    $theme_path = preg_replace(array('|^//|', '|/$|'), array('/', ''), $theme_path);
 
     $theme_extras = '';
 

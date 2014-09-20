@@ -4,8 +4,8 @@
 //----------------------------
 
 $package['name'] = 'theme-default';
-$package['title'] = 'Default theme';
-$package['description'] = 'Default theme';
+$package['title'] = 'ClearOS 6 Theme';
+$package['description'] = 'ClearOS 6 Theme';
 
 $package['version'] = '6.0';
 $package['release'] = '0.3';
