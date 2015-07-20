@@ -726,7 +726,54 @@ function _get_basic_app_layout($page)
 
 function _get_footer($page) 
 {
+    $modals == '';
+    if (isset($page['sdn_notice']) && is_array($page['sdn_notice'])) {
+        $modals = "
+        <div id='sdn_notification' title='" . $page['sdn_notice']['title'] . "'>
+          <div style='margin: 10px; text-align: left;'>" . $page['sdn_notice']['message'] . "</div>
+        </div>
+        "; 
+
+        $modals .= "
+            <script type='text/javascript'>
+                $('#sdn_notification').dialog({
+                    autoOpen: true,
+                    resizable: false,
+                    modal: true,
+                    closeOnEscape: true,
+                    position: { my: 'top', at: 'top+150' },
+                    width: 400,
+                    buttons: {
+                        'close': {
+                            text: 'Acknowledge',
+                            click: function() {
+                                $(this).dialog('close');
+                            }
+                        }
+                    },
+                    open: function(event, ui) {
+                    },
+                    close: function(event, ui) {
+                        $.ajax({
+                            url: '/app/registration/ajax/acknowledge_sdn_notice/" . $page['sdn_notice']['id'] . "',
+                            method: 'GET',
+                            dataType: 'json',
+                            success : function(json) {
+                            },
+                            error: function (xhr, text_status, error_thrown) {
+                            }
+                        });
+                    }
+                });
+                $('.ui-dialog-title').css('text-align', 'left');
+                $('.ui-dialog-titlebar-close').hide();
+            </script>
+        ";
+    }
+
     return "
+    <!-- Modal Dialogs -->
+    $modals
     <!-- Footer -->
     <div id='theme-footer-container'>
         Web Theme - Copyright &copy; 2010-2013 ClearCenter. All Rights Reserved.
